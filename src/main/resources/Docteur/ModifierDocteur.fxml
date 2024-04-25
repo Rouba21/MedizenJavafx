@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.MediZen.controllers.Docteur.ModifierDocteur">
+   <children>
+      <TextField fx:id="NomDocteurTF" alignment="CENTER" layoutX="66.0" layoutY="63.0" promptText="Nom" />
+      <TextField fx:id="PrenomDocteurTF" alignment="CENTER" layoutX="66.0" layoutY="111.0" promptText="Prénom" />
+      <TextField fx:id="NumeroTelephoneDocteur" alignment="CENTER" layoutX="66.0" layoutY="158.0" prefHeight="25.0" prefWidth="149.0" promptText="Numéro de téléphone" />
+      <TextField fx:id="MailDocteurTF" alignment="CENTER" layoutX="66.0" layoutY="200.0" prefHeight="25.0" prefWidth="149.0" promptText="Mail" />
+      <TextField fx:id="ExperienceDocteurTF" alignment="CENTER" layoutX="67.0" layoutY="241.0" prefHeight="25.0" prefWidth="149.0" promptText="Experience" />
+      <Button fx:id="ModifierDocteur" layoutX="255.0" layoutY="361.0" mnemonicParsing="false" onAction="#ModifierDocteur" text="Modifier docteur" />
+      <Button layoutX="344.0" layoutY="253.0" mnemonicParsing="false" onAction="#redictionListeDocteurs" prefHeight="26.0" prefWidth="132.0" text="Liste des docteurs" />
+      <ListView fx:id="ListDocteursM" layoutX="270.0" layoutY="34.0" prefHeight="107.0" prefWidth="280.0" />
+      <TextField fx:id="AdresseDocteurTF" alignment="CENTER" layoutX="309.0" layoutY="171.0" prefHeight="25.0" prefWidth="202.0" promptText="Adresse" />
+      <TextField fx:id="SpecialiteTF" alignment="CENTER" layoutX="309.0" layoutY="213.0" prefHeight="25.0" prefWidth="202.0" promptText="Spécialité" />
+   </children>
+</AnchorPane>
