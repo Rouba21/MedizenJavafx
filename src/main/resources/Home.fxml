@@ -133,5 +133,11 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Button fx:id="MoveToBack" layoutX="797.0" layoutY="496.0" mnemonicParsing="false" onAction="#MoveToBack" text="BackOffice" />
+      <ImageView fitHeight="88.0" fitWidth="234.0" layoutX="465.0" layoutY="279.0">
+         <image>
+            <Image url="@BackOffice/Medizen_logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

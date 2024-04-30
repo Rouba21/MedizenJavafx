@@ -35,9 +35,8 @@ public class ReservationService implements IReservation<Reservation> {
     public void update(Reservation reservation) {
         LocalDate reservationDate = reservation.getReservationDate();
         if (reservationDate == null) {
-            reservationDate = LocalDate.now(); // Utiliser la date actuelle
-            // Ou
-            // reservationDate = LocalDate.of(yyyy, mm, dd); // Utiliser une date par défaut
+            reservationDate = LocalDate.now();
+
         }
 
         String request = "UPDATE reservation SET surname=?, problem_description=?, mobile=?, reservation_date=?, status=?, name=?, address=? WHERE id=?";
@@ -57,21 +56,6 @@ public class ReservationService implements IReservation<Reservation> {
             throw new RuntimeException(e);
         }
     }
-
-
-    //  @Override
-  //  public boolean updatee(Reservation reservation) {
- //       String qry = "UPDATE reservation SET  surname = '"+reservation.getSurname()+"', problem_description = '"+reservation.getProblemDescription()+"', mobile = '"+reservation.getMobile()+"', reservation_date = '"+reservation.getReservationDate()+"', mobile = '"+reservation.getMobile()+"', status = '"+reservation.getStatus()+"', name = '"+reservation.getName()+"', address = '"+reservation.getAddress()+"' WHERE id = "+reservation.getId();
-  //      try {
-  //          if (st.executeUpdate(qry) > 0) {
- //               return true;
- //           }
-
-  //      } catch (SQLException ex) {
-         //   Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
- //       }
- //       return false;
-  //  }
 
     @Override
     public void delete(Reservation reservation) {

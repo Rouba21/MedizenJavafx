@@ -1,11 +1,14 @@
 package tn.MediZen.controllers.Reservation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import tn.MediZen.models.Reservation;
 import tn.MediZen.services.ReservationService;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +17,7 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 
 
-public class AjouterReservation {
+public class AjouterReservation implements Initializable {
 
     @FXML
     private TextField AdresseTF;
@@ -24,7 +27,8 @@ public class AjouterReservation {
 
     @FXML
     private TextField DescriptionDeProblemeTF;
-
+    @FXML
+    private Label welcomeid;
     @FXML
     private TextField NomTF;
 
@@ -118,7 +122,39 @@ public class AjouterReservation {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    public void home_btn(ActionEvent actionEvent) {
+    }
+
+    public void event_btn(ActionEvent actionEvent) {
+    }
+
+    public void sponseur_btn(ActionEvent actionEvent) {
+    }
+
+    public void sujet_btn(ActionEvent actionEvent) {
+    }
+
+    public void etablissement_btn(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    void revervation_btn(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
 
 
+    public void medicament_btn(ActionEvent actionEvent) {
+    }
 
+    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
 }

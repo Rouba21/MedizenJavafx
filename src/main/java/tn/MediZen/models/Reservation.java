@@ -12,8 +12,7 @@ public class Reservation {
     private String status = "Pending";
 
     private LocalDate reservationDate;
-   // private SimpleObjectProperty<Date> dreservationDateate ;
-    // Constructor
+
     public Reservation(int id, String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate) {
         this.id = id;
         this.mobile = mobile;
@@ -49,7 +48,7 @@ public class Reservation {
         this.status = status;
     }
 
-    // Getters and Setters
+
     public int getId() {
         return id;
     }

@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.MediZen.models.Docteur;
@@ -17,40 +18,99 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class AjouterDocteur {
+        @FXML
+        private Button AddDocteur;
+
+        @FXML
+        private TextField AdresseDocteurTF;
+
+        @FXML
+        private TextField ExperienceDocteurTF;
+
+        @FXML
+        private Button ListeDocteur;
+
+        @FXML
+        private TextField MailDocteurTF;
+
+        @FXML
+        private TextField NomDocteurTF;
+
+        @FXML
+        private TextField NumeroTelephoneDocteur;
+
+        @FXML
+        private TextField PrenomDocteurTF;
+
+        @FXML
+        private TextField SpecialiteTF;
+
+
+          @FXML
+             private Label welcomeid;
+        @FXML
+        private Button logoutt;
+
+
+        @FXML
+        void AjouterDocteur(ActionEvent event) {
+
+        }
+
+    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
+
+        @FXML
+        void etablissement_btn(ActionEvent event) {
+
+        }
+
+        @FXML
+        void event_btn(ActionEvent event) {
+
+        }
+
+
+        @FXML
+        void home_btn(ActionEvent event) {
+
+        }
+
+        @FXML
+        void medicament_btn(ActionEvent event) {
+
+        }
+
     @FXML
-    private TextField NomDocteurTF;
+    void revervation_btn(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
+
+
     @FXML
-    private TextField PrenomDocteurTF;
-    @FXML
-    private TextField NumeroTelephoneDocteur;
-    @FXML
-    private TextField ExperienceDocteurTF;
-    @FXML
-    private TextField AdresseDocteurTF;
-    @FXML
-    private TextField SpecialiteTF;
-    @FXML
-    private TextField MailDocteurTF;
-    @FXML
-    private Button AddDocteur;
+        void sponseur_btn(ActionEvent event) {
+
+        }
+
+        @FXML
+        void sujet_btn(ActionEvent event) {
+
+        }
+
+
 
     private final DocteurService docteurService = new DocteurService();
 
     @FXML
     private void AjouterDocteur() {
-        String nom = NomDocteurTF.getText();
-        String prenom = PrenomDocteurTF.getText();
-        String mail = MailDocteurTF.getText();
-        String adresse = AdresseDocteurTF.getText();
-        String specialite = SpecialiteTF.getText();
-        String experience = ExperienceDocteurTF.getText();
-
-        if (nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || adresse.isEmpty() || specialite.isEmpty() || experience.isEmpty()) {
-            showAlert("Veuillez remplir tous les champs.");
-        } else {
+        if (Saisi()){
             try {
                 int mobile = Integer.parseInt(NumeroTelephoneDocteur.getText());
-                Docteur docteur = new Docteur(nom, prenom, mail, experience, mobile, adresse, specialite);
+                Docteur docteur = new Docteur();
                 docteurService.add(docteur);
                 clearFields();
                 showAlert("Docteur ajouté avec succès !");

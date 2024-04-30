@@ -1,19 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.MediZen.controllers.Docteur.AjouterDocteur">
    <children>
-      <TextField fx:id="NomDocteurTF" alignment="CENTER" layoutX="89.0" layoutY="48.0" promptText="Nom" />
-      <TextField fx:id="PrenomDocteurTF" alignment="CENTER" layoutX="89.0" layoutY="108.0" promptText="Prénom" />
-      <TextField fx:id="NumeroTelephoneDocteur" alignment="CENTER" layoutX="89.0" layoutY="175.0" prefHeight="25.0" prefWidth="149.0" promptText="Numéro de téléphone" />
-      <Button fx:id="AddDocteur" layoutX="238.0" layoutY="350.0" mnemonicParsing="false" onAction="#AjouterDocteur" prefHeight="26.0" prefWidth="142.0" text="Ajouter Docteur" />
-      <TextField fx:id="ExperienceDocteurTF" alignment="CENTER" layoutX="358.0" layoutY="48.0" promptText="experience" />
-      <TextField fx:id="AdresseDocteurTF" alignment="CENTER" layoutX="358.0" layoutY="108.0" promptText="Adresse" />
-      <TextField fx:id="SpecialiteTF" alignment="CENTER" layoutX="358.0" layoutY="175.0" promptText="Spécialité" />
-      <TextField fx:id="MailDocteurTF" alignment="CENTER" layoutX="89.0" layoutY="236.0" promptText="Mail" />
-      <Button fx:id="ListeDocteur" layoutX="362.0" layoutY="223.0" mnemonicParsing="false" onAction="#gotolistdocteur" prefHeight="26.0" prefWidth="142.0" text="Liste des docteurs" />
+      <TextField fx:id="NomDocteurTF" alignment="CENTER" layoutX="191.0" layoutY="47.0" promptText="Nom" />
+      <TextField fx:id="PrenomDocteurTF" alignment="CENTER" layoutX="191.0" layoutY="107.0" promptText="Prénom" />
+      <TextField fx:id="NumeroTelephoneDocteur" alignment="CENTER" layoutX="191.0" layoutY="174.0" prefHeight="25.0" prefWidth="149.0" promptText="Numéro de téléphone" />
+      <Button fx:id="AddDocteur" layoutX="300.0" layoutY="454.0" mnemonicParsing="false" onAction="#AjouterDocteur" prefHeight="26.0" prefWidth="142.0" text="Ajouter Docteur" />
+      <TextField fx:id="ExperienceDocteurTF" alignment="CENTER" layoutX="408.0" layoutY="47.0" promptText="experience" />
+      <TextField fx:id="AdresseDocteurTF" alignment="CENTER" layoutX="408.0" layoutY="107.0" promptText="Adresse" />
+      <TextField fx:id="SpecialiteTF" alignment="CENTER" layoutX="408.0" layoutY="174.0" promptText="Spécialité" />
+      <TextField fx:id="MailDocteurTF" alignment="CENTER" layoutX="191.0" layoutY="235.0" promptText="Mail" />
+      <Button fx:id="ListeDocteur" layoutX="412.0" layoutY="235.0" mnemonicParsing="false" onAction="#gotolistdocteur" prefHeight="26.0" prefWidth="142.0" text="Liste des docteurs" />
+      <AnchorPane fx:id="logout" layoutX="-16.0" layoutY="-4.0" prefHeight="557.0" prefWidth="131.0" styleClass="nav-form" stylesheets="@../dashboardDesign.css">
+         <children>
+            <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
+               <font>
+                  <Font name="Book Antiqua Bold" size="21.0" />
+               </font>
+            </Label>
+            <Line endX="60.99998474121094" layoutX="130.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
+            <Button layoutX="11.0" layoutY="198.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="                Accueil">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Evénements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="264.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Sponseurs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutt" layoutX="19.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" styleClass="logout" stylesheets="@../dashboardDesign.css" />
+            <Label layoutX="27.0" layoutY="521.0" text="Deconnexion" textFill="#d92828" />
+            <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+               <image>
+                  <Image url="@../img/now.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/2718448.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="299.0" mnemonicParsing="false" onAction="#sujet_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Sujets">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="334.0" mnemonicParsing="false" onAction="#etablissement_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Etablissements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/2593663.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/508721.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="369.0" mnemonicParsing="false" onAction="#revervation_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Reservations">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="404.0" mnemonicParsing="false" onAction="#medicament_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Medicaments">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/883356.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/booking-icon-png-4.jpg" />
+               </image>
+            </ImageView>
+            <Button contentDisplay="RIGHT" layoutX="75.0" layoutY="443.0" mnemonicParsing="false" onAction="#docteur_btn" prefHeight="35.0" prefWidth="101.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="Docteurs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="44.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

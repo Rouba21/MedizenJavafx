@@ -23,7 +23,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ModifierReservation implements Initializable {
-
+    @FXML
+    private Label welcomeid;
     @FXML
     private TextField NomTF;
 
@@ -139,5 +140,36 @@ public class ModifierReservation implements Initializable {
         }
         return true;
 
+    }
+
+    public void home_btn(ActionEvent actionEvent) {
+    }
+
+    public void event_btn(ActionEvent actionEvent) {
+    }
+
+    public void sponseur_btn(ActionEvent actionEvent) {
+    }
+
+    public void sujet_btn(ActionEvent actionEvent) {
+    }
+
+    public void etablissement_btn(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    void revervation_btn(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
+
+
+    public void medicament_btn(ActionEvent actionEvent) {
+    }
+
+    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
+        welcomeid.getScene().setRoot(root);
     }
 }

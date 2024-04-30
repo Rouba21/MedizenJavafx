@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,6 +25,8 @@ import java.util.regex.Pattern;
 
 public class ModifierDocteur implements Initializable {
 
+    @FXML
+    private Label welcomeid;
     @FXML
     private TextField NomDocteurTF;
 
@@ -141,5 +144,31 @@ public class ModifierDocteur implements Initializable {
         }
         return true;
 
+    }
+
+    public void sujet_btn(ActionEvent actionEvent) {
+    }
+
+    public void etablissement_btn(ActionEvent actionEvent) {
+    }
+
+    public void revervation_btn(ActionEvent actionEvent) {
+    }
+
+    public void medicament_btn(ActionEvent actionEvent) {
+    }
+
+    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
+
+    public void home_btn(ActionEvent actionEvent) {
+    }
+
+    public void event_btn(ActionEvent actionEvent) {
+    }
+
+    public void sponseur_btn(ActionEvent actionEvent) {
     }
 }

@@ -4,13 +4,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HomeController {
+
+    @FXML
+    private Button MoveToBack;
 
     @FXML
     private Button AjouterSponseur;
@@ -31,18 +37,14 @@ public class HomeController {
     void AjouterSponseur(ActionEvent event) {
 
     }
-
+    @FXML
+    void MoveToBack(ActionEvent event) throws IOException {
+        Parent root5 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/BackOffice/BackDocteur.fxml")));
+        Stage window = (Stage) MoveToBack.getScene().getWindow();
+        window.setScene(new Scene(root5));
+    }
     @FXML
     void event_btn(ActionEvent event) {
-
-        try {
-            // Navigation vers une autre vue (AfficherSponseur.fxml)
-            // Assurez-vous d'ajuster le chemin d'accès si nécessaire
-            Parent root = FXMLLoader.load(getClass().getResource("/Event.fxml"));
-            welcomeid.getScene().setRoot(root);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 
