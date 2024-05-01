@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="abec3543-e2a4-4952-862e-5395d25872cd" name="Changes" comment="connection +add user">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/CreateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/ForgotPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/Profil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/Resetpwd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/dashboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Utils/Encryption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Utils/Generator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Utils/MailSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Utils/MainFx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Medizen/Utils/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CreateUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ForgotPassword.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Profil.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/Image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/LOGO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/edit1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/key.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mdp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/password.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style4.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Medizen/Controllers/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Medizen/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medizen/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Medizen/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medizen/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadAnnotationsAutomatically" value="true" />
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2fHGK1uyDsFyVsUxrhyMdICk16W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "jbr-17 (2)",
+    "last_opened_file_path": "C:/Users/HP PRO",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "build.tools",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP PRO\IdeaProjects\Medizen\src\main\resources\img" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainFx">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Medizen" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Medizen.Utils.MainFx" />
+      <module name="Medizen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Medizen.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainFx" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="abec3543-e2a4-4952-862e-5395d25872cd" name="Changes" comment="" />
+      <created>1713450524359</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713450524359</updated>
+      <workItem from="1713450525761" duration="14803000" />
+      <workItem from="1713790165177" duration="22927000" />
+      <workItem from="1713950524254" duration="35918000" />
+      <workItem from="1714497354656" duration="31510000" />
+    </task>
+    <task id="LOCAL-00001" summary="connection +add user">
+      <created>1713795861850</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713795861850</updated>
+    </task>
+    <task id="LOCAL-00002" summary="connection +add user">
+      <created>1713798630331</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713798630331</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="connection +add user" />
+    <option name="LAST_COMMIT_MESSAGE" value="connection +add user" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

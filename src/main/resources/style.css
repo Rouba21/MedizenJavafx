@@ -1,0 +1,67 @@
+.button {
+    -fx-background-color: #4f697f;
+    -fx-border-color: transparent;
+    -fx-border-radius: 2;
+    -fx-box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-padding: 8 16;
+    -fx-min-height: 45;
+    -fx-text-decoration: none;
+    -fx-alignment: center;
+    -fx-justify-content: center;
+    -fx-min-width: 48;
+    -fx-transition: all 0.25s;
+}
+
+.button:hover {
+    -fx-background-color: #a5cbfc;
+    -fx-box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    -fx-translate-y: -1;
+}
+
+.container {
+    -fx-position: absolute;
+    -fx-top: 50%;
+    -fx-left: 50%;
+    -fx-translate-x: -50%;
+    -fx-translate-y: -50%;
+    -fx-border-color: transparent;
+}
+
+.table-view {
+    -fx-pref-width: 700px;
+    -fx-background-color: linear-gradient(to bottom right, #49a09d, #2c4982);
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-padding: 0px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.0, 0, 0);
+}
+th, td {
+    -fx-padding: 15px;
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-text-fill: #fff;
+}
+th {
+    -fx-alignment: center-left;
+    -fx-background-color: #55608f;
+}
+
+.transparent-red {
+    -fx-background-color: rgba(255, 0, 0, 0.2); /* Set the background color to transparent and opacity to 0.2 */
+    -fx-border-color: transparent; /* Set the border color to transparent */
+    -fx-border-width: 0px; /* Set the border width to 0px */
+}
+
+
+.text-field:focused {
+    -fx-background-color: #fff;
+    -fx-translate-y: -2px;
+    -fx-font-weight: bold;
+    -fx-background-position: 0 100%;
+    -fx-transition: background-position 0.8s;
+
+}

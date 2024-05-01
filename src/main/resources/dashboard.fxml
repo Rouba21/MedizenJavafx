@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="1561.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Medizen.Controllers.dashboard">
+    <top>
+        <AnchorPane prefHeight="86.0" prefWidth="998.0" style="-fx-background-color: #2596be;" BorderPane.alignment="CENTER">
+            <children>
+                <HBox layoutX="2.0" layoutY="6.0" prefHeight="90.0" prefWidth="1561.0">
+                    <children>
+                        <Button fx:id="logo" mnemonicParsing="false" prefHeight="78.0" prefWidth="158.0" style="-fx-background-color: transparent;">
+                            <HBox.margin>
+                                <Insets left="107.0" />
+                            </HBox.margin>
+                            <graphic>
+                                <ImageView fx:id="logoImage" fitHeight="94.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/LOGO.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Label text="LAUGH TALE">
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="21.0" />
+                            </HBox.margin>
+                        </Label>
+                        <MenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: transparent;" text="Paramétres" textFill="WHITE">
+                            <items>
+                                <Menu mnemonicParsing="false" text="Profile">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#profileButtonOnClick" text="Voir profile" />
+                                        <MenuItem mnemonicParsing="false" onAction="#modifierMdpOnClick" text="Modifier Mot de passe" />
+                                    </items>
+                                </Menu>
+                                <MenuItem fx:id="deconnecterButton" mnemonicParsing="false" onAction="#deconnecterButtonOnClick" text="Déconnecter" />
+                            </items>
+                            <HBox.margin>
+                                <Insets left="850.0" top="25.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets left="29.0" />
+                            </padding>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </MenuButton>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane fx:id="slider" prefHeight="694.0" prefWidth="118.0" style="-fx-background-color: #2596be;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="-1.0" layoutY="34.0" prefHeight="484.0" prefWidth="222.0">
+                    <children>
+                        <Button fx:id="usersButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#usersButtonOnClick" prefHeight="40.0" prefWidth="228.0" style="-fx-background-color: transparent;" text="Users" textFill="WHITE">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets left="30.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="694.0" prefWidth="1322.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane fx:id="usersAnchorPane" layoutX="1.0" prefHeight="694.0" prefWidth="1341.0">
+                    <!-- Remaining content of usersAnchorPane -->
+                    <children>
+                        <HBox layoutX="1.0" layoutY="32.0" prefHeight="37.0" prefWidth="778.0">
+                            <children>
+                                <TextField fx:id="rechercheDashboard" prefHeight="32.0" prefWidth="221.0" promptText="Rechercher par pseudo">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <HBox.margin>
+                                        <Insets left="11.0" />
+                                    </HBox.margin>
+                                </TextField>
+
+                                <Button fx:id="ajouterButton" layoutX="668.0" layoutY="10.0" mnemonicParsing="false" onAction="#ajouterButtonOnClick" text="Add">
+                                    <HBox.margin>
+                                        <Insets left="30.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#showStats" prefHeight="31.0" prefWidth="122.0" text="Stats">
+                                    <HBox.margin>
+                                        <Insets left="150.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="14.0" layoutY="106.0" prefHeight="550.0" prefWidth="1314.0">
+                            <children>
+                                <ScrollPane fx:id="scrol" prefHeight="550.0" prefWidth="1222.0">
+                                    <content>
+                                        <GridPane fx:id="grid" alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="ajouterAnchorPane" prefHeight="694.0" prefWidth="1341.0" visible="false">
+                    <!-- Remaining content of ajouterAnchorPane -->
+                    <children>
+                        <GridPane layoutX="221.0" layoutY="52.0" prefHeight="544.0" prefWidth="898.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label prefHeight="22.0" prefWidth="67.0" text="Pseudo" />
+                                <TextField fx:id="pseudoAjout" promptText="Pseudo" GridPane.columnIndex="1" />
+                                <Label fx:id="pseudoError" prefHeight="26.0" prefWidth="381.0" GridPane.columnIndex="2" />
+                                <Label prefHeight="22.0" prefWidth="67.0" text="CIN" GridPane.rowIndex="1" />
+                                <TextField fx:id="cinAjout" promptText="Cin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="cinError" prefHeight="26.0" prefWidth="384.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Label prefHeight="22.0" prefWidth="67.0" text="Nom" GridPane.rowIndex="2" />
+                                <TextField fx:id="nomAjouter" promptText="Nom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label fx:id="nomError" prefHeight="26.0" prefWidth="386.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <Label prefHeight="22.0" prefWidth="67.0" text="Prénom" GridPane.rowIndex="3" />
+                                <TextField fx:id="prenomAjout" promptText="Prénom" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Label fx:id="prenomError" prefHeight="26.0" prefWidth="385.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                <Label prefHeight="22.0" prefWidth="77.0" text="Age" GridPane.rowIndex="4" />
+                                <TextField fx:id="ageAjout" promptText="Age" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <Label fx:id="ageError" prefHeight="26.0" prefWidth="387.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                <Label prefHeight="22.0" prefWidth="87.0" text="N°Téléphone" GridPane.rowIndex="5" />
+                                <TextField fx:id="numtelAjout" promptText="N°Téléphone" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <Label fx:id="numtelError" prefHeight="26.0" prefWidth="385.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                <Label prefHeight="22.0" prefWidth="67.0" text="E-mail" GridPane.rowIndex="6" />
+                                <TextField fx:id="emailAjout" promptText="E-mail" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <Label fx:id="emailError" prefHeight="26.0" prefWidth="386.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                <Label fx:id="mdpLabel" prefHeight="22.0" prefWidth="84.0" text="Mot de passe" GridPane.rowIndex="7" />
+                                <PasswordField fx:id="mdpAjout" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <Label fx:id="confirmMdpLabel" prefHeight="22.0" prefWidth="143.0" text="Confirmer Mot de passe" GridPane.rowIndex="8" />
+                                <PasswordField fx:id="confirmMdpAjout" promptText="Confirmer Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                <Label fx:id="confirmMdpError" prefHeight="26.0" prefWidth="390.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                <Label fx:id="mdpError" prefHeight="26.0" prefWidth="390.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                <Button fx:id="ajoutAdminButton" mnemonicParsing="false" onAction="#ajoutAdminButtonOnClick" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: #2596be;" text="Ajouter" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                    <GridPane.margin>
+                                        <Insets left="50.0" />
+                                    </GridPane.margin>
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="annulerButton" mnemonicParsing="false" onAction="#usersButtonOnClick" prefHeight="26.0" prefWidth="168.0" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                    <GridPane.margin>
+                                        <Insets left="57.0" />
+                                    </GridPane.margin>
+                                </Button>
+                                <RadioButton fx:id="roleAdminSignup" mnemonicParsing="false" text="Admin" GridPane.rowIndex="9">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="roles" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rolepatientSignup" mnemonicParsing="false" text="Livreur" toggleGroup="$roles" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <Label fx:id="roleSignupError" prefHeight="23.0" prefWidth="301.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchorPaneModifierMdp" prefHeight="693.0" prefWidth="1342.0" visible="false">
+                    <!-- Remaining content of anchorPaneModifierMdp -->
+                    <children>
+                        <GridPane layoutX="222.0" layoutY="75.0" prefHeight="544.0" prefWidth="898.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label prefHeight="22.0" prefWidth="116.0" text="Ancien Mot de passe" />
+                                <Label fx:id="ancienError" prefHeight="26.0" prefWidth="386.0" GridPane.columnIndex="2" />
+                                <Label fx:id="mdpLabel1" prefHeight="22.0" prefWidth="84.0" text="Mot de passe" GridPane.rowIndex="1" />
+                                <PasswordField fx:id="nouveauMdp" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="confirmMdpLabel1" prefHeight="22.0" prefWidth="143.0" text="Confirmer Mot de passe" GridPane.rowIndex="2" />
+                                <PasswordField fx:id="confirmNouveauMdp" promptText="Confirmer Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label fx:id="confirmNouveauMdpError" prefHeight="26.0" prefWidth="390.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <Label fx:id="nouveauMdpError" prefHeight="26.0" prefWidth="390.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Button fx:id="confirmerNouveauMdp" mnemonicParsing="false" onAction="#confirmerNouveauMdpOnClick" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: #2daa67;" text="Confirmer" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <GridPane.margin>
+                                        <Insets left="50.0" />
+                                    </GridPane.margin>
+                                </Button>
+                                <Button fx:id="annulerButton1" mnemonicParsing="false" onAction="#usersButtonOnClick" prefHeight="26.0" prefWidth="168.0" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <GridPane.margin>
+                                        <Insets left="57.0" />
+                                    </GridPane.margin>
+                                </Button>
+                                <PasswordField fx:id="ancienText" promptText="Ancien Mot de passe" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="statsAnchor" layoutX="60.0" layoutY="105.0" prefHeight="462.0" prefWidth="473.0" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
