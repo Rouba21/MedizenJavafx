@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DashboardAdminController">
+    <top>
+        <!-- Navbar -->
+        <VBox style="-fx-background-color: #ffffff;"> <!-- Light blue background color -->
+
+            <HBox style="-fx-padding: 10px; -fx-alignment: center; -fx-spacing: 10px;">
+                <!-- Logo Image -->
+                <ImageView fitHeight="50" fitWidth="50">
+                    <!-- Your logo image source here -->
+                </ImageView>
+                <!-- Search Bar -->
+                <TextField fx:id="searchBar" promptText="Search..." style="-fx-font-size: 14px; -fx-pref-width: 200px;" />
+                <!-- Navbar Buttons -->
+                <Button text="Home" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
+                <Button text="Profile" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
+                <Button text="Logout" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
+            </HBox>
+        </VBox>
+
+    </top>
+    <left>
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <VBox spacing="10" style="-fx-background-color: #ffffff; -fx-border-color: #57b3f3; -fx-border-width: 1px; -fx-border-radius: 5px;">
+
+            <!-- Sidebar Buttons -->
+            <Button text="Add Medicament" onAction="#handleAjouterMedicament" style="-fx-background-color: #ffffff; -fx-text-fill: #3a9ff1; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+            <Button text="Modify Medicament" onAction="#handleModifierMedicament" style="-fx-background-color: #ffffff; -fx-text-fill: #3ba8f1; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+            <Button text="Delete Medicament" onAction="#handleSupprimerMedicament" style="-fx-background-color: #ffffff; -fx-text-fill: #3ba8f1; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+            <Button text="View Medicaments" onAction="#handleAfficherMedicaments" style="-fx-background-color: #ffffff; -fx-text-fill: #3ba8f1; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+
+        </VBox>
+
+    </left>
+    <center>
+        <!-- Section for displaying CRUD forms -->
+        <!-- You can dynamically load FXML content here based on user actions -->
+    </center>
+</BorderPane>

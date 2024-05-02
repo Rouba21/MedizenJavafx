@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OrderMedicamentController">
+    <children>
+        <HBox alignment="CENTER" layoutX="12.0" layoutY="25.0" prefHeight="174.0" prefWidth="400.0" style="-fx-background-color: Ivory;">
+            <children>
+                <ImageView fx:id="imgproduit" fitHeight="165.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                <VBox prefHeight="174.0" prefWidth="282.0" spacing="10">
+                    <children>
+                        <Label fx:id="txtnom" text="Nom medicament">
+                            <font>
+                                <Font name="Tahoma Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="txtprix" text="prix">
+                            <font>
+                                <Font name="Tahoma Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="txtdesc" text="desc">
+                            <font>
+                                <Font name="Tahoma Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Button mnemonicParsing="false" style="-fx-background-color: #E6E6FA;" text="Buy Now" textFill="#258922" onAction="#orderMedicament" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

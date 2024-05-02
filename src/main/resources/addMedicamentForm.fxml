@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DashboardAdminController" style="-fx-background-color: #f0f0f0; -fx-padding: 20;">
+
+    <Label text="Add New Medicament" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <VBox spacing="5" alignment="CENTER">
+        <TextField fx:id="nameField" promptText="Name" style="-fx-prompt-text-fill: #666;" />
+        <TextField fx:id="quantityField" promptText="Quantity" style="-fx-prompt-text-fill: #666;" />
+        <TextField fx:id="descriptionField" promptText="Description" style="-fx-prompt-text-fill: #666;" />
+
+            <TextField fx:id="imageField" promptText="Image Path" style="-fx-prompt-text-fill: #666;" />
+            <Button text="Choose Image" onAction="#handleChooseImage" style="-fx-background-color: #3ba8f1; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 10; -fx-font-size: 12px;" />
+
+        <TextField fx:id="priceField" promptText="Price" style="-fx-prompt-text-fill: #666;" />
+        <TextField fx:id="qrCodePathField" promptText="QR Code Path" style="-fx-prompt-text-fill: #666;" />
+    </VBox>
+
+    <Button text="Add" onAction="#handleAddMedicament" style="-fx-background-color: #3ba8f1; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-font-size: 14px;" />
+
+</VBox>
