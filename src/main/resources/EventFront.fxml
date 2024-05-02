@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="menu_form" prefHeight="580.0" prefWidth="1198.0" styleClass="menu_form" stylesheets="@Front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EventFrontController">
+   <children>
+      <AnchorPane fx:id="detail_event" layoutX="880.0" layoutY="36.0" prefHeight="508.0" prefWidth="238.0">
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="shadow" />
+            <String fx:value="detail_event" />
+            <String fx:value="detail-pane" />
+         </styleClass>
+         <children>
+            <Label fx:id="titree" layoutX="96.0" layoutY="32.0" styleClass="titree" stylesheets="@Front.css" text="Titre" textFill="#56b5ef">
+               <font>
+                  <Font name="Bodoni MT Condensed" size="32.0" />
+               </font></Label>
+            <Label fx:id="desc_nada" layoutX="94.0" layoutY="128.0" stylesheets="@Front.css" text="Label" />
+            <Label fx:id="finn" layoutX="110.0" layoutY="244.0" styleClass="debutt" stylesheets="@Front.css" text="Label" />
+            <Label fx:id="debutt" layoutX="110.0" layoutY="214.0" styleClass="debutt" stylesheets="@Front.css" text="Label" />
+            <Label layoutX="14.0" layoutY="214.0" stylesheets="@Front.css" text="Date Début :" />
+            <Label layoutX="11.0" layoutY="244.0" stylesheets="@Front.css" text="Date Fin :" />
+            <Label layoutX="14.0" layoutY="276.0" text="Lieu" />
+            <Label fx:id="lieuu" layoutX="108.0" layoutY="276.0" styleClass="lieuu" stylesheets="@Front.css" text="Label" />
+         </children>
+         <stylesheets>
+            <URL value="@dashboardDesign.css" />
+            <URL value="@Front.css" />
+         </stylesheets>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="36.0" prefHeight="508.0" prefWidth="831.0">
+         <children>
+            <ScrollPane fx:id="menu_scrolpane" prefHeight="508.0" prefWidth="841.0" styleClass="menu_scrolpane" stylesheets="@Front.css">
+               <content>
+                  <GridPane fx:id="event_gridPane" prefHeight="23.0" prefWidth="131.0" styleClass="event_gridPane">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                     <stylesheets>
+                        <URL value="@dashboardDesign.css" />
+                        <URL value="@Front.css" />
+                     </stylesheets>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

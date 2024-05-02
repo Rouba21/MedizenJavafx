@@ -1,0 +1,31 @@
+
+/* Style du conteneur HBox */
+.list-cell {
+    -fx-padding: 10px;
+    -fx-background-color: #f5f5f5;
+    -fx-border-width: 1px;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+}
+
+/* Style des textes */
+.list-cell .text {
+    -fx-font-size: 14px;
+    -fx-fill: #333;
+}
+
+/* Style des boutons */
+.list-cell .button {
+    -fx-font-size: 12px;
+    -fx-text-fill: #fff;
+    -fx-background-color: #007bff;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 3px;
+}
+
+/* Style des images */
+.list-cell .image-view {
+    -fx-fit-width: 50px;
+    -fx-fit-height: 50px;
+    -fx-margin-right: 10px;
+}

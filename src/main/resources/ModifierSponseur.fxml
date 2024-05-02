@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="567.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ModifierSponseur">
+   <children>
+      <AnchorPane fx:id="logout" layoutY="-10.0" prefHeight="577.0" prefWidth="219.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+         <children>
+            <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
+               <font>
+                  <Font name="Book Antiqua Bold" size="21.0" />
+               </font>
+            </Label>
+            <Line endX="60.99998474121094" layoutX="130.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
+            <Button layoutX="11.0" layoutY="198.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="                Accueil">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Evénements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="264.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sponseurs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutt" layoutX="19.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" styleClass="logout" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="27.0" layoutY="521.0" text="Deconnexion" textFill="#d92828" />
+            <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+               <image>
+                  <Image url="@img/now.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2718448.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="299.0" mnemonicParsing="false" onAction="#sujet_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sujets">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="334.0" mnemonicParsing="false" onAction="#etablissement_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Etablissements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2593663.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/508721.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="369.0" mnemonicParsing="false" onAction="#revervation_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Reservations">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="404.0" mnemonicParsing="false" onAction="#medicament_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Medicaments">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/883356.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/booking-icon-png-4.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="403.0" layoutY="29.0" prefHeight="509.0" prefWidth="435.0" stylesheets="@dashboardDesign.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="white-bg" />
+         </styleClass>
+         <children>
+            <AnchorPane layoutX="147.0" layoutY="44.0" prefHeight="117.0" prefWidth="121.0" stylesheets="@dashboardDesign.css">
+               <styleClass>
+                  <String fx:value="shadow" />
+                  <String fx:value="white-bg" />
+               </styleClass>
+               <children>
+                  <ImageView fx:id="availableFlowers_imageView" fitHeight="117.0" fitWidth="123.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="availableFlowers_importBtn" layoutX="3.0" layoutY="93.0" mnemonicParsing="false" onAction="#AvailableFlowersInsertImage" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #90EE90" text="Import" />
+               </children>
+            </AnchorPane>
+            <TextField fx:id="NomTF" blendMode="MULTIPLY" layoutX="142.0" layoutY="204.0" prefWidth="151.0" promptText="Nom" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="emailTF" layoutX="143.0" layoutY="246.0" promptText="exemple@gmail.com" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="NumeroTF" layoutX="143.0" layoutY="287.0" promptText="+(216)" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="PackTF" layoutX="143.0" layoutY="324.0" style="-fx-background-radius: 5em;" />
+            <Label layoutX="72.0" layoutY="328.0" text="Pack :" />
+            <Label layoutX="57.0" layoutY="291.0" text="Numero :" />
+            <Label layoutX="70.0" layoutY="250.0" text="Email :" />
+            <Label layoutX="71.0" layoutY="208.0" text="Nom :" />
+            <Button fx:id="modofierr" layoutX="136.0" layoutY="387.0" mnemonicParsing="false" onAction="#updateSponseur" style="-fx-background-radius: 5em; -fx-background-color: #77B5FE;" text="Modifier" textFill="WHITE" />
+            <Button fx:id="supprimer" blendMode="MULTIPLY" layoutX="221.0" layoutY="387.0" mnemonicParsing="false" onAction="#Supprimer" style="-fx-background-radius: 5em; -fx-background-color: #FF6347;" text="Supprimer" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+/* Style pour les boutons */
+.button {
+    -fx-font-size: 12px; /* Taille de la police */
+    -fx-background-color: #4CAF50; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-padding: 5px 10px; /* Espacement interne */
+    -fx-border-radius: 5px; /* Rayon des coins */
+    -fx-background-radius: 5px; /* Rayon de l'arrière-plan */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+
+.custom-button {
+    -fx-background-color: #30a6c7; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-font-size: 12px; /* Taille de la police */
+    -fx-padding: 5px 10px; /* Espacement intérieur */
+    -fx-border-radius: 20px; /* Rayon de la bordure pour rendre le bouton rond */
+}
+
+
+/* Style pour les boutons survolés */
+.button:hover {
+    -fx-background-color: #30a6c7; /* Couleur de fond au survol */
+}
+
+/* Style pour les boutons enfoncés */
+.button:pressed {
+    -fx-background-color: #30a6c7; /* Couleur de fond lorsqu'enfoncé */
+}

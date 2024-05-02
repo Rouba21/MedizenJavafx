@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="1100.0" styleClass="semi-top-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="162.0" layoutY="-86.0" prefHeight="35.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="45.0" layoutY="9.0" text="MediZen">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="close" layoutX="1048.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" styleClass="close" stylesheets="@dashboardDesign.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                              <Button fx:id="minimize" layoutX="1024.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" styleClass="minimize" stylesheets="@dashboardDesign.css" AnchorPane.rightAnchor="41.0" />
+                              <FontAwesomeIconView glyphName="CLOSE" layoutX="1074.0" layoutY="19.0" size="15" />
+                              <FontAwesomeIconView glyphName="MINUS" layoutX="1039.0" layoutY="20.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="logout" prefHeight="554.6666666666666" prefWidth="200.0" styleClass="nav-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="52.0" layoutY="106.0" text="Welcome" textFill="#31bdc5">
+                                 <font>
+                                    <Font name="Book Antiqua Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="44.83332824707031" layoutX="127.0" layoutY="165.0" startX="-100.0" />
+                              <Button fx:id="home_btn" layoutX="10.0" layoutY="186.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="                Accueil">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="78.0" layoutY="83.0" size="40" text="" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="52.0" layoutY="209.0" size="15" text="" />
+                              <Button fx:id="event_btn" layoutX="9.0" layoutY="232.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Evénements">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="53.0" layoutY="255.0" size="15" />
+                              <Button fx:id="sponseur_btn" layoutX="10.0" layoutY="277.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sponseurs">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="53.0" layoutY="300.0" size="15" />
+                              <Button fx:id="logout" layoutX="14.0" layoutY="508.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" styleClass="logout" stylesheets="@dashboardDesign.css" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" layoutX="22.0" layoutY="527.0" size="20" text="" />
+                              <Label layoutX="59.0" layoutY="512.0" text="Quitter" textFill="#d92828" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="salary_form" layoutX="119.0" layoutY="105.0" prefHeight="554.0" prefWidth="899.3333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="22.0" layoutY="20.0" prefHeight="514.0" prefWidth="315.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Button blendMode="MULTIPLY" layoutX="83.0" layoutY="316.0" mnemonicParsing="false" style="-fx-background-radius: 5em; -fx-background-color: #FF6347;" text="Supprimer" textFill="WHITE" />
+                                    <Button blendMode="MULTIPLY" layoutX="166.0" layoutY="316.0" mnemonicParsing="false" onAction="#naviguer" prefHeight="25.0" prefWidth="74.0" style="-fx-background-radius: 5em; -fx-background-color: #90EE90;" text="Modifier" textFill="WHITE" />
+                                    <TextField fx:id="PackTF" layoutX="91.0" layoutY="239.0" style="-fx-background-radius: 5em;" />
+                                    <Label layoutX="37.0" layoutY="243.0" text="Pack :" />
+                                    <Label layoutX="32.0" layoutY="196.0" text="Logo :" />
+                                    <Label layoutX="18.0" layoutY="155.0" text="Numero :" />
+                                    <TextField fx:id="LogoTF" layoutX="91.0" layoutY="192.0" style="-fx-background-radius: 5em;" />
+                                    <TextField fx:id="NumeroTF" layoutX="91.0" layoutY="151.0" style="-fx-background-radius: 5em;" text="+(216)" />
+                                    <Label layoutX="34.0" layoutY="109.0" text="Email :" />
+                                    <TextField fx:id="emailTF" layoutX="91.0" layoutY="105.0" style="-fx-background-radius: 5em;" text="email" />
+                                    <Label layoutX="32.0" layoutY="69.0" text="Nom :" />
+                                    <TextField fx:id="NomTF" blendMode="MULTIPLY" layoutX="91.0" layoutY="65.0" promptText="Nom" style="-fx-background-radius: 5em;" text="Nom" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="355.0" layoutY="20.0" prefHeight="514.0" prefWidth="529.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <HBox layoutX="10.0" layoutY="70.0" prefHeight="295.0" prefWidth="509.0" styleClass="transparent" stylesheets="@dashboardDesign.css">
+                                       <children>
+                                          <ScrollPane prefHeight="295.0" prefWidth="531.0" styleClass="table-view" stylesheets="@dashboardDesign.css">
+                                             <content>
+                                                <VBox prefHeight="288.0" prefWidth="500.0" spacing="10.0" styleClass="white-background" stylesheets="@dashboardDesign.css">
+                                                   <children>
+                                                      <HBox prefHeight="44.0" prefWidth="637.0" spacing="10.0" styleClass="light-gray-background" stylesheets="@dashboardDesign.css">
+                                                         <children>
+                                                            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" styleClass="table-view" stylesheets="@dashboardDesign.css" text="Nom">
+                                                               <font>
+                                                                  <Font name="Corbel" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label alignment="CENTER" layoutX="65.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" styleClass="table-view" stylesheets="@dashboardDesign.css" text="Email">
+                                                               <font>
+                                                                  <Font name="Corbel" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label alignment="CENTER" layoutX="121.0" layoutY="10.0" prefHeight="200.0" prefWidth="300.0" styleClass="table-view" stylesheets="@dashboardDesign.css" text="Numero">
+                                                               <font>
+                                                                  <Font name="Corbel" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label alignment="CENTER" layoutX="176.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" stylesheets="@dashboardDesign.css" text="Logo">
+                                                               <font>
+                                                                  <Font name="Corbel" size="20.0" />
+                                                               </font>
+                                                               <styleClass>
+                                                                  <String fx:value="table-column" />
+                                                                  <String fx:value="table-view" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label alignment="CENTER" layoutX="345.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" stylesheets="@dashboardDesign.css" text="Pack">
+                                                               <font>
+                                                                  <Font name="Corbel" size="20.0" />
+                                                               </font>
+                                                               <styleClass>
+                                                                  <String fx:value="table-column" />
+                                                                  <String fx:value="table-view" />
+                                                               </styleClass>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </content>
+                                          </ScrollPane>
+                                          <VBox prefHeight="306.0" prefWidth="38.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

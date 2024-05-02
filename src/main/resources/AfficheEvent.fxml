@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="690.0" prefWidth="1381.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherEvent">
+   <children>
+      <AnchorPane fx:id="main_form" layoutX="10.0" onMouseClicked="#EventSelect" prefHeight="690.0" prefWidth="1381.0" stylesheets="@affichesponseur.css">
+         <children>
+            <AnchorPane fx:id="logout" layoutX="-11.0" layoutY="-12.0" prefHeight="702.0" prefWidth="232.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="welcomeid" layoutX="52.0" layoutY="106.0" text="Welcome" textFill="#31bdc5">
+                     <font>
+                        <Font name="Book Antiqua Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Line endX="50.99998474121094" layoutX="137.0" layoutY="164.0" startX="-100.0" stroke="WHITE" />
+                  <Button layoutX="10.0" layoutY="186.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="                Accueil">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Evénements">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="277.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sponseurs">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="logoutt" layoutX="24.0" layoutY="486.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" styleClass="logout" stylesheets="@dashboardDesign.css" />
+                  <Label layoutX="34.0" layoutY="490.0" text="Quitter" textFill="#d92828" />
+                  <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/home.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                     <image>
+                        <Image url="@img/now.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/2718448.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="159.0" layoutY="251.0" prefHeight="88.0" prefWidth="123.0">
+
+            </AnchorPane>
+            <ListView fx:id="liste_event" layoutX="284.0" layoutY="156.0" prefHeight="449.0" prefWidth="1057.0" />
+            <Label layoutX="662.0" layoutY="31.0" prefHeight="38.0" prefWidth="301.0" text="Liste De Evenements " textFill="#3a94c7">
+               <font>
+                  <Font name="Book Antiqua Bold" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rechercheField" layoutX="328.0" layoutY="114.0" prefHeight="25.0" prefWidth="232.0" promptText="Recherche" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="303.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/recherch.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="596.0" prefWidth="982.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ModifierEvent">
+   <children>
+      <AnchorPane layoutX="512.0" layoutY="97.0" prefHeight="475.0" prefWidth="234.0" stylesheets="@dashboardDesign.css">
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <TextField fx:id="TitreTF1" blendMode="MULTIPLY" layoutX="42.0" layoutY="184.0" promptText="Titre d'évenement" style="-fx-background-radius: 5em;" />
+            <ImageView fx:id="availableFlowers_imageView" fitHeight="127.0" fitWidth="122.0" layoutX="56.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="availableFlowers_importBtn" layoutX="56.0" layoutY="123.0" mnemonicParsing="false" onAction="#AvailableFlowersInsertImage" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #e6e868" text="Importer" />
+            <DatePicker fx:id="Date_DebutTF1" layoutX="42.0" layoutY="225.0" prefHeight="25.0" prefWidth="149.0" promptText="jj/MM/YYYY HH:MM" />
+            <DatePicker fx:id="Date_FinTF" layoutX="42.0" layoutY="262.0" prefHeight="25.0" prefWidth="149.0" promptText="jj/MM/YYYY HH:MM" />
+            <TextField fx:id="LieuTF1" layoutX="42.0" layoutY="299.0" promptText="Lieu" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="DecriptionTF1" layoutX="42.0" layoutY="339.0" promptText="Description" style="-fx-background-radius: 5em;" />
+            <Button layoutX="86.0" layoutY="402.0" mnemonicParsing="false" onAction="#updateEvent" style="-fx-background-radius: 5em; -fx-background-color: #77B5FE;" text="Modifier" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="logout" prefHeight="596.0" prefWidth="219.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+         <children>
+            <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
+               <font>
+                  <Font name="Book Antiqua Bold" size="21.0" />
+               </font>
+            </Label>
+            <Line endX="60.99998474121094" layoutX="130.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
+            <Button layoutX="11.0" layoutY="198.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="                Accueil">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Evénements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="264.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sponseurs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutt" layoutX="19.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" styleClass="logout" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="27.0" layoutY="521.0" text="Deconnexion" textFill="#d92828" />
+            <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+               <image>
+                  <Image url="@img/now.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2718448.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="299.0" mnemonicParsing="false" onAction="#sujet_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sujets">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="334.0" mnemonicParsing="false" onAction="#etablissement_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Etablissements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2593663.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/508721.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="369.0" mnemonicParsing="false" onAction="#revervation_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Reservations">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="404.0" mnemonicParsing="false" onAction="#medicament_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Medicaments">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/883356.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/booking-icon-png-4.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

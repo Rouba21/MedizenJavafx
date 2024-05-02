@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main_form" prefHeight="558.0" prefWidth="1212.0" stylesheets="@affichesponseur.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficheController">
+   <children>
+      <AnchorPane fx:id="logout" prefHeight="614.0" prefWidth="219.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+         <children>
+            <Label fx:id="welcomeid" layoutX="52.0" layoutY="106.0" text="Welcome" textFill="#31bdc5">
+               <font>
+                  <Font name="Book Antiqua Bold" size="21.0" />
+               </font>
+            </Label>
+            <Line endX="50.99998474121094" layoutX="137.0" layoutY="164.0" startX="-100.0" stroke="WHITE" />
+            <Button layoutX="10.0" layoutY="186.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="                Accueil">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Evénements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="277.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sponseurs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutt" layoutX="24.0" layoutY="486.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" styleClass="logout" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="34.0" layoutY="490.0" text="Quitter" textFill="#d92828" />
+            <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+               <image>
+                  <Image url="@img/now.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2718448.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ListView fx:id="liste_sponsor" layoutX="253.0" layoutY="65.0" onMouseClicked="#SelectedSponseur" prefHeight="513.0" prefWidth="898.0" stylesheets="@affichesponseur.css" />
+      <Label layoutX="548.0" layoutY="14.0" prefHeight="36.0" prefWidth="425.0" text="Liste De Sponseurs " textFill="#24abe0">
+         <font>
+            <Font name="Book Antiqua Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

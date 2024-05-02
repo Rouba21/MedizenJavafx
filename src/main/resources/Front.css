@@ -1,0 +1,129 @@
+/* dashboardDesign.css */
+
+/* Style pour l'AnchorPane avec l'identifiant 'menu_form' */
+.menu_form {
+    -fx-background-color: #f5f5f5; /* Couleur de fond */
+}
+
+/* Style pour les AnchorPane avec les détails d'événement */
+.detail_event {
+    -fx-background-color: white; /* Couleur de fond */
+    -fx-padding: 20; /* Marge intérieure */
+    -fx-border-radius: 5; /* Bordure arrondie */
+    -fx-border-width: 1; /* Largeur de la bordure */
+    -fx-border-color: #ddd; /* Couleur de la bordure */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); /* Ombre */
+}
+
+/* Style pour les Labels dans #detail_event */
+.detail_event Label {
+    -fx-font-size: 14px; /* Taille de la police */
+    -fx-text-fill: #333; /* Couleur du texte */
+}
+
+/* Style pour les ScrollPane */
+.menu_scrolpane {
+    -fx-background-color: transparent; /* Fond transparent */
+    -fx-focus-color: transparent; /* Couleur du focus transparente */
+    -fx-faint-focus-color: transparent; /* Couleur du focus transparente */
+}
+
+/* Style pour le GridPane avec l'identifiant 'event_gridPane' */
+.event_gridPane {
+    -fx-background-color: #fff; /* Couleur de fond */
+    -fx-padding: 10; /* Marge intérieure */
+    -fx-border-radius: 5; /* Bordure arrondie */
+    -fx-border-width: 1; /* Largeur de la bordure */
+    -fx-border-color: #ddd; /* Couleur de la bordure */
+}
+
+/* Style pour les cellules du GridPane */
+.event_gridPane .card {
+    -fx-padding: 10; /* Marge intérieure */
+    -fx-background-color: #f9f9f9; /* Couleur de fond */
+    -fx-border-radius: 5; /* Bordure arrondie */
+    -fx-border-width: 1; /* Largeur de la bordure */
+    -fx-border-color: #eee; /* Couleur de la bordure */
+}
+
+/* Style pour les Label du GridPane */
+.event_gridPane Label {
+    -fx-font-size: 14px; /* Taille de la police */
+    -fx-text-fill: #333; /* Couleur du texte */
+}
+
+/* Style the event card container (`.card`) */
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;  /* Prevent image overflow */
+}
+
+/* Style the event title (`.card Label`) */
+.card-Label {
+    color: #333;  /* Adjust text color for better contrast */
+    font-weight: bold;
+    padding: 10px;  /* Add some padding for better spacing */
+}
+
+/* Style the event image (`.card ImageView`) */
+.card-ImageView {
+    width: 100%;  /* Make image fill the card width */
+    height: 100%;  /* Make image fill the card height */
+    object-fit: cover;  /* Ensure image fills the space while maintaining aspect ratio */
+}
+
+/* Style the participation button container (`.card HBox:nth-child(3)`) */
+.card-HBox  {
+    background-color: #f0f0f0;  /* Add light gray background for the button area */
+    padding: 5px;  /* Add some padding for the button */
+}
+
+/* Style the participation button (`.card Button`) */
+.card-Button {
+    background-color: #4CAF50;  /* Green color for the button */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;  /* Adjust padding for the button text */
+    cursor: pointer;  /* Indicate clickable behavior */
+}
+
+/* Style the button hover effect (`.card Button:hover`) */
+.card-Button-hover {
+    background-color: #3e8e41;  /* Darker green on hover */
+}
+
+
+/* Style pour la zone d'affichage des détails de l'événement */
+.detail-pane {
+    -fx-background-color: #f4f4f4; /* Couleur de fond */
+    -fx-padding: 20px; /* Espacement intérieur */
+}
+
+/* Style pour le titre */
+.titree {
+    -fx-font-family: 'Georgia'; /* Police de caractères */
+    -fx-font-size: 32px; /* Taille de la police */
+    -fx-font-weight: bold; /* Gras */
+    -fx-text-fill: #007bff;
+}
+
+/* Style pour les autres libellés */
+.label {
+    -fx-font-size: 14px; /* Taille de la police */
+    -fx-text-fill: #333; /* Couleur du texte */
+}
+
+/* Style pour les libellés contenant les dates */
+.debutt, #finn {
+    -fx-font-style: italic; /* Italique */
+}
+
+/* Style spécifique pour le libellé "Lieu" */
+.lieuu {
+    -fx-font-weight: bold; /* Gras */
+    -fx-text-fill: #333; /* Couleur du texte (bleu) */
+}
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="card_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="230.0" styleClass="card" stylesheets="@Front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.CardController">
+   <children>
+      <VBox layoutX="65.0" layoutY="-10.0" prefHeight="180.0" prefWidth="230.0" styleClass="card" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="230.0" styleClass="card-HBox" stylesheets="@Front.css">
+               <children>
+                  <Label fx:id="event_name" styleClass="card-Label" stylesheets="@Front.css" text="Event">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="109.0" prefWidth="230.0">
+               <children>
+                  <ImageView fx:id="event_image" fitHeight="98.0" fitWidth="190.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="Participer" layoutX="115.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleParticiperButtonAction" prefHeight="25.0" prefWidth="59.0" stylesheets="@Front.css" text="Participer">
+                     <styleClass>
+                        <String fx:value="card-Button" />
+                        <String fx:value="card-Button-hover" />
+                     </styleClass>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <HBox fx:id="event_participerbtn" prefHeight="27.0" prefWidth="230.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
