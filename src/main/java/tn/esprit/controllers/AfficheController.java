@@ -13,11 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import tn.esprit.models.Pack;
 import tn.esprit.models.Sponseur;
 import tn.esprit.models.SponseurListCell;
 import tn.esprit.models.getData;
-import tn.esprit.services.PackService;
 import tn.esprit.services.SponseurService;
 
 import java.io.File;
@@ -28,9 +26,6 @@ import java.util.Optional;
 
 public class AfficheController {
 
-
-
-    private final PackService packService = new PackService();
     private final SponseurService sponseurService = new SponseurService();
 
     @FXML
@@ -60,33 +55,17 @@ public class AfficheController {
     private ImageView availableFlowers_imageView;
 
     @FXML
-    private ComboBox<Pack> packComboBox;
+    void initialize() throws SQLException {
+        // Charger les sponsors depuis le service
+        List<Sponseur> sponseurs = sponseurService.afficher();
 
+        // Créer une liste observable pour la ListView
+        ObservableList<Sponseur> observableList = FXCollections.observableList(sponseurs);
 
+        // Assigner la liste observable à la ListView avec une cellule personnalisée
+        liste_sponsor.setItems(observableList);
+        liste_sponsor.setCellFactory(param -> new SponseurListCell());
 
-    @FXML
-    private void initialize() {
-        loadPacksForSponseur(1); // Exemple : passer l'ID du sponsor ici
-    }
-
-    private void loadPacksForSponseur(int sponseurId) {
-        try {
-            List<Pack> packs = packService.getAllPacksForSponseur(sponseurId);
-
-            // Créer une liste observable à partir de la liste de packs
-            ObservableList<Pack> observablePacks = FXCollections.observableArrayList(packs);
-
-            // Mettre à jour la ComboBox avec les packs
-            packComboBox.setItems(observablePacks);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Gérer l'erreur lors du chargement des packs liés à un sponsor spécifique
-            showAlert("Erreur", "Erreur lors du chargement des packs liés au sponsor : " + e.getMessage());
-        }
-    }
-
-    private void showAlert(String erreur, String s) {
     }
 
     // Méthode pour récupérer les données des sponseurs depuis la source de données

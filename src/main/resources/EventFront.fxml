@@ -19,13 +19,13 @@
             <String fx:value="detail-pane" />
          </styleClass>
          <children>
-            <Label fx:id="titree" layoutX="96.0" layoutY="32.0" styleClass="titree" stylesheets="@Front.css" text="Titre" textFill="#56b5ef">
+            <Label fx:id="titree" layoutX="96.0" layoutY="32.0" styleClass="titree" stylesheets="@Front.css" text="Titre" textFill="#58c2ff">
                <font>
                   <Font name="Bodoni MT Condensed" size="32.0" />
                </font></Label>
             <Label fx:id="desc_nada" layoutX="94.0" layoutY="128.0" stylesheets="@Front.css" text="Label" />
             <Label fx:id="finn" layoutX="110.0" layoutY="244.0" styleClass="debutt" stylesheets="@Front.css" text="Label" />
-            <Label fx:id="debutt" layoutX="110.0" layoutY="214.0" styleClass="debutt" stylesheets="@Front.css" text="Label" />
+            <Label fx:id="debutt" layoutX="110.0" layoutY="214.0" styleClass="debutt" stylesheets="@Front.css" text="Label" textFill="#76b3e4" />
             <Label layoutX="14.0" layoutY="214.0" stylesheets="@Front.css" text="Date Début :" />
             <Label layoutX="11.0" layoutY="244.0" stylesheets="@Front.css" text="Date Fin :" />
             <Label layoutX="14.0" layoutY="276.0" text="Lieu" />
