@@ -99,6 +99,4 @@ public class BackDocteur implements Initializable {
     public void go_offreback(ActionEvent actionEvent) {
     }
 
-    // Other action methods...
-
 }

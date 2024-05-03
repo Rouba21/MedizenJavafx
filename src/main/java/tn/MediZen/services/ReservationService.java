@@ -1,5 +1,6 @@
 package tn.MediZen.services;
 import tn.MediZen.interfaces.IReservation;
+import tn.MediZen.models.Docteur;
 import tn.MediZen.models.Reservation;
 import tn.MediZen.util.MaConnexion;
 import java.sql.*;
@@ -13,7 +14,7 @@ public class ReservationService implements IReservation<Reservation> {
 
     @Override
     public void add(Reservation reservation) {
-        String request = "INSERT INTO reservation (surname, problem_description, mobile, reservation_date, status, name, address) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String request = "INSERT INTO reservation (surname, problem_description, mobile, reservation_date, status, name, address,doctor_id) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         try (PreparedStatement preparedStatement = cnx.prepareStatement(request)) {
             preparedStatement.setString(1, reservation.getSurname());
             preparedStatement.setString(2, reservation.getProblemDescription());
@@ -22,7 +23,7 @@ public class ReservationService implements IReservation<Reservation> {
             preparedStatement.setString(5, reservation.getStatus());
             preparedStatement.setString(6, reservation.getName());
             preparedStatement.setString(7, reservation.getAddress());
-
+            preparedStatement.setInt(8, reservation.getDoctor_id());
             preparedStatement.executeUpdate();
             System.out.println("Reservation added with success!");
         } catch (SQLException e) {
@@ -48,7 +49,8 @@ public class ReservationService implements IReservation<Reservation> {
             preparedStatement.setString(5, reservation.getStatus());
             preparedStatement.setString(6, reservation.getName());
             preparedStatement.setString(7, reservation.getAddress());
-            preparedStatement.setInt(8, reservation.getId());
+            preparedStatement.setInt(8, reservation.getDocteur().getId());
+            preparedStatement.setInt(9, reservation.getId());
 
             preparedStatement.executeUpdate();
             System.out.println("Reservation updated with success!");
@@ -76,16 +78,7 @@ public class ReservationService implements IReservation<Reservation> {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                return new Reservation(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("surname"),
-                        rs.getInt("mobile"),
-                        rs.getString("problem_description"),
-                        rs.getString("status"),
-                        rs.getString("address"),
-                        rs.getDate("reservation_date").toLocalDate()
-                );
+                return mapToReservation(rs);
             } else {
                 System.out.println("No reservation found with ID: " + id);
                 return null;
@@ -110,6 +103,8 @@ public class ReservationService implements IReservation<Reservation> {
     }
 
     private Reservation mapToReservation(ResultSet rs) throws SQLException {
+        DocteurService docteurService = new DocteurService();
+        Docteur docteur = docteurService.getOne(rs.getInt("doctor_id"));
         return new Reservation(
                 rs.getInt("id"),
                 rs.getString("name"),
@@ -118,7 +113,8 @@ public class ReservationService implements IReservation<Reservation> {
                 rs.getString("problem_description"),
                 rs.getString("status"),
                 rs.getString("address"),
-                rs.getDate("reservation_date").toLocalDate()
+                rs.getDate("reservation_date").toLocalDate(),
+                rs.getInt("doctor_id")
         );
     }
 }

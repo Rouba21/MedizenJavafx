@@ -1,8 +1,39 @@
 package tn.MediZen.models;
 
+import java.util.List;
+
 public class Docteur {
     private String nom, prenom, mail,addresse, specialite, experience;
-    private int id, mobile;
+    private int id, mobile, reservationId;
+    public Docteur() {
+    }
+
+    public Docteur(int id, String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite) {
+    }
+    public Docteur(int id,String nom, String prenom, String mail, String experience,int mobile, String addresse, String specialite, int reservationId ) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.addresse = addresse;
+        this.specialite = specialite;
+        this.experience = experience;
+        this.mobile = mobile;
+        this.reservationId = reservationId;
+    }
+
+    public Docteur(String nom, String prenom, String mail, String experience,int mobile, String addresse, String specialite, int reservationId) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.addresse = addresse;
+        this.specialite = specialite;
+        this.experience = experience;
+        this.mobile = mobile;
+        this.reservationId = reservationId;
+    }
+
+
 
     public String getNom() {
         return nom;
@@ -68,36 +99,25 @@ public class Docteur {
         this.mobile = mobile;
     }
 
+    public int getReservationId() {
+        return reservationId;
+    }
 
-
-    public Docteur(String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.mail = mail;
-        this.experience = experience;
-        this.mobile = mobile;
-        this.addresse = addresse;
-        this.specialite = specialite;
-
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
     @Override
     public String toString() {
-        return
+        return "Docteur{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", mail='" + mail + '\'' +
-                ", experience='" + experience + '\'' +
-                ", mobile=" + mobile +
                 ", addresse='" + addresse + '\'' +
                 ", specialite='" + specialite + '\'' +
-
+                ", experience='" + experience + '\'' +
+                ", mobile=" + mobile +
+                ", reservationId=" + reservationId +
                 '}';
-    }
-
-    public Docteur() {
-    }
-
-    public Docteur(int id, String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite) {
     }
 }

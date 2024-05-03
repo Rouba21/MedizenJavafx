@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import tn.MediZen.models.Reservation;
 import tn.MediZen.services.ReservationService;
-
+import tn.MediZen.models.Docteur;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +40,8 @@ public class ModifierReservation implements Initializable {
     @FXML
     private TextField AdresseTF;
 
+    @FXML
+    private ListView<?> DocteurSelectedListView;
     @FXML
     private TextArea StatusTF;
 
@@ -75,7 +77,8 @@ public class ModifierReservation implements Initializable {
         if (Saisie() == true) {
             LocalDate localDate = DateReservationF.getValue();
             Reservation current = ListReservationsM.getSelectionModel().getSelectedItem();
-            Reservation p = new Reservation();
+            Reservation p = new Reservation(Integer.parseInt(NumeroTelephone.getText()),NomTF.getText(), PrenomTF.getText(), DescriptionDeProblemeTF.getText(), AdresseTF.getText(), StatusTF.getText(), localDate,(Docteur) DocteurSelectedListView.getSelectionModel().getSelectedItem()
+            );
             p.setId(current.getId());
             p.setSurname(PrenomTF.getText());
             p.setProblemDescription(DescriptionDeProblemeTF.getText());

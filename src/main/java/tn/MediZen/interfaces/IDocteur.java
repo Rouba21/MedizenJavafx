@@ -2,16 +2,18 @@ package tn.MediZen.interfaces;
 
 import tn.MediZen.models.Docteur;
 
-public interface IDocteur<R> {
-    void add(R R);
-    void update(R R);
-    void  delete(R R);
-    R getOne(int id);
+import java.util.List;
+
+public interface IDocteur<D> {
+    void add(D D);
+    void update(D D);
+    void  delete(D D);
+    D getOne(int id);
 
     void add(Docteur Docteur);
 
     void update(Docteur Docteur);
-
+    List<D> getAll();
     void delete(Docteur Docteur);
 
 }

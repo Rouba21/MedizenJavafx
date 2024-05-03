@@ -1,8 +1,5 @@
 package tn.MediZen.models;
 
-import javafx.beans.property.SimpleObjectProperty;
-
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Reservation {
@@ -10,10 +7,12 @@ public class Reservation {
     private int id, mobile;
     private String name, surname, problemDescription, address;
     private String status = "Pending";
-
     private LocalDate reservationDate;
 
-    public Reservation(int id, String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate) {
+    public Docteur docteur;
+    public int doctor_id;
+
+    public Reservation(int id, String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate, int doctor_id) {
         this.id = id;
         this.mobile = mobile;
         this.name = name;
@@ -22,11 +21,32 @@ public class Reservation {
         this.address = address;
         this.reservationDate = reservationDate;
         this.status = status;
+        this.doctor_id = doctor_id ;
     }
-    public Reservation() {
 
+    public Reservation(int mobile, String name, String surname, String problemDescription, String address, String status, LocalDate reservationDate, Docteur docteur) {
+        this.mobile = mobile;
+        this.name = name;
+        this.surname = surname;
+        this.problemDescription = problemDescription;
+        this.address = address;
+        this.status = status;
+        this.reservationDate = reservationDate;
+        this.docteur = docteur;
     }
-    public Reservation( String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate) {
+
+    public Reservation(int mobile, String name, String surname, String problemDescription, String address, String status, LocalDate reservationDate, int doctor_id) {
+        this.mobile = mobile;
+        this.name = name;
+        this.surname = surname;
+        this.problemDescription = problemDescription;
+        this.address = address;
+        this.status = status;
+        this.reservationDate = reservationDate;
+        this.doctor_id = doctor_id;
+    }
+
+    public Reservation(String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate, Docteur docteur) {
 
         this.mobile = mobile;
         this.status = status;
@@ -35,7 +55,7 @@ public class Reservation {
         this.problemDescription = problemDescription;
         this.address = address;
         this.reservationDate = reservationDate;
-
+        this.docteur=docteur;
     }
 
     public Reservation(String name, String surname, String problemDescription, int mobile, LocalDate reservationDate , String status,String address) {
@@ -47,6 +67,8 @@ public class Reservation {
         this.reservationDate = reservationDate;
         this.status = status;
     }
+
+
 
 
     public int getId() {
@@ -108,6 +130,21 @@ public class Reservation {
     public String getStatus() {
         return status;
     }
+    public Docteur getDocteur() {
+        return docteur;
+    }
+
+    public int getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(int doctor_id) {
+        this.doctor_id = doctor_id;
+    }
+
+    public void setDocteur(Docteur docteur) {
+        this.docteur = docteur;
+    }
 
 
     public void setStatus(String status) {
@@ -120,13 +157,16 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation:" +
-                ", mobile:" + mobile +
-                ", name:" + name + '\'' +
-                ", surname:" + surname + '\'' +
-                ", problemDescription:" + problemDescription + '\'' +
-                ", address:" + address + '\'' +
-                ", status:" + status + '\'' +
-                ", reservationDate:" + reservationDate ;
+        return "Reservation{" +
+                "mobile=" + mobile +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", problemDescription='" + problemDescription + '\'' +
+                ", address='" + address + '\'' +
+                ", status='" + status + '\'' +
+                ", reservationDate=" + reservationDate +
+                ", docteur=" + docteur +
+                ", doctor_id=" + doctor_id +
+                '}';
     }
 }

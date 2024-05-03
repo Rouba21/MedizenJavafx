@@ -13,6 +13,7 @@ public interface IReservation<R> {
 
     void update(Reservation reservation);
 
+    List<R> getAll();
     void delete(Reservation reservation);
 
 }

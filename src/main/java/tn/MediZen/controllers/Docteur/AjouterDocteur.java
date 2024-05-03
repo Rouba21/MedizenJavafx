@@ -50,6 +50,7 @@ public class AjouterDocteur {
              private Label welcomeid;
         @FXML
         private Button logoutt;
+    private final DocteurService docteurService = new DocteurService();
 
 
         @FXML
@@ -91,25 +92,16 @@ public class AjouterDocteur {
     }
 
 
-    @FXML
-        void sponseur_btn(ActionEvent event) {
-
-        }
-
-        @FXML
-        void sujet_btn(ActionEvent event) {
-
-        }
 
 
 
-    private final DocteurService docteurService = new DocteurService();
+
 
     @FXML
     private void AjouterDocteur() {
         if (Saisi()){
             try {
-                int mobile = Integer.parseInt(NumeroTelephoneDocteur.getText());
+
                 Docteur docteur = new Docteur();
                 docteurService.add(docteur);
                 clearFields();
@@ -196,4 +188,14 @@ public class AjouterDocteur {
         return true;
 
     }
+    @FXML
+    void sponseur_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sujet_btn(ActionEvent event) {
+
+    }
+
 }

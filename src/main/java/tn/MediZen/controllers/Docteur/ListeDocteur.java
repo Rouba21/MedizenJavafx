@@ -33,14 +33,14 @@ public class ListeDocteur implements Initializable {
     @FXML
     private ListView<Docteur> ListDocteurTT;
 
-    private  DocteurService ds = new DocteurService();
+    private final DocteurService docteurService = new DocteurService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadDocteurs();
     }
     private void loadDocteurs() {
-        ObservableList<Docteur> docteurs = FXCollections.observableArrayList(ds.getAll());
+        ObservableList<Docteur> docteurs = FXCollections.observableArrayList(docteurService.getAll());
         ListDocteurTT.setItems(docteurs);
     }
 
@@ -66,15 +66,15 @@ public class ListeDocteur implements Initializable {
         if (docteurToDelete != null) {
             boolean confirmed = showConfirmationDialog();
             if (confirmed) {
-                ds.delete(docteurToDelete);
+                docteurService.delete(docteurToDelete);
                 loadDocteurs();
             }
         }
     }
 
     public void redirectToModiferDocteur(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root3 = FXMLLoader.load(getClass().getResource("/Docteur/ModifierDocteur.fxml"));
-        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Parent root3 = FXMLLoader .load(getClass().getResource("/Docteur/ModifierDocteur.fxml"));
+        Stage window = (Stage) ModifierDocteur.getScene().getWindow();
         window.setScene(new Scene(root3));
     }
 

@@ -64,6 +64,7 @@ public class ModifierDocteur implements Initializable {
                 PrenomDocteurTF.setText(current.getPrenom());
                 NumeroTelephoneDocteur.setText(String.valueOf(current.getMobile()));
                 ExperienceDocteurTF.setText(current.getExperience());
+                MailDocteurTF.setText(current.getMail());
                 AdresseDocteurTF.setText(current.getAddresse());
                 SpecialiteTF.setText(current.getSpecialite());
             }
@@ -92,7 +93,8 @@ public class ModifierDocteur implements Initializable {
             docteur.setMobile(Integer.parseInt(NumeroTelephoneDocteur.getText()));
             docteur.setMail(MailDocteurTF.getText());
             docteur.setExperience(ExperienceDocteurTF.getText());
-            docteur.setExperience(SpecialiteTF.getText());
+            docteur.setSpecialite(SpecialiteTF.getText());
+            docteur.setAddresse(AdresseDocteurTF.getText());
             docteurService.update(docteur);
         }
     }
@@ -108,43 +110,54 @@ public class ModifierDocteur implements Initializable {
     }
 
     private boolean Saisi() {
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String experiencePattern = "^\\d{1,2}\\s*.+$";
+        String addressPattern = "^\\d+\\s+[A-Za-z]+(\\s+[A-Za-z]+)*";
 
-        if (NomDocteurTF.getText().isEmpty() || PrenomDocteurTF.getText().isEmpty() || NumeroTelephoneDocteur.getText().isEmpty() || ExperienceDocteurTF.getText().isEmpty() || AdresseDocteurTF.getText().isEmpty() || SpecialiteTF.getText().isEmpty()) {
+        if (NomDocteurTF.getText().isEmpty() || PrenomDocteurTF.getText().isEmpty() ||
+                NumeroTelephoneDocteur.getText().isEmpty() || ExperienceDocteurTF.getText().isEmpty() ||
+                AdresseDocteurTF.getText().isEmpty() || SpecialiteTF.getText().isEmpty()) {
             Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !!", "Veuillez bien remplir tous les champs !");
             return false;
         } else {
-
             if (!Pattern.matches("\\d{8}", NumeroTelephoneDocteur.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Votre Num doit etre composé de huit chiffres! ");
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Le numéro de docteur doit être composé de huit chiffres! ");
                 return false;
             }
 
-            if (!Pattern.matches("[A-Za-z]*", NomDocteurTF.getText())) {
+            if (!Pattern.matches("[A-Za-z]+", NomDocteurTF.getText())) {
                 Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le nom ! ");
                 return false;
             }
-            if (!Pattern.matches("[A-Za-z]*", PrenomDocteurTF.getText())) {
+
+            if (!Pattern.matches("[A-Za-z]+", PrenomDocteurTF.getText())) {
                 Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le prenom ! ");
                 return false;
             }
-            if (!Pattern.matches("[A-Za-z]*", ExperienceDocteurTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le descriiption du probléme ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z0-9\\s,.-]+", AdresseDocteurTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez l'adresse ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z]*", SpecialiteTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez l'adresse ! ");
+
+            if (!Pattern.matches(experiencePattern, ExperienceDocteurTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Vérification", "Veuillez saisir l'expérience du docteur au format '2 years'");
                 return false;
             }
 
+            if (!Pattern.matches(emailPattern, MailDocteurTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Vérification", "Veuillez saisir une adresse e-mail valide au format xyz@example.com");
+                return false;
+            }
 
+            if (!Pattern.matches(addressPattern, AdresseDocteurTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Vérification", "Veuillez saisir une adresse valide au format '03 XXX Road'");
+                return false;
+            }
+
+            if (!Pattern.matches("[A-Za-z]+", SpecialiteTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez la spécialité ! ");
+                return false;
+            }
         }
         return true;
-
     }
+
 
     public void sujet_btn(ActionEvent actionEvent) {
     }
