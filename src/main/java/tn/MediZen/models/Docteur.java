@@ -3,14 +3,24 @@ package tn.MediZen.models;
 import java.util.List;
 
 public class Docteur {
-    private String nom, prenom, mail,addresse, specialite, experience;
+    private String nom, prenom, mail, addresse, specialite, experience;
     private int id, mobile, reservationId;
+
     public Docteur() {
     }
 
     public Docteur(int id, String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.addresse = addresse;
+        this.specialite = specialite;
+        this.experience = experience;
+        this.mobile = mobile;
     }
-    public Docteur(int id,String nom, String prenom, String mail, String experience,int mobile, String addresse, String specialite, int reservationId ) {
+
+    public Docteur(int id, String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite, int reservationId) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -22,7 +32,7 @@ public class Docteur {
         this.reservationId = reservationId;
     }
 
-    public Docteur(String nom, String prenom, String mail, String experience,int mobile, String addresse, String specialite, int reservationId) {
+    public Docteur(String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite, int reservationId) {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
@@ -32,7 +42,6 @@ public class Docteur {
         this.mobile = mobile;
         this.reservationId = reservationId;
     }
-
 
 
     public String getNom() {

@@ -8,7 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import tn.MediZen.controllers.Reservation.AjouterReservation;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -28,11 +30,13 @@ public class HomeController {
     private Button logoutt;
 
     @FXML
-    private AnchorPane main_forum;
+    private BorderPane borderPanetf;
 
     @FXML
     private Label welcomeid;
 
+    @FXML
+    private AnchorPane main_forum;
     @FXML
     void AjouterSponseur(ActionEvent event) {
 
@@ -73,11 +77,29 @@ public class HomeController {
 
     }
 
-    @FXML
-    void revervation_btn(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
-        welcomeid.getScene().setRoot(root);
+
+
+
+
+
+    @FXML
+    private void revervation_btn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Reservation/AjouterReservation.fxml"));
+            AnchorPane ajouterReservationPane = loader.load();
+
+            // Get the controller
+            AjouterReservation controller = loader.getController();
+
+            // Initialize the controller
+            controller.initialize();
+
+            // Replace the content of the main_forum AnchorPane with the loaded form
+            main_forum.getChildren().setAll(ajouterReservationPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

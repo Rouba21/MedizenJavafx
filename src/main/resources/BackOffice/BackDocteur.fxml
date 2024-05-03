@@ -10,148 +10,186 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.MediZen.controllers.BackDocteur">
-   <children>
-      <AnchorPane layoutX="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: F4F4F4;">
-         <children>
-            <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="-5.0" prefHeight="806.0" prefWidth="319.0" style="-fx-background-color: #05071F;">
-               <children>
-                  <ImageView fitHeight="326.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Medizen_logo.png" />
-                     </image>
-                  </ImageView>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <children>
-                        <Button fx:id="btn_acceuil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Dashboard" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="27.0">
-                                 <image>
-                                    <Image url="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/icones/dashboard.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.MediZen.controllers.BackDocteur">
+    <children>
+        <AnchorPane layoutX="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: F4F4F4;">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="-5.0" prefHeight="806.0" prefWidth="319.0"
+                      style="-fx-background-color: #05071F;">
+                    <children>
+                        <ImageView fitHeight="326.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Medizen_logo.png"/>
+                            </image>
+                        </ImageView>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <children>
+                                <Button fx:id="btn_acceuil" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Dashboard" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="27.0" fitWidth="27.0">
+                                            <image>
+                                                <Image url="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/icones/dashboard.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                            <children>
+                                <Button fx:id="btn_user" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" onAction="#go_userback" prefHeight="50.0"
+                                        prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Gestion Profile" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                                            <image>
+                                                <Image url="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/icones/User.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <children>
+                                <Button fx:id="btn_blog" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Gestion Reclamation" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="33.0" fitWidth="33.0">
+                                            <image>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <children>
+                                <Button fx:id="btn_blog2" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" onAction="#go_blogback" prefHeight="50.0"
+                                        prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Gestion Blog" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                                            <image>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <children>
+                                <Button fx:id="btn_employe" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" onAction="#go_employeback" prefHeight="50.0"
+                                        prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Gestion Employe" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0">
+                                            <image>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <children>
+                                <Button fx:id="btn_reservation" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" onAction="#go_reservationback" prefHeight="50.0"
+                                        prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Gestion Reservation" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView>
+                                            <image>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="319.0">
+                            <children>
+                                <Button fx:id="btn_offre" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                        mnemonicParsing="false" onAction="#go_offreback" prefHeight="50.0"
+                                        prefWidth="319.0"
+                                        stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                        text="Gestion Offre Demande" textAlignment="CENTER" textFill="#e7e5e5">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="33.0" fitWidth="33.0">
+                                            <image>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="46.0" prefWidth="319.0"/>
+                        <Button fx:id="btn_blog1" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                                mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0"
+                                style="-fx-background-color: #10165F;"
+                                stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css"
+                                text="               Admin" textAlignment="CENTER" textFill="#e7e5e5">
+                            <font>
+                                <Font name="System Bold" size="24.0"/>
+                            </font>
                         </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <children>
-                        <Button fx:id="btn_user" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#go_userback" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Gestion Profile" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0">
-                                 <image>
-                                    <Image url="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/icones/User.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <children>
-                        <Button fx:id="btn_blog" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Gestion Reclamation" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="33.0">
-                                 <image>
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <children>
-                        <Button fx:id="btn_blog2" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#go_blogback" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Gestion Blog" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="40.0" fitWidth="40.0">
-                                 <image>
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <children>
-                        <Button fx:id="btn_employe" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#go_employeback" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Gestion Employe" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0">
-                                 <image>
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <children>
-                        <Button fx:id="btn_reservation" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#go_reservationback" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Gestion Reservation" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView>
-                                 <image>
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="319.0">
-                     <children>
-                        <Button fx:id="btn_offre" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#go_offreback" prefHeight="50.0" prefWidth="319.0" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="Gestion Offre Demande" textAlignment="CENTER" textFill="#e7e5e5">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="33.0">
-                                 <image>
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="46.0" prefWidth="319.0" />
-                  <Button fx:id="btn_blog1" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" style="-fx-background-color: #10165F;" stylesheets="@../../../../../../Desktop/Fi_Thnity-main/src/com/fithnity/view/style.css" text="               Admin" textAlignment="CENTER" textFill="#e7e5e5">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <ListView fx:id="ListReservationsT" layoutX="343.0" layoutY="24.0" prefHeight="649.0" prefWidth="851.0" />
-            <Button fx:id="ValiderReservationBTN" layoutX="616.0" layoutY="700.0" mnemonicParsing="false" onAction="#ValiderReservation" prefHeight="50.0" prefWidth="131.0" text="Valider" textFill="#2c9a46" />
-            <Button fx:id="RejeterReservationBTN" layoutX="778.0" layoutY="700.0" mnemonicParsing="false" onAction="#RejeterReservationBTN" prefHeight="50.0" prefWidth="131.0" text="Rejeter" textFill="#d71414" />
-         </children>
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-      </AnchorPane>
-   </children>
+                    </children>
+                </VBox>
+                <ListView fx:id="ListReservationsT" layoutX="343.0" layoutY="24.0" prefHeight="649.0"
+                          prefWidth="851.0"/>
+                <Button fx:id="ValiderReservationBTN" layoutX="616.0" layoutY="700.0" mnemonicParsing="false"
+                        onAction="#ValiderReservation" prefHeight="50.0" prefWidth="131.0" text="Valider"
+                        textFill="#2c9a46"/>
+                <Button fx:id="RejeterReservationBTN" layoutX="778.0" layoutY="700.0" mnemonicParsing="false"
+                        onAction="#RejeterReservationBTN" prefHeight="50.0" prefWidth="131.0" text="Rejeter"
+                        textFill="#d71414"/>
+            </children>
+            <padding>
+                <Insets left="20.0"/>
+            </padding>
+        </AnchorPane>
+    </children>
 </AnchorPane>

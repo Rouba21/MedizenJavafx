@@ -18,71 +18,43 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class AjouterDocteur {
-        @FXML
-        private Button AddDocteur;
-
-        @FXML
-        private TextField AdresseDocteurTF;
-
-        @FXML
-        private TextField ExperienceDocteurTF;
-
-        @FXML
-        private Button ListeDocteur;
-
-        @FXML
-        private TextField MailDocteurTF;
-
-        @FXML
-        private TextField NomDocteurTF;
-
-        @FXML
-        private TextField NumeroTelephoneDocteur;
-
-        @FXML
-        private TextField PrenomDocteurTF;
-
-        @FXML
-        private TextField SpecialiteTF;
-
-
-          @FXML
-             private Label welcomeid;
-        @FXML
-        private Button logoutt;
     private final DocteurService docteurService = new DocteurService();
+    @FXML
+    private Button AddDocteur;
+    @FXML
+    private TextField AdresseDocteurTF;
+    @FXML
+    private TextField ExperienceDocteurTF;
+    @FXML
+    private Button ListeDocteur;
+    @FXML
+    private TextField MailDocteurTF;
+    @FXML
+    private TextField NomDocteurTF;
+    @FXML
+    private TextField NumeroTelephoneDocteur;
+    @FXML
+    private TextField PrenomDocteurTF;
+    @FXML
+    private TextField SpecialiteTF;
+    @FXML
+    private Label welcomeid;
+    @FXML
+    private Button logoutt;
 
+    public static void Alert(Alert.AlertType type, String title, String header, String text) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(text);
+        alert.showAndWait();
 
-        @FXML
-        void AjouterDocteur(ActionEvent event) {
-
-        }
+    }
 
     public void docteur_btn(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
-
-        @FXML
-        void etablissement_btn(ActionEvent event) {
-
-        }
-
-        @FXML
-        void event_btn(ActionEvent event) {
-
-        }
-
-
-        @FXML
-        void home_btn(ActionEvent event) {
-
-        }
-
-        @FXML
-        void medicament_btn(ActionEvent event) {
-
-        }
 
     @FXML
     void revervation_btn(ActionEvent event) throws IOException {
@@ -91,15 +63,9 @@ public class AjouterDocteur {
         welcomeid.getScene().setRoot(root);
     }
 
-
-
-
-
-
-
     @FXML
     private void AjouterDocteur() {
-        if (Saisi()){
+        if (Saisi()) {
             try {
 
                 Docteur docteur = new Docteur();
@@ -129,6 +95,7 @@ public class AjouterDocteur {
         SpecialiteTF.clear();
         ExperienceDocteurTF.clear();
     }
+
     @FXML
     void gotolistdocteur(ActionEvent event) {
         try {
@@ -140,14 +107,6 @@ public class AjouterDocteur {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-    public static void Alert(Alert.AlertType type, String title, String header, String text) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        alert.setContentText(text);
-        alert.showAndWait();
-
     }
 
     private boolean Saisi() {
@@ -188,6 +147,28 @@ public class AjouterDocteur {
         return true;
 
     }
+
+    @FXML
+    void etablissement_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void event_btn(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void home_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void medicament_btn(ActionEvent event) {
+
+    }
+
     @FXML
     void sponseur_btn(ActionEvent event) {
 

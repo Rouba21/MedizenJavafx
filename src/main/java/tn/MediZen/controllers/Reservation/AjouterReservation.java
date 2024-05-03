@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -135,6 +136,11 @@ public class AjouterReservation implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Docteur> doctors = docteurService.getAll();
+        DocteurSelectedListView.getItems().addAll(doctors);
+    }
+
+    public void initialize() {
         List<Docteur> doctors = docteurService.getAll();
         DocteurSelectedListView.getItems().addAll(doctors);
     }

@@ -10,6 +10,7 @@ import tn.MediZen.models.Reservation;
 import tn.MediZen.services.ReservationService;
 import tn.MediZen.models.Docteur;
 import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -53,11 +54,12 @@ public class ModifierReservation implements Initializable {
     private ListView<Reservation> ListReservationsM;
     private final ReservationService rs = new ReservationService();
     private final ReservationService reservationService = new ReservationService();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
         ListReservationsM.setItems(reservations);
-        ListReservationsM.setOnMouseClicked((MouseEvent event)->{
+        ListReservationsM.setOnMouseClicked((MouseEvent event) -> {
 
             Reservation current = ListReservationsM.getSelectionModel().getSelectedItem();
             current.getId();
@@ -69,15 +71,15 @@ public class ModifierReservation implements Initializable {
             StatusTF.setText(current.getStatus());
 
 
-
-    });
+        });
     }
+
     @FXML
     public void ModifierReservation() {
         if (Saisie() == true) {
             LocalDate localDate = DateReservationF.getValue();
             Reservation current = ListReservationsM.getSelectionModel().getSelectedItem();
-            Reservation p = new Reservation(Integer.parseInt(NumeroTelephone.getText()),NomTF.getText(), PrenomTF.getText(), DescriptionDeProblemeTF.getText(), AdresseTF.getText(), StatusTF.getText(), localDate,(Docteur) DocteurSelectedListView.getSelectionModel().getSelectedItem()
+            Reservation p = new Reservation(Integer.parseInt(NumeroTelephone.getText()), NomTF.getText(), PrenomTF.getText(), DescriptionDeProblemeTF.getText(), AdresseTF.getText(), StatusTF.getText(), localDate, (Docteur) DocteurSelectedListView.getSelectionModel().getSelectedItem()
             );
             p.setId(current.getId());
             p.setSurname(PrenomTF.getText());
@@ -102,6 +104,7 @@ public class ModifierReservation implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
     public static void Alert(Alert.AlertType type, String title, String header, String text) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
@@ -110,6 +113,7 @@ public class ModifierReservation implements Initializable {
         alert.showAndWait();
 
     }
+
     private boolean Saisie() {
 
         if (NomTF.getText().isEmpty() || PrenomTF.getText().isEmpty() || AdresseTF.getText().isEmpty() || NumeroTelephone.getText().isEmpty() || DescriptionDeProblemeTF.getText().isEmpty()) {
@@ -145,20 +149,6 @@ public class ModifierReservation implements Initializable {
 
     }
 
-    public void home_btn(ActionEvent actionEvent) {
-    }
-
-    public void event_btn(ActionEvent actionEvent) {
-    }
-
-    public void sponseur_btn(ActionEvent actionEvent) {
-    }
-
-    public void sujet_btn(ActionEvent actionEvent) {
-    }
-
-    public void etablissement_btn(ActionEvent actionEvent) {
-    }
 
     @FXML
     void revervation_btn(ActionEvent event) throws IOException {
@@ -174,5 +164,21 @@ public class ModifierReservation implements Initializable {
     public void docteur_btn(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
+    }
+
+
+    public void home_btn(ActionEvent actionEvent) {
+    }
+
+    public void event_btn(ActionEvent actionEvent) {
+    }
+
+    public void sponseur_btn(ActionEvent actionEvent) {
+    }
+
+    public void sujet_btn(ActionEvent actionEvent) {
+    }
+
+    public void etablissement_btn(ActionEvent actionEvent) {
     }
 }

@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MaConnexion {
-    final String URL="jdbc:mysql://localhost:3306/medizentest";
-    final  String USR="root";
-    final  String PWD="";
+    final String URL = "jdbc:mysql://localhost:3306/medizentest";
+    final String USR = "root";
+    final String PWD = "";
 
     //att
     private Connection cnx;
@@ -28,7 +28,7 @@ public class MaConnexion {
     }
 
     public static MaConnexion getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             try {
                 instance = new MaConnexion();
             } catch (SQLException e) {

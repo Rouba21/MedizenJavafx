@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 
-
 import java.io.IOException;
 
 public class MainFX extends Application {
@@ -23,10 +22,10 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Home.fxml"));
         try {
-            Parent root=loader.load();
-            Scene scene=new Scene(root);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
             primaryStage.setTitle("Home");
             primaryStage.setScene(scene);
             primaryStage.show();

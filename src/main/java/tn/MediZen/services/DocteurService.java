@@ -101,7 +101,6 @@ public class DocteurService implements IDocteur<Docteur> {
     }
 
 
-
     private Docteur mapToDocteur(ResultSet rs) throws SQLException {
         return new Docteur(
                 rs.getInt("id"),

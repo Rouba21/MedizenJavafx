@@ -1,5 +1,10 @@
 package tn.MediZen.models;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
+
 import java.time.LocalDate;
 
 public class Reservation {
@@ -7,10 +12,10 @@ public class Reservation {
     private int id, mobile;
     private String name, surname, problemDescription, address;
     private String status = "Pending";
-    private LocalDate reservationDate;
+    private final LocalDate reservationDate;
 
-    public Docteur docteur;
-    public int doctor_id;
+    private Docteur docteur;
+    private int doctor_id;
 
     public Reservation(int id, String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate, int doctor_id) {
         this.id = id;
@@ -21,7 +26,7 @@ public class Reservation {
         this.address = address;
         this.reservationDate = reservationDate;
         this.status = status;
-        this.doctor_id = doctor_id ;
+        this.doctor_id = doctor_id;
     }
 
     public Reservation(int mobile, String name, String surname, String problemDescription, String address, String status, LocalDate reservationDate, Docteur docteur) {
@@ -33,6 +38,7 @@ public class Reservation {
         this.status = status;
         this.reservationDate = reservationDate;
         this.docteur = docteur;
+        this.doctor_id = docteur.getId();
     }
 
     public Reservation(int mobile, String name, String surname, String problemDescription, String address, String status, LocalDate reservationDate, int doctor_id) {
@@ -43,7 +49,8 @@ public class Reservation {
         this.address = address;
         this.status = status;
         this.reservationDate = reservationDate;
-        this.doctor_id = doctor_id;
+        this.docteur = new Docteur();
+        this.docteur.setId(doctor_id);
     }
 
     public Reservation(String name, String surname, int mobile, String problemDescription, String address, String status, LocalDate reservationDate, Docteur docteur) {
@@ -55,10 +62,11 @@ public class Reservation {
         this.problemDescription = problemDescription;
         this.address = address;
         this.reservationDate = reservationDate;
-        this.docteur=docteur;
+        this.docteur = new Docteur();
+        this.docteur.setId(doctor_id);
     }
 
-    public Reservation(String name, String surname, String problemDescription, int mobile, LocalDate reservationDate , String status,String address) {
+    public Reservation(String name, String surname, String problemDescription, int mobile, LocalDate reservationDate, String status, String address) {
         this.mobile = mobile;
         this.name = name;
         this.surname = surname;
@@ -66,9 +74,9 @@ public class Reservation {
         this.address = address;
         this.reservationDate = reservationDate;
         this.status = status;
+        this.docteur = new Docteur();
+        this.docteur.setId(doctor_id);
     }
-
-
 
 
     public int getId() {
@@ -130,6 +138,7 @@ public class Reservation {
     public String getStatus() {
         return status;
     }
+
     public Docteur getDocteur() {
         return docteur;
     }
@@ -144,8 +153,8 @@ public class Reservation {
 
     public void setDocteur(Docteur docteur) {
         this.docteur = docteur;
+        this.doctor_id = docteur.getId();
     }
-
 
     public void setStatus(String status) {
         if (status.equals("Pending") || status.equals("Rejected") || status.equals("Accepted")) {
@@ -153,6 +162,32 @@ public class Reservation {
         } else {
             throw new IllegalArgumentException("Invalid status value. Status must be one of: Pending, Rejected, Accepted");
         }
+    }
+
+
+    public ListCell<Reservation> call(ListView<Reservation> param) {
+        return new ListCell<Reservation>() {
+            @Override
+            protected void updateItem(Reservation item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item != null) {
+                    setText(item.toString());
+                    Button editButton = new Button("Edit");
+                    editButton.setOnAction(event -> {
+                        // Handle edit action here
+                    });
+                    Button deleteButton = new Button("Delete");
+                    deleteButton.setOnAction(event -> {
+                        // Handle delete action here
+                    });
+                    HBox buttonsContainer = new HBox(editButton, deleteButton);
+                    setGraphic(buttonsContainer);
+                } else {
+                    setText(null);
+                    setGraphic(null);
+                }
+            }
+        };
     }
 
     @Override

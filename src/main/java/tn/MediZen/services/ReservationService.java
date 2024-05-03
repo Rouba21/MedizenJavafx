@@ -23,7 +23,7 @@ public class ReservationService implements IReservation<Reservation> {
             preparedStatement.setString(5, reservation.getStatus());
             preparedStatement.setString(6, reservation.getName());
             preparedStatement.setString(7, reservation.getAddress());
-            preparedStatement.setInt(8, reservation.getDoctor_id());
+            preparedStatement.setInt(8, reservation.getDocteur().getId());
             preparedStatement.executeUpdate();
             System.out.println("Reservation added with success!");
         } catch (SQLException e) {
@@ -40,7 +40,7 @@ public class ReservationService implements IReservation<Reservation> {
 
         }
 
-        String request = "UPDATE reservation SET surname=?, problem_description=?, mobile=?, reservation_date=?, status=?, name=?, address=? WHERE id=?";
+        String request = "UPDATE reservation SET surname=?, problem_description=?, mobile=?, reservation_date=?, status=?, name=?, address=?,doctor_id=? WHERE id=?";
         try (PreparedStatement preparedStatement = cnx.prepareStatement(request)) {
             preparedStatement.setString(1, reservation.getSurname());
             preparedStatement.setString(2, reservation.getProblemDescription());

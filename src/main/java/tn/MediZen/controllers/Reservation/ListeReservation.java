@@ -47,6 +47,7 @@ public class ListeReservation {
             }
         }
     }
+
     private boolean showConfirmationDialog() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation de suppression");
@@ -62,7 +63,7 @@ public class ListeReservation {
 
     @FXML
     private void redirectToModiferReservation() throws IOException {
-        Parent root3 = FXMLLoader .load(getClass().getResource("/Reservation/ModifierReservation.fxml"));
+        Parent root3 = FXMLLoader.load(getClass().getResource("/Reservation/ModifierReservation.fxml"));
         Stage window = (Stage) ModifierButton.getScene().getWindow();
         window.setScene(new Scene(root3));
 
@@ -98,6 +99,8 @@ public class ListeReservation {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
+
+
 }
 
 

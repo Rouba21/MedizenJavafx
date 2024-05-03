@@ -1,4 +1,5 @@
 package tn.MediZen.controllers.Docteur;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,8 +21,6 @@ import java.util.ResourceBundle;
 
 public class ListeDocteur implements Initializable {
 
-
-
     @FXML
     private Label welcomeid;
 
@@ -39,6 +38,7 @@ public class ListeDocteur implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadDocteurs();
     }
+
     private void loadDocteurs() {
         ObservableList<Docteur> docteurs = FXCollections.observableArrayList(docteurService.getAll());
         ListDocteurTT.setItems(docteurs);
@@ -59,7 +59,6 @@ public class ListeDocteur implements Initializable {
     }
 
 
-
     public void SupprimerDocteur(javafx.event.ActionEvent actionEvent) {
         Docteur docteurToDelete = ListDocteurTT.getSelectionModel().getSelectedItem();
 
@@ -73,26 +72,11 @@ public class ListeDocteur implements Initializable {
     }
 
     public void redirectToModiferDocteur(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root3 = FXMLLoader .load(getClass().getResource("/Docteur/ModifierDocteur.fxml"));
+        Parent root3 = FXMLLoader.load(getClass().getResource("/Docteur/ModifierDocteur.fxml"));
         Stage window = (Stage) ModifierDocteur.getScene().getWindow();
         window.setScene(new Scene(root3));
     }
 
-
-    public void home_btn(ActionEvent actionEvent) {
-    }
-
-    public void event_btn(ActionEvent actionEvent) {
-    }
-
-    public void sponseur_btn(ActionEvent actionEvent) {
-    }
-
-    public void sujet_btn(ActionEvent actionEvent) {
-    }
-
-    public void etablissement_btn(ActionEvent actionEvent) {
-    }
 
     @FXML
     void revervation_btn(ActionEvent event) throws IOException {
@@ -108,5 +92,20 @@ public class ListeDocteur implements Initializable {
     public void docteur_btn(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
+    }
+
+    public void home_btn(ActionEvent actionEvent) {
+    }
+
+    public void event_btn(ActionEvent actionEvent) {
+    }
+
+    public void sponseur_btn(ActionEvent actionEvent) {
+    }
+
+    public void sujet_btn(ActionEvent actionEvent) {
+    }
+
+    public void etablissement_btn(ActionEvent actionEvent) {
     }
 }
