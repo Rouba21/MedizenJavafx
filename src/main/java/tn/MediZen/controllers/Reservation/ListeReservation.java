@@ -69,7 +69,23 @@ public class ListeReservation {
 
     }
 
-    public void home_btn(ActionEvent actionEvent) {
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
+    }
+
+
+    @FXML
+    void revervation_btn(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
+
+
+    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
+        welcomeid.getScene().setRoot(root);
     }
 
     public void event_btn(ActionEvent actionEvent) {
@@ -84,22 +100,8 @@ public class ListeReservation {
     public void etablissement_btn(ActionEvent actionEvent) {
     }
 
-    @FXML
-    void revervation_btn(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
-        welcomeid.getScene().setRoot(root);
-    }
-
-
     public void medicament_btn(ActionEvent actionEvent) {
     }
-
-    public void docteur_btn(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
-        welcomeid.getScene().setRoot(root);
-    }
-
 
 }
 

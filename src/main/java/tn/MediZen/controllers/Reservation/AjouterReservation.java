@@ -2,11 +2,16 @@ package tn.MediZen.controllers.Reservation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import tn.MediZen.models.Docteur; // Assuming you have a Docteur class
+import javafx.stage.Stage;
+import tn.MediZen.models.Docteur;
 import tn.MediZen.models.Reservation;
-import tn.MediZen.services.DocteurService; // Assuming you have a service for managing doctors
+import tn.MediZen.services.DocteurService;
 import tn.MediZen.services.ReservationService;
 
 import java.io.IOException;
@@ -15,12 +20,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.Node;
 
 public class AjouterReservation implements Initializable {
 
@@ -145,7 +144,9 @@ public class AjouterReservation implements Initializable {
         DocteurSelectedListView.getItems().addAll(doctors);
     }
 
-    public void home_btn(ActionEvent actionEvent) {
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
     }
 
     public void event_btn(ActionEvent actionEvent) {

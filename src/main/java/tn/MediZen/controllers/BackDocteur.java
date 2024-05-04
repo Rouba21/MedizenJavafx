@@ -53,15 +53,32 @@ public class BackDocteur implements Initializable {
         ListReservationsT.setItems(reservations);
         ListReservationsT.setOnMouseClicked((MouseEvent event) -> {
             Reservation current = ListReservationsT.getSelectionModel().getSelectedItem();
-            if (1==1) {
-                NomTF.setText(current.getName());
-                PrenomTF.setText(current.getSurname());
-                NumeroTelephone.setText(String.valueOf(current.getMobile()));
-                DescriptionDeProblemeTF.setText(current.getProblemDescription());
-                AdresseTF.setText(current.getAddress());
-                StatusTF.setText(current.getStatus());
-            }
+            NomTF.setText(current.getName());
+            PrenomTF.setText(current.getSurname());
+            NumeroTelephone.setText(String.valueOf(current.getMobile()));
+            DescriptionDeProblemeTF.setText(current.getProblemDescription());
+            AdresseTF.setText(current.getAddress());
+            StatusTF.setText(current.getStatus());
+
         });
+    }
+
+    public void ValiderReservation() {
+        Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
+        if (selectedReservation != null) {
+            selectedReservation.setStatus("Accepted");
+            reservationService.update(selectedReservation);
+            ListReservationsT.refresh();
+        }
+    }
+
+    public void RejeterReservationBTN() {
+        Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
+        if (selectedReservation != null) {
+            selectedReservation.setStatus("Rejected");
+            reservationService.update(selectedReservation);
+            ListReservationsT.refresh();
+        }
     }
 
 
@@ -80,21 +97,5 @@ public class BackDocteur implements Initializable {
     public void go_offreback(ActionEvent actionEvent) {
     }
 
-    public void ValiderReservation(ActionEvent actionEvent) {
-        Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
-        if (selectedReservation != null) {
-            selectedReservation.setStatus("Accepted");
-            reservationService.update(selectedReservation);
-            ListReservationsT.refresh();
-        }
-    }
 
-    public void RejeterReservationBTN(ActionEvent actionEvent) {
-        Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
-        if (selectedReservation != null) {
-            selectedReservation.setStatus("Rejected");
-            reservationService.update(selectedReservation);
-            ListReservationsT.refresh();
-        }
-    }
 }

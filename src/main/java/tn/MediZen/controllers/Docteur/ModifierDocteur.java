@@ -177,7 +177,9 @@ public class ModifierDocteur implements Initializable {
     public void medicament_btn(ActionEvent actionEvent) {
     }
 
-    public void home_btn(ActionEvent actionEvent) {
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
     }
 
     public void event_btn(ActionEvent actionEvent) {

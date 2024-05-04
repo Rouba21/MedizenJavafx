@@ -126,7 +126,6 @@ public class Docteur {
                 ", specialite='" + specialite + '\'' +
                 ", experience='" + experience + '\'' +
                 ", mobile=" + mobile +
-                ", reservationId=" + reservationId +
                 '}';
     }
 }

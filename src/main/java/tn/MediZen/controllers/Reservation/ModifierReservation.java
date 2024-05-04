@@ -4,24 +4,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import tn.MediZen.models.Docteur;
 import tn.MediZen.models.Reservation;
 import tn.MediZen.services.ReservationService;
-import tn.MediZen.models.Docteur;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 public class ModifierReservation implements Initializable {
     @FXML
@@ -76,21 +75,35 @@ public class ModifierReservation implements Initializable {
 
     @FXML
     public void ModifierReservation() {
-        if (Saisie() == true) {
+        if (Saisie()) {
             LocalDate localDate = DateReservationF.getValue();
             Reservation current = ListReservationsM.getSelectionModel().getSelectedItem();
-            Reservation p = new Reservation(Integer.parseInt(NumeroTelephone.getText()), NomTF.getText(), PrenomTF.getText(), DescriptionDeProblemeTF.getText(), AdresseTF.getText(), StatusTF.getText(), localDate, (Docteur) DocteurSelectedListView.getSelectionModel().getSelectedItem()
-            );
-            p.setId(current.getId());
-            p.setSurname(PrenomTF.getText());
-            p.setProblemDescription(DescriptionDeProblemeTF.getText());
-            p.setMobile(Integer.parseInt(NumeroTelephone.getText()));
-            p.setReservationDate(localDate);
-            p.setName(NomTF.getText());
-            p.setAddress(AdresseTF.getText());
-            rs.update(p);
+            Docteur selectedDoctor = (Docteur) DocteurSelectedListView.getSelectionModel().getSelectedItem();
+            if (selectedDoctor != null) {
+                int doctorId = selectedDoctor.getId();
+
+                current.setSurname(PrenomTF.getText());
+                current.setProblemDescription(DescriptionDeProblemeTF.getText());
+                current.setMobile(Integer.parseInt(NumeroTelephone.getText()));
+                current.setReservationDate(localDate);
+                current.setName(NomTF.getText());
+                current.setAddress(AdresseTF.getText());
+                current.setStatus(StatusTF.getText());
+                current.setDoctor_id(doctorId);
+
+                rs.update(current);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Réservation modifiée avec succès!");
+                alert.show();
+            } else {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Sélectionnez une réservation", "Veuillez sélectionner une réservation à modifier !");
+            }
         }
     }
+
 
     @FXML
     void redirectionListeReservationn(ActionEvent event) {
@@ -149,6 +162,10 @@ public class ModifierReservation implements Initializable {
 
     }
 
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
+    }
 
     @FXML
     void revervation_btn(ActionEvent event) throws IOException {
@@ -157,18 +174,14 @@ public class ModifierReservation implements Initializable {
         welcomeid.getScene().setRoot(root);
     }
 
-
-    public void medicament_btn(ActionEvent actionEvent) {
-    }
-
-    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+    public void docteur_btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
 
-
-    public void home_btn(ActionEvent actionEvent) {
+    public void medicament_btn(ActionEvent actionEvent) {
     }
+
 
     public void event_btn(ActionEvent actionEvent) {
     }

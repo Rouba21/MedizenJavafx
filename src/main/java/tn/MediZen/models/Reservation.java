@@ -193,14 +193,14 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation{" +
-                "mobile=" + mobile +
+                "id=" + id +
+                ", mobile=" + mobile +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", problemDescription='" + problemDescription + '\'' +
                 ", address='" + address + '\'' +
                 ", status='" + status + '\'' +
                 ", reservationDate=" + reservationDate +
-                ", docteur=" + docteur +
                 ", doctor_id=" + doctor_id +
                 '}';
     }

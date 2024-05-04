@@ -53,7 +53,8 @@ public class HomeController {
     }
 
     @FXML
-    void home_btn(ActionEvent event) {
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
 
     }
 

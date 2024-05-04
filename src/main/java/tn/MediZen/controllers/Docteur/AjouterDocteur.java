@@ -12,12 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.MediZen.models.Docteur;
-import tn.MediZen.models.Reservation;
 import tn.MediZen.services.DocteurService;
-import tn.MediZen.services.ReservationService;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class AjouterDocteur {
@@ -170,8 +167,8 @@ public class AjouterDocteur {
 
 
     @FXML
-    void home_btn(ActionEvent event) {
-
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
     }
 
     @FXML
