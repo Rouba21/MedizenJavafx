@@ -1,0 +1,148 @@
+
+.afficherutilisateur {
+    -fx-effect: innershadow(gaussian, rgba(5, 7, 93, 0.4), 25, 1, 1, 10);
+    -fx-background-color: linear-gradient(to right, transparent, rgba(63, 67, 190, 0.96), transparent);
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-background-radius: 0;
+    -fx-background-position: left top, left top, left top, left top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%, auto, auto, auto;
+    -fx-border-color: black; /* Set border color to black */
+    -fx-border-width: 1px; /* Set border width */
+    -fx-transition: all 650ms;
+}
+
+.afficherutilisateur:hover {
+    -fx-background-position: right top, left top, left top, left top;
+    -fx-scale-x: 1.1; /* Scale factor for X-axis */
+    -fx-scale-y: 1.1; /* Scale factor for Y-axis */
+}
+.AjouterUtilisateur{
+    -fx-effect: innershadow(gaussian, rgba(5, 7, 93, 0.4), 25, 1, 1, 10);
+    -fx-background-color: linear-gradient(to right, transparent, rgba(131, 133, 203, 0.82), transparent);
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-background-radius: 0;
+    -fx-background-position: left top, left top, left top, left top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%, auto, auto, auto;
+    -fx-border-color: black; /* Set border color to black */
+    -fx-border-width: 1px; /* Set border width */
+    -fx-transition: all 650ms;
+
+}
+.AjouterUtilisateur:hover {
+    -fx-background-position: right top, left top, left top, left top;
+    -fx-scale-x: 1.1; /* Scale factor for X-axis */
+    -fx-scale-y: 1.1; /* Scale factor for Y-axis */
+}
+
+.AfficherDB{
+    -fx-effect: innershadow(gaussian, rgba(5, 7, 93, 0.4), 25, 1, 1, 10);
+    -fx-background-color: linear-gradient(to right, transparent, rgba(131, 133, 203, 0.82), transparent);
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-background-radius: 0;
+    -fx-background-position: left top, left top, left top, left top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%, auto, auto, auto;
+    -fx-border-color: black; /* Set border color to black */
+    -fx-border-width: 1px; /* Set border width */
+    -fx-transition: all 650ms;
+
+}
+.AfficherDB:hover {
+    -fx-background-position: right top, left top, left top, left top;
+    -fx-scale-x: 1.1; /* Scale factor for X-axis */
+    -fx-scale-y: 1.1; /* Scale factor for Y-axis */
+}
+
+.LoginBT{
+    -fx-effect: innershadow(gaussian, rgba(5, 7, 93, 0.4), 25, 1, 1, 10);
+    -fx-background-color: linear-gradient(to right, transparent, rgba(131, 133, 203, 0.82), transparent);
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-background-radius: 0;
+    -fx-background-position: left top, left top, left top, left top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%, auto, auto, auto;
+    -fx-border-color: #ffffff; /* Set border color to black */
+    -fx-border-width: 1px; /* Set border width */
+    -fx-transition: all 650ms;
+
+}
+.LoginBT:hover {
+    -fx-background-position: right top, left top, left top, left top;
+    -fx-scale-x: 1.1; /* Scale factor for X-axis */
+    -fx-scale-y: 1.1; /* Scale factor for Y-axis */
+}
+.product-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-cursor: hand;
+}
+
+.product-card:hover {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #bbbbbb;
+}
+
+.product-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.product-price {
+    -fx-font-size: 14px;
+    -fx-text-fill: #009688;
+}
+
+.product-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}
+
+/* Set the background color of the page to red */
+#productPage {
+    -fx-background-color: linear-gradient(to right, #ff0000 50%, purple 50%);
+}
+
+.commande-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-cursor: hand;
+}
+
+.commande-card:hover {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #bbbbbb;
+}
+
+.commande-id {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.commande-produit {
+    -fx-font-size: 14px;
+    -fx-text-fill: #009688;
+}
+
+.commande-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}
+
+/* Set the background color of the page to red */
+#productPage {
+    -fx-background-color: linear-gradient(to right, #ff0000 50%, darkblue 50%);
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.projetpifinal.controllers.AddEtablissementController">
+
+    <children>
+        <ImageView fitHeight="416.0" fitWidth="279.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
+            </image></ImageView>
+        <VBox layoutX="274.0" layoutY="-2.0" prefHeight="416.0" prefWidth="330.0" style="-fx-background-color: linear-gradient(to right, #000000, #da9a09);" />
+        <Label layoutX="445.0" layoutY="66.0" text="Latitude">
+            <textFill>
+                <RadialGradient centerX="0.5" centerY="0.5" focusAngle="162.47" radius="0.5">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color opacity="0.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color />
+                            </color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </textFill></Label>
+        <Label layoutX="437.0" layoutY="250.0" text="Description" textFill="#000000" />
+        <Label layoutX="442.0" layoutY="185.0" text="Nom" textFill="#000000" />
+        <Label layoutX="444.0" layoutY="337.0" text="Type" textFill="#000000" />
+        <Label layoutX="450.0" layoutY="118.0" text="Location">
+            <textFill>
+                <RadialGradient centerX="0.5" centerY="0.5" focusAngle="162.47" radius="0.5">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color opacity="0.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color />
+                            </color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </textFill>
+        </Label>
+        <Button id="IDBouton" layoutX="511.0" layoutY="346.0" mnemonicParsing="false" onAction="#ajouterBtn" text="Ajouter" />
+        <TextField fx:id="IDLatitude" layoutX="271.0" layoutY="104.0" />
+        <TextField fx:id="IDnom" layoutX="272.0" layoutY="169.0" />
+        <TextField fx:id="IDdescrp" layoutX="273.0" layoutY="234.0" />
+        <TextField fx:id="IDtype" layoutX="272.0" layoutY="325.0" />
+        <TextField fx:id="IDLocalisation" layoutX="276.0" layoutY="48.0" />
+        <TextField fx:id="IDLongitude" layoutX="271.0" layoutY="221.0" />
+    </children>
+</AnchorPane>
