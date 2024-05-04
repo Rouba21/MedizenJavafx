@@ -53,6 +53,7 @@ public class ModifierReservation implements Initializable {
     private ListView<Reservation> ListReservationsM;
     private final ReservationService rs = new ReservationService();
     private final ReservationService reservationService = new ReservationService();
+    private Reservation reservation;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -127,39 +128,47 @@ public class ModifierReservation implements Initializable {
 
     }
 
-    private boolean Saisie() {
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+        if (reservation != null) {
+            NomTF.setText(reservation.getName());
+            PrenomTF.setText(reservation.getSurname());
+            NumeroTelephone.setText(String.valueOf(reservation.getMobile()));
+            DescriptionDeProblemeTF.setText(reservation.getProblemDescription());
+            DateReservationF.setValue(reservation.getReservationDate());
+            AdresseTF.setText(reservation.getAddress());
+            StatusTF.setText(reservation.getStatus());
+        }
+    }
 
+    private boolean Saisie() {
         if (NomTF.getText().isEmpty() || PrenomTF.getText().isEmpty() || AdresseTF.getText().isEmpty() || NumeroTelephone.getText().isEmpty() || DescriptionDeProblemeTF.getText().isEmpty()) {
-            Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !!", "Veuillez bien remplir tous les champs !");
+            Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Veuillez bien remplir tous les champs !");
             return false;
         } else {
-
             if (!Pattern.matches("\\d{8}", NumeroTelephone.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !!", "Votre Num doit etre composé de huit chiffres! ");
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Votre Num doit etre composé de huit chiffres! ");
                 return false;
             }
-
             if (!Pattern.matches("[A-Za-z]*", NomTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le nom ! ");
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Vérifiez le nom ! ");
                 return false;
             }
             if (!Pattern.matches("[A-Za-z]*", PrenomTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le prenom ! ");
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Vérifiez le prenom ! ");
                 return false;
             }
-            if (!Pattern.matches("[A-Za-z]*", DescriptionDeProblemeTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le descriiption du probléme ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z]*", AdresseTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez l'adresse ! ");
+            if (!Pattern.matches("[A-Za-z\\s]*", DescriptionDeProblemeTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Vérifiez la description du problème !");
                 return false;
             }
 
-
+            if (!Pattern.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", AdresseTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Vérifiez votre email ! ");
+                return false;
+            }
         }
         return true;
-
     }
 
     @FXML
@@ -194,4 +203,6 @@ public class ModifierReservation implements Initializable {
 
     public void etablissement_btn(ActionEvent actionEvent) {
     }
-}
+
+
+    }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationService implements IReservation<Reservation> {
-    private final Connection cnx = MaConnexion.getInstance().getCnx();
+    private static final Connection cnx = MaConnexion.getInstance().getCnx();
     private Statement st;
 
     @Override
@@ -37,25 +37,30 @@ public class ReservationService implements IReservation<Reservation> {
         LocalDate reservationDate = reservation.getReservationDate();
         if (reservationDate == null) {
             reservationDate = LocalDate.now();
-
         }
 
-        String request = "UPDATE reservation SET surname=?, problem_description=?, mobile=?, reservation_date=?, status=?, name=?, address=?,doctor_id=? WHERE id=?";
-        try (PreparedStatement preparedStatement = cnx.prepareStatement(request)) {
-            preparedStatement.setString(1, reservation.getSurname());
-            preparedStatement.setString(2, reservation.getProblemDescription());
-            preparedStatement.setInt(3, reservation.getMobile());
-            preparedStatement.setDate(4, java.sql.Date.valueOf(reservationDate));
-            preparedStatement.setString(5, reservation.getStatus());
-            preparedStatement.setString(6, reservation.getName());
-            preparedStatement.setString(7, reservation.getAddress());
-            preparedStatement.setInt(8, reservation.getDocteur().getId());
-            preparedStatement.setInt(9, reservation.getId());
+        // Vérification de nullité pour éviter NullPointerException
+        Docteur docteur = reservation.getDocteur();
+        if (docteur != null) {
+            String request = "UPDATE reservation SET surname=?, problem_description=?, mobile=?, reservation_date=?, status=?, name=?, address=?,doctor_id=? WHERE id=?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(request)) {
+                preparedStatement.setString(1, reservation.getSurname());
+                preparedStatement.setString(2, reservation.getProblemDescription());
+                preparedStatement.setInt(3, reservation.getMobile());
+                preparedStatement.setDate(4, java.sql.Date.valueOf(reservationDate));
+                preparedStatement.setString(5, reservation.getStatus());
+                preparedStatement.setString(6, reservation.getName());
+                preparedStatement.setString(7, reservation.getAddress());
+                preparedStatement.setInt(8, docteur.getId()); // Utilisation de docteur.getId() au lieu de reservation.getDocteur().getId()
+                preparedStatement.setInt(9, reservation.getId());
 
-            preparedStatement.executeUpdate();
-            System.out.println("Reservation updated with success!");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+                preparedStatement.executeUpdate();
+                System.out.println("Reservation updated with success!");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("Cannot update reservation because Docteur is null.");
         }
     }
 
@@ -71,7 +76,7 @@ public class ReservationService implements IReservation<Reservation> {
         }
     }
 
-    @Override
+
     public Reservation getOne(int id) {
         String request = "SELECT * FROM reservation WHERE id=?";
         try (PreparedStatement preparedStatement = cnx.prepareStatement(request)) {
@@ -102,7 +107,7 @@ public class ReservationService implements IReservation<Reservation> {
         return reservations;
     }
 
-    private Reservation mapToReservation(ResultSet rs) throws SQLException {
+    private static Reservation mapToReservation(ResultSet rs) throws SQLException {
         DocteurService docteurService = new DocteurService();
         Docteur docteur = docteurService.getOne(rs.getInt("doctor_id"));
         return new Reservation(
@@ -111,8 +116,8 @@ public class ReservationService implements IReservation<Reservation> {
                 rs.getString("surname"),
                 rs.getInt("mobile"),
                 rs.getString("problem_description"),
-                rs.getString("status"),
                 rs.getString("address"),
+                rs.getString("status"),
                 rs.getDate("reservation_date").toLocalDate(),
                 rs.getInt("doctor_id")
         );

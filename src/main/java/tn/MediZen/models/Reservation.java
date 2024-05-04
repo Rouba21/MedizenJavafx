@@ -157,13 +157,23 @@ public class Reservation {
     }
 
     public void setStatus(String status) {
-        if (status.equals("Pending") || status.equals("Rejected") || status.equals("Accepted")) {
+        if (status.equals("pending") || status.equals("rejected") || status.equals("accepted")) {
             this.status = status;
         } else {
             throw new IllegalArgumentException("Invalid status value. Status must be one of: Pending, Rejected, Accepted");
         }
     }
 
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Surname: " + surname + ", " +
+                "Mobile: " + mobile + ", " +
+                "Status: " + status + ", Address: " + address   + ", " +
+                "Problem Description: " + problemDescription + ", " +
+                "Reservation Date: " + reservationDate + ", " +
+                "Doctor ID: " + doctor_id;
+    }
 
     public ListCell<Reservation> call(ListView<Reservation> param) {
         return new ListCell<Reservation>() {
@@ -188,20 +198,5 @@ public class Reservation {
                 }
             }
         };
-    }
-
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", mobile=" + mobile +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", problemDescription='" + problemDescription + '\'' +
-                ", address='" + address + '\'' +
-                ", status='" + status + '\'' +
-                ", reservationDate=" + reservationDate +
-                ", doctor_id=" + doctor_id +
-                '}';
     }
 }

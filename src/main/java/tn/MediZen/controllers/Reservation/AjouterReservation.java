@@ -121,10 +121,11 @@ public class AjouterReservation implements Initializable {
                 Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le prenom ! ");
                 return false;
             }
-            if (!Pattern.matches("[A-Za-z]*", DescriptionDeProblemeTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le descriiption du probléme ! ");
+            if (!Pattern.matches("[A-Za-z\\s]*", DescriptionDeProblemeTF.getText())) {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez la description du problème !");
                 return false;
             }
+
             if (!Pattern.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", AdresseTF.getText())) {
                 Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez votre email ! ");
                 return false;
@@ -138,10 +139,7 @@ public class AjouterReservation implements Initializable {
         List<Docteur> doctors = docteurService.getAll();
         DocteurSelectedListView.getItems().addAll(doctors);
     }
-
     public void initialize() {
-        List<Docteur> doctors = docteurService.getAll();
-        DocteurSelectedListView.getItems().addAll(doctors);
     }
 
     @FXML
@@ -174,4 +172,6 @@ public class AjouterReservation implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
+
+
 }
