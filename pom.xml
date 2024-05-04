@@ -35,6 +35,11 @@
             <version>13.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.calendarfx</groupId>
+            <artifactId>view</artifactId>
+            <version>11.12.7</version>
+        </dependency>
 
     </dependencies>
     <build>

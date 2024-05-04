@@ -1,10 +1,18 @@
 package tn.MediZen.models;
 
-import java.util.List;
-
 public class Docteur {
     private String nom, prenom, mail, addresse, specialite, experience;
     private int id, mobile, reservationId;
+
+    public Docteur(String nom, String prenom, String mail, String addresse, String specialite, String experience, int mobile) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.addresse = addresse;
+        this.specialite = specialite;
+        this.experience = experience;
+        this.mobile = mobile;
+    }
 
     public Docteur() {
     }
@@ -32,15 +40,7 @@ public class Docteur {
         this.reservationId = reservationId;
     }
 
-    public Docteur(String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite, int reservationId) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.mail = mail;
-        this.addresse = addresse;
-        this.specialite = specialite;
-        this.experience = experience;
-        this.mobile = mobile;
-        this.reservationId = reservationId;
+    public Docteur(String text, String text1, String text2, String text3, String text4, String text5, String text6) {
     }
 
 

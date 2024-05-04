@@ -12,9 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.MediZen.models.Docteur;
+import tn.MediZen.models.Reservation;
 import tn.MediZen.services.DocteurService;
+import tn.MediZen.services.ReservationService;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class AjouterDocteur {
@@ -41,6 +44,7 @@ public class AjouterDocteur {
     private Label welcomeid;
     @FXML
     private Button logoutt;
+    private final DocteurService rs = new DocteurService();
 
     public static void Alert(Alert.AlertType type, String title, String header, String text) {
         Alert alert = new Alert(type);
@@ -66,34 +70,35 @@ public class AjouterDocteur {
     @FXML
     private void AjouterDocteur() {
         if (Saisi()) {
-            try {
+                rs.add(new Docteur(
+                        NomDocteurTF.getText(),
+                        PrenomDocteurTF.getText(),
+                        MailDocteurTF.getText(),
+                        AdresseDocteurTF.getText(),
+                        SpecialiteTF.getText(),
+                        ExperienceDocteurTF.getText(),
+                        Integer.parseInt(NumeroTelephoneDocteur.getText()))
+                );
 
-                Docteur docteur = new Docteur();
-                docteurService.add(docteur);
-                clearFields();
-                showAlert("Docteur ajouté avec succès !");
-            } catch (NumberFormatException e) {
-                showAlert("Veuillez saisir un numéro de téléphone valide.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Docteur inséré avec succès!");
+                alert.show();
+            } else {
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Selectionnez un médecin", "Veuillez sélectionner un médecin pour la réservation !");
             }
         }
-    }
 
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
     private void clearFields() {
         NomDocteurTF.clear();
         PrenomDocteurTF.clear();
         MailDocteurTF.clear();
-        NumeroTelephoneDocteur.clear();
         AdresseDocteurTF.clear();
         SpecialiteTF.clear();
         ExperienceDocteurTF.clear();
+        NumeroTelephoneDocteur.clear();
     }
 
     @FXML
@@ -110,43 +115,48 @@ public class AjouterDocteur {
     }
 
     private boolean Saisi() {
+        String errorMessage = "";
 
         if (NomDocteurTF.getText().isEmpty() || PrenomDocteurTF.getText().isEmpty() || NumeroTelephoneDocteur.getText().isEmpty() || ExperienceDocteurTF.getText().isEmpty() || AdresseDocteurTF.getText().isEmpty() || SpecialiteTF.getText().isEmpty()) {
-            Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !!", "Veuillez bien remplir tous les champs !");
-            return false;
+            errorMessage += "Veuillez bien remplir tous les champs !\n";
         } else {
-
             if (!Pattern.matches("\\d{8}", NumeroTelephoneDocteur.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier !", "Votre Num doit etre composé de huit chiffres! ");
-                return false;
+                errorMessage += "Votre numéro de téléphone doit être composé de huit chiffres !\n";
             }
 
-            if (!Pattern.matches("[A-Za-z]*", NomDocteurTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le nom ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z]*", PrenomDocteurTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le prenom ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z]*", ExperienceDocteurTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez le descriiption du probléme ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z0-9\\s,.-]+", AdresseDocteurTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez l'adresse ! ");
-                return false;
-            }
-            if (!Pattern.matches("[A-Za-z]*", SpecialiteTF.getText())) {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Verifier ", "Vérifiez l'adresse ! ");
-                return false;
+            if (!Pattern.matches("[A-Za-zÀ-ÿ\\s]+", NomDocteurTF.getText())) {
+                errorMessage += "Vérifiez le nom !\n";
             }
 
+            if (!Pattern.matches("[A-Za-zÀ-ÿ\\s]+", PrenomDocteurTF.getText())) {
+                errorMessage += "Vérifiez le prénom !\n";
+            }
 
+            if (!Pattern.matches("[A-Za-z0-9\\s,.-]+", ExperienceDocteurTF.getText())) {
+                errorMessage += "Vérifiez l'expérience du docteur !\n";
+            }
+
+            if (!Pattern.matches("\\d+\\s[A-Za-zÀ-ÿ,\\s]+", AdresseDocteurTF.getText())) {
+                errorMessage += "Vérifiez l'adresse !\n";
+            }
+
+            if (!Pattern.matches("[A-Za-zÀ-ÿ\\s]+", SpecialiteTF.getText())) {
+                errorMessage += "Vérifiez la spécialité !\n";
+            }
+
+            if (!Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", MailDocteurTF.getText())) {
+                errorMessage += "Vérifiez l'adresse e-mail !\n";
+            }
         }
-        return true;
 
+        if (!errorMessage.isEmpty()) {
+            Alert(Alert.AlertType.ERROR, "Données invalides", "Vérifiez les champs suivants :", errorMessage);
+            return false;
+        }
+
+        return true;
     }
+
 
     @FXML
     void etablissement_btn(ActionEvent event) {
