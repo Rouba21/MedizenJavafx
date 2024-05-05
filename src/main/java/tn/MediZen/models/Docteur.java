@@ -17,6 +17,7 @@ public class Docteur {
     public Docteur() {
     }
 
+
     public Docteur(int id, String nom, String prenom, String mail, String experience, int mobile, String addresse, String specialite) {
         this.id = id;
         this.nom = nom;
@@ -115,6 +116,7 @@ public class Docteur {
     public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
     }
+
 
     @Override
     public String toString() {

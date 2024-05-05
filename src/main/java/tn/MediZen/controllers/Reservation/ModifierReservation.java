@@ -14,11 +14,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import tn.MediZen.models.Docteur;
 import tn.MediZen.models.Reservation;
+import tn.MediZen.services.DocteurService;
 import tn.MediZen.services.ReservationService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -41,7 +43,7 @@ public class ModifierReservation implements Initializable {
     private TextField AdresseTF;
 
     @FXML
-    private ListView<?> DocteurSelectedListView;
+    private ListView<Docteur> DocteurSelectedListView;
     @FXML
     private TextArea StatusTF;
 
@@ -54,56 +56,64 @@ public class ModifierReservation implements Initializable {
     private final ReservationService rs = new ReservationService();
     private final ReservationService reservationService = new ReservationService();
     private Reservation reservation;
-
+    private final DocteurService docteurService = new DocteurService();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
         ListReservationsM.setItems(reservations);
-        ListReservationsM.setOnMouseClicked((MouseEvent event) -> {
 
+        List<Docteur> doctors = docteurService.getAll();
+        DocteurSelectedListView.getItems().addAll(doctors);
+
+        // Handle selection of a reservation
+        ListReservationsM.setOnMouseClicked((MouseEvent event) -> {
             Reservation current = ListReservationsM.getSelectionModel().getSelectedItem();
-            current.getId();
             NomTF.setText(current.getName());
             PrenomTF.setText(current.getSurname());
             NumeroTelephone.setText(String.valueOf(current.getMobile()));
             DescriptionDeProblemeTF.setText(current.getProblemDescription());
             AdresseTF.setText(current.getAddress());
             StatusTF.setText(current.getStatus());
-
-
         });
     }
+
 
     @FXML
     public void ModifierReservation() {
         if (Saisie()) {
             LocalDate localDate = DateReservationF.getValue();
-            Reservation current = ListReservationsM.getSelectionModel().getSelectedItem();
-            Docteur selectedDoctor = (Docteur) DocteurSelectedListView.getSelectionModel().getSelectedItem();
+            Docteur selectedDoctor = DocteurSelectedListView.getSelectionModel().getSelectedItem();
             if (selectedDoctor != null) {
                 int doctorId = selectedDoctor.getId();
 
-                current.setSurname(PrenomTF.getText());
-                current.setProblemDescription(DescriptionDeProblemeTF.getText());
-                current.setMobile(Integer.parseInt(NumeroTelephone.getText()));
-                current.setReservationDate(localDate);
-                current.setName(NomTF.getText());
-                current.setAddress(AdresseTF.getText());
-                current.setStatus(StatusTF.getText());
-                current.setDoctor_id(doctorId);
+                Reservation selectedReservation = ListReservationsM.getSelectionModel().getSelectedItem();
+                if (selectedReservation != null) {
+                    selectedReservation.setSurname(PrenomTF.getText());
+                    selectedReservation.setProblemDescription(DescriptionDeProblemeTF.getText());
+                    selectedReservation.setMobile(Integer.parseInt(NumeroTelephone.getText()));
+                    selectedReservation.setReservationDate(localDate);
+                    selectedReservation.setName(NomTF.getText());
+                    selectedReservation.setAddress(AdresseTF.getText());
+                    selectedReservation.setStatus(StatusTF.getText());
+                    selectedReservation.setDoctor_id(doctorId);
 
-                rs.update(current);
+                    rs.update(selectedReservation);
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText(null);
-                alert.setContentText("Réservation modifiée avec succès!");
-                alert.show();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Réservation modifiée avec succès!");
+                    alert.show();
+                } else {
+                    Alert(Alert.AlertType.ERROR, "Données invalides", "Sélectionnez une réservation", "Veuillez sélectionner une réservation à modifier !");
+                }
             } else {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Sélectionnez une réservation", "Veuillez sélectionner une réservation à modifier !");
+                Alert(Alert.AlertType.ERROR, "Données invalides", "Sélectionnez un docteur", "Veuillez sélectionner un docteur pour cette réservation !");
             }
         }
     }
+
+
 
 
     @FXML

@@ -52,7 +52,7 @@ public class ReservationService implements IReservation<Reservation> {
                 preparedStatement.setString(6, reservation.getName());
                 preparedStatement.setString(7, reservation.getAddress());
                 preparedStatement.setInt(8, docteur.getId()); // Utilisation de docteur.getId() au lieu de reservation.getDocteur().getId()
-                preparedStatement.setInt(9, reservation.getId());
+
 
                 preparedStatement.executeUpdate();
                 System.out.println("Reservation updated with success!");

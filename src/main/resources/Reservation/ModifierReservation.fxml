@@ -29,7 +29,7 @@
         </TextArea>
         <Button layoutX="506.0" layoutY="316.0" mnemonicParsing="false" onAction="#redirectionListeReservationn" prefHeight="26.0" prefWidth="132.0" text="liste des réservations" />
         <ListView fx:id="ListReservationsM" layoutX="335.0" layoutY="402.0" prefHeight="107.0" prefWidth="162.0" />
-        <AnchorPane fx:id="logout" layoutX="-11.0" layoutY="3.0" prefHeight="557.0" prefWidth="131.0" styleClass="nav-form" stylesheets="@../dashboardDesign.css">
+        <AnchorPane fx:id="logout" layoutX="-20.0" layoutY="-11.0" prefHeight="572.0" prefWidth="201.0" styleClass="nav-form" stylesheets="@../dashboardDesign.css">
             <children>
                 <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
                     <font>

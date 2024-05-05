@@ -52,8 +52,13 @@ public class AjouterReservation implements Initializable {
     private TextArea StatusTF;
 
     private final ReservationService rs = new ReservationService();
-    private final DocteurService docteurService = new DocteurService(); // Assuming you have a service for managing doctors
+    private final DocteurService docteurService = new DocteurService();
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Docteur> doctors = docteurService.getAll();
+        DocteurSelectedListView.getItems().addAll(doctors);
+    }
     @FXML
     void AjouterReservation() {
         if (Saisie()) {
@@ -134,11 +139,7 @@ public class AjouterReservation implements Initializable {
         return true;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Docteur> doctors = docteurService.getAll();
-        DocteurSelectedListView.getItems().addAll(doctors);
-    }
+
     public void initialize() {
     }
 
