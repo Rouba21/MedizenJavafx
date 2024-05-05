@@ -96,6 +96,8 @@ public class ModifierReservation implements Initializable {
                     selectedReservation.setAddress(AdresseTF.getText());
                     selectedReservation.setStatus(StatusTF.getText());
                     selectedReservation.setDoctor_id(doctorId);
+                    System.out.println("Selected Reservation: " + selectedReservation);
+                    System.out.println("Selected Doctor: " + selectedDoctor);
 
                     rs.update(selectedReservation);
 

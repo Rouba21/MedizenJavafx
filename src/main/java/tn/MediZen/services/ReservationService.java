@@ -51,7 +51,7 @@ public class ReservationService implements IReservation<Reservation> {
                 preparedStatement.setString(5, reservation.getStatus());
                 preparedStatement.setString(6, reservation.getName());
                 preparedStatement.setString(7, reservation.getAddress());
-                preparedStatement.setInt(8, docteur.getId()); // Utilisation de docteur.getId() au lieu de reservation.getDocteur().getId()
+                preparedStatement.setInt(8, docteur.getId());
 
 
                 preparedStatement.executeUpdate();
@@ -59,8 +59,6 @@ public class ReservationService implements IReservation<Reservation> {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        } else {
-            System.out.println("Cannot update reservation because Docteur is null.");
         }
     }
 

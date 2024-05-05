@@ -157,7 +157,7 @@ public class Reservation {
     }
 
     public void setStatus(String status) {
-        if (status.equals("pending") || status.equals("rejected") || status.equals("accepted")) {
+        if (status.equals("pending") || status.equals("Rejected") || status.equals("Accepted")) {
             this.status = status;
         } else {
             throw new IllegalArgumentException("Invalid status value. Status must be one of: Pending, Rejected, Accepted");

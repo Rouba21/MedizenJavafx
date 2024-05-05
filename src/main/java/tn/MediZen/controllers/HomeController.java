@@ -37,51 +37,18 @@ public class HomeController {
 
     @FXML
     private AnchorPane main_forum;
+
     @FXML
     void AjouterSponseur(ActionEvent event) {
 
     }
+
     @FXML
     void MoveToBack(ActionEvent event) throws IOException {
         Parent root5 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/BackOffice/BackDocteur.fxml")));
         Stage window = (Stage) MoveToBack.getScene().getWindow();
         window.setScene(new Scene(root5));
     }
-    @FXML
-    void event_btn(ActionEvent event) {
-
-    }
-
-    @FXML
-    void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
-
-    }
-
-    @FXML
-    void naviguer(ActionEvent event) {
-
-    }
-
-    @FXML
-    void sponseur_btn(ActionEvent event) {
-
-    }
-
-    @FXML
-    void etablissement_btn(ActionEvent event) {
-
-    }
-
-    @FXML
-    void medicament_btn(ActionEvent event) {
-
-    }
-
-
-
-
-
 
 
     @FXML
@@ -110,6 +77,37 @@ public class HomeController {
     }
 
     public void sujet_btn(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
+    void naviguer(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sponseur_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void etablissement_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void medicament_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void event_btn(ActionEvent event) {
+
+    }
+
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
 
     }
 }
