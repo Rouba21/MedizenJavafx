@@ -100,7 +100,6 @@ public class ListeDocteur implements Initializable {
         ListDocteurTT.setItems(docteurs);
     }
 
-    // Méthode pour gérer l'événement de suppression d'un docteur
     public void SupprimerDocteur(javafx.event.ActionEvent actionEvent) {
         Docteur docteurToDelete = ListDocteurTT.getSelectionModel().getSelectedItem();
         if (docteurToDelete != null) {
@@ -112,7 +111,6 @@ public class ListeDocteur implements Initializable {
         }
     }
 
-    // Méthode pour rediriger vers la vue de modification d'un docteur
     public void redirectToModiferDocteur(javafx.event.ActionEvent actionEvent) throws IOException {
         Docteur selectedDocteur = ListDocteurTT.getSelectionModel().getSelectedItem();
         if (selectedDocteur != null) {
@@ -131,7 +129,6 @@ public class ListeDocteur implements Initializable {
         }
     }
 
-    // Méthode pour afficher une boîte de dialogue de confirmation
     private boolean showConfirmationDialog() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation de suppression");

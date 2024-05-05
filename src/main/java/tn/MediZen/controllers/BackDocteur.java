@@ -3,17 +3,25 @@ package tn.MediZen.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import tn.MediZen.models.Reservation;
 import tn.MediZen.services.ReservationService;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BackDocteur implements Initializable {
 
+    @FXML
+    private Button redirectToCalendar;
     @FXML
     private TextField AdresseTF;
 
@@ -56,19 +64,27 @@ public class BackDocteur implements Initializable {
                 if (empty || item == null) {
                     setText(null);
                 } else {
-                    setText("ID: " + item.getId() + ", Name: " + item.getName() + ", Surname: " + item.getSurname() + ", Status: " + item.getStatus());
+                    Label nomLabel = new Label("Nom: " + item.getName());
+                    Label prenomLabel = new Label("Prenom: " + item.getSurname());
+                    Label mailLabel = new Label("Description de problème: " + item.getProblemDescription());
+                    Label adresseLabel = new Label("Adresse: " + item.getAddress());
+                    Label specialiteLabel = new Label("Mobile: " + item.getMobile());
+                    Label experienceLabel = new Label("Date de réservation: " + item.getReservationDate());
+                    Label mobileLabel = new Label("Status: " + item.getStatus());
+                    VBox docteurInfoLayout = new VBox(nomLabel, prenomLabel, mailLabel,
+                            adresseLabel, specialiteLabel, experienceLabel, mobileLabel);
+                    docteurInfoLayout.setSpacing(5);
+                    Separator separator = new Separator();
+                    separator.setStyle("-fx-background-color: #87CEEB;");
+                    VBox reservationLayout = new VBox(docteurInfoLayout, separator);
+                    reservationLayout.setSpacing(10);
+                    setGraphic(reservationLayout);
                 }
             }
         });
     }
-
-    private void refreshReservations() {
-        ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
-        ListReservationsT.setItems(reservations);
-    }
-
     @FXML
-    public void ValiderReservation(ActionEvent event) {
+    public void ValiderReservation(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Accepted");
@@ -76,9 +92,8 @@ public class BackDocteur implements Initializable {
             refreshReservations();
         }
     }
-
     @FXML
-    public void RejeterReservationBTN(ActionEvent event) {
+    public void RejeterReservationBTN(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Rejected");
@@ -86,6 +101,12 @@ public class BackDocteur implements Initializable {
             refreshReservations();
         }
     }
+
+    private void refreshReservations() {
+        ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
+        ListReservationsT.setItems(reservations);
+    }
+
     public void home_btn(ActionEvent actionEvent) {
     }
 
@@ -133,4 +154,50 @@ public class BackDocteur implements Initializable {
 
     public void event_btn(javafx.event.ActionEvent actionEvent) {
     }
-}
+
+
+    public Button getRejeterReservationBTN() {
+        return RejeterReservationBTN;
+    }
+
+    public void setRejeterReservationBTN(Button rejeterReservationBTN) {
+        RejeterReservationBTN = rejeterReservationBTN;
+    }
+
+    public Button getValiderReservationBTN() {
+        return ValiderReservationBTN;
+    }
+
+    public void setValiderReservationBTN(Button validerReservationBTN) {
+        ValiderReservationBTN = validerReservationBTN;
+    }
+    @FXML
+    public void navigateToCalendarView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CalendarView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+        @FXML
+        public void gotoCalendar(javafx.event.ActionEvent actionEvent) {
+            try {
+                URL resourceUrl = getClass().getResource("Calendar.fxml");
+                System.out.println("Resource URL: " + resourceUrl);
+                FXMLLoader loader = new FXMLLoader(resourceUrl);
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }

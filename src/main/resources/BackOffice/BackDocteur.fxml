@@ -11,17 +11,18 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.MediZen.controllers.BackDocteur">
-    <children>
-        <AnchorPane layoutX="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1106.0" style="-fx-background-color: F4F4F4;">
-            <children>
-                <ListView fx:id="ListReservationsT" layoutX="273.0" layoutY="14.0" prefHeight="514.0" prefWidth="795.0" />
+   <children>
+      <AnchorPane layoutX="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1106.0" style="-fx-background-color: F4F4F4;">
+         <children>
+            <ListView fx:id="ListReservationsT" layoutX="271.0" layoutY="14.0" prefHeight="514.0" prefWidth="795.0" />
             <Button fx:id="ValiderReservationBTN" layoutX="496.0" layoutY="575.0" mnemonicParsing="false" onAction="#ValiderReservation" prefHeight="50.0" prefWidth="131.0" text="Valider" textFill="#2c9a46" />
             <Button fx:id="RejeterReservationBTN" layoutX="658.0" layoutY="575.0" mnemonicParsing="false" onAction="#RejeterReservationBTN" prefHeight="50.0" prefWidth="131.0" text="Rejeter" textFill="#d71414" />
-            </children>
-            <padding>
-                <Insets left="20.0" />
-            </padding>
-        </AnchorPane>
+            <Button fx:id="redirectToCalendar" layoutX="571.0" layoutY="658.0" mnemonicParsing="false" onAction="#gotoCalendar" prefHeight="26.0" prefWidth="142.0" text="Calendar View" />
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </AnchorPane>
       <AnchorPane fx:id="logout" layoutX="-2.0" layoutY="-9.0" prefHeight="718.0" prefWidth="222.0" styleClass="nav-form" stylesheets="@../dashboardDesign.css">
          <children>
             <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
@@ -119,5 +120,5 @@
             </ImageView>
          </children>
       </AnchorPane>
-    </children>
+   </children>
 </AnchorPane>

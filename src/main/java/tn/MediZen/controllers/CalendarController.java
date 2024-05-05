@@ -24,6 +24,13 @@ public class CalendarController implements Initializable {
         setReservations(Reservations);
     }
 
+
+    @FXML
+    private void initialize() {
+        statusFilterChoiceBox.getItems().addAll("All", "Pending", "Accepted", "Rejected");
+
+        statusFilterChoiceBox.setValue("All");
+    }
     // Private method to set Reservations
     private void setReservations(List<Reservation> Reservations) {
         for (Reservation Reservation : Reservations) {
@@ -34,12 +41,7 @@ public class CalendarController implements Initializable {
     }
 
 
-    @FXML
-    private void initialize() {
-        statusFilterChoiceBox.getItems().addAll("All", "Pending", "Accepted", "Rejected");
 
-        statusFilterChoiceBox.setValue("All");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
