@@ -1,10 +1,24 @@
 package services;
 
 import entites.Medicament;
+import javafx.scene.image.Image;
 import utils.MyConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Path;
+import java.nio.file.FileSystems;
+import java.io.File;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import javafx.scene.image.ImageView;
+
+import java.nio.file.Files;
+import java.io.ByteArrayOutputStream;
 
 public class MedicamentService implements IMedicamentService {
     private final Connection myconnex = MyConnection.getInstance().getConnection();
@@ -19,7 +33,10 @@ public class MedicamentService implements IMedicamentService {
             pstm.setString(3, medicament.getDescription());
             pstm.setString(4, medicament.getImage());
             pstm.setDouble(5, medicament.getPrice());
-            pstm.setString(6, medicament.getQrCodePath());
+
+            // Generate QR code and save it
+            String qrCodePath = generateQRCode(medicament);
+            pstm.setString(6, qrCodePath);
 
             pstm.executeUpdate();
 
@@ -33,6 +50,27 @@ public class MedicamentService implements IMedicamentService {
         }
         return -1;
     }
+
+    private String generateQRCode(Medicament medicament) {
+        String qrCodeFileName = medicament.getName() + ".png"; // QR code file name
+        String qrCodePath = "C:/Users/21695/Downloads/" + qrCodeFileName; // Path to the saved QR code image
+
+        try {
+            // Generate QR code
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix = qrCodeWriter.encode(medicament.getName(), BarcodeFormat.QR_CODE, 200, 200);
+
+            // Save QR code to file
+            Path path = new File(qrCodePath).toPath();
+            MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+            return qrCodePath;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     @Override
     public boolean modifierMedicament(Medicament medicament) {
@@ -53,6 +91,19 @@ public class MedicamentService implements IMedicamentService {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    public List<Medicament> getMedicamentsWithLowQuantity(int threshold) {
+        List<Medicament> medicamentsWithLowQuantity = new ArrayList<>();
+        // Retrieve medicaments from the database or any other source
+        List<Medicament> allMedicaments = afficherMedicaments(); // Assuming you have a method to get all medicaments
+        // Check each medicament's quantity
+        for (Medicament medicament : allMedicaments) {
+            if (medicament.getQuantity() <= threshold) {
+                medicamentsWithLowQuantity.add(medicament);
+            }
+        }
+        return medicamentsWithLowQuantity;
     }
 
     @Override
@@ -135,11 +186,12 @@ public class MedicamentService implements IMedicamentService {
                 double price = rs.getDouble("price");
                 String qrCodePath = rs.getString("qr_code_path");
                 Medicament medicament = new Medicament(id, name, quantity, description, image, price, qrCodePath);
+
                 medicaments.add(medicament);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return medicaments;
-    }}
-
+    }
+}

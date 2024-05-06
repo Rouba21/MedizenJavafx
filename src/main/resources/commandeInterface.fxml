@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommandeInterfaceController">
+    <children>
+        <VBox layoutX="25.0" layoutY="25.0" prefHeight="350.0" prefWidth="550.0">
+            <children>
+                <TableView fx:id="commandeTableView" prefHeight="300.0" prefWidth="550.0">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" />
+                        <TableColumn fx:id="totalPriceColumn" text="Total Price" />
+                        <TableColumn fx:id="quantityOrderedColumn" text="Quantity Ordered" />
+                        <TableColumn fx:id="dateOrderedColumn" text="Date Ordered" />
+                        <TableColumn fx:id="statusColumn" text="Status" />
+                    </columns>
+                </TableView>
+                <Button fx:id="downloadPDFButton" mnemonicParsing="false" onAction="#downloadPDF" text="Download PDF" />
+
+                <Button fx:id="acceptButton" mnemonicParsing="false" onAction="#acceptCommande" text="Accept Commande" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

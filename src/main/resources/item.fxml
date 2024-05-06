@@ -44,6 +44,8 @@
                                 <Insets left="10.0" />
                             </padding>
                         </Label>
+                        <Button fx:id="payButton" mnemonicParsing="false" style="-fx-background-color: #E6E6FA;" text="Pay" textFill="#258922" onAction="#handlePayButtonAction" />
+
                         <Button fx:id="buyButton" mnemonicParsing="false" style="-fx-background-color: #E6E6FA;" text="Buy Now" textFill="#258922" onAction="#handleBuyButtonAction" />
                     </children>
                 </VBox>

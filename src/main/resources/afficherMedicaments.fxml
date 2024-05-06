@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -13,9 +14,13 @@
         <ListView fx:id="medicamentListView"
                   style="-fx-font-size: 14px;"
                   VBox.vgrow="ALWAYS" />
+
         <HBox spacing="10">
             <Button text="Modify" onAction="#modifyMedicament" />
             <Button text="Delete" onAction="#deleteMedicament" />
         </HBox>
+
+        <!-- Add an ImageView for displaying the QR code -->
+        <ImageView fx:id="qrCodeImageView" fitWidth="200" fitHeight="200" />
     </VBox>
 </AnchorPane>

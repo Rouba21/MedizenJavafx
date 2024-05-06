@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -23,6 +24,9 @@
                 <Button text="Home" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
                 <Button text="Profile" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
                 <Button text="Logout" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
+
+                <!-- Notification Icon/Button -->
+                <Button fx:id="notificationButton" text="Notifications" style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px 10px;" />
             </HBox>
         </VBox>
 
@@ -45,4 +49,9 @@
         <!-- Section for displaying CRUD forms -->
         <!-- You can dynamically load FXML content here based on user actions -->
     </center>
+
+    <!-- Notification Panel -->
+    <VBox fx:id="notificationPanel" style="-fx-background-color: #ffffff; -fx-border-color: #57b3f3; -fx-border-width: 1px; -fx-border-radius: 5px;">
+        <!-- Notification messages will be dynamically added here -->
+    </VBox>
 </BorderPane>

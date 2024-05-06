@@ -8,6 +8,16 @@ import javafx.scene.text.Font;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+
 
 import entites.Medicament;
 import javafx.fxml.FXML;
@@ -54,13 +64,15 @@ public class AfficherMedicamentsController {
     private Button img;
 
     private Medicament medicament;
+    @FXML
+    private ImageView qrCodeImageView;
 
     public void initialize() {
         // Load data
         loadMedicaments();
 
-// setCellFactory render el item fel list view
-            medicamentListView.setCellFactory(new Callback<>() {
+        // setCellFactory render el item fel list view
+        medicamentListView.setCellFactory(new Callback<>() {
             @Override
             // param represntilna el listview
             public ListCell<Medicament> call(ListView<Medicament> param) {
@@ -74,7 +86,7 @@ public class AfficherMedicamentsController {
                             setGraphic(null);
                         } else {
                             VBox vBox = new VBox();
-                            vBox.setSpacing(5); // espace ben les att
+                            vBox.setSpacing(5); // space between the elements
 
                             Label nameLabel = new Label("Name: " + item.getName());
                             nameLabel.setFont(Font.font(14));
@@ -82,32 +94,36 @@ public class AfficherMedicamentsController {
                             Label descriptionLabel = new Label("Description: " + item.getDescription());
                             descriptionLabel.setFont(Font.font(12));
                             descriptionLabel.setWrapText(true);
-                            descriptionLabel.setMaxWidth(300); //
+                            descriptionLabel.setMaxWidth(300);
 
                             Label priceLabel = new Label("Price: " + item.getPrice());
                             priceLabel.setFont(Font.font(14));
+
                             Label quantityLabel = new Label("Quantity: " + item.getQuantity());
                             quantityLabel.setFont(Font.font(14));
 
                             ImageView imageView = new ImageView();
                             try {
-                                String imagePath =  item.getImage();
+                                String imagePath = item.getImage();
                                 Image image = new Image(imagePath);
                                 imageView.setImage(image);
                                 imageView.setFitWidth(100);
                                 imageView.setFitHeight(100);
                             } catch (Exception e) {
-                                // imag expetion
+                                // handle image exception
                                 e.printStackTrace();
 
-                                Image errorImage = new Image("errror.png");
+                                Image errorImage = new Image("error.png");
                                 imageView.setImage(errorImage);
-                                imageView.setFitWidth(100); // Set the width of the placeholder image
-                                imageView.setFitHeight(100); // Set the height of the placeholder image
+                                imageView.setFitWidth(100);
+                                imageView.setFitHeight(100);
                             }
 
+                            // Generate and display QR code for the current Medicament
+                            ImageView qrCodeImageView = new ImageView();
+                            generateAndDisplayQRCode(item, qrCodeImageView);
 
-                            vBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, imageView);
+                            vBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, imageView, qrCodeImageView);
 
                             setGraphic(vBox);
                         }
@@ -116,6 +132,38 @@ public class AfficherMedicamentsController {
             }
         });
     }
+
+
+
+    private void generateAndDisplayQRCode(Medicament medicament, ImageView qrCodeImageView) {
+        String directoryPath = "C:/Users/21695/Downloads/qrcodes/";
+        String qrCodePath = directoryPath + medicament.getName() + ".png"; // Path to save the QR code image
+        try {
+            // Create the directory if it doesn't exist
+            File directory = new File(directoryPath);
+            if (!directory.exists()) {
+                directory.mkdirs(); // Create directories recursively
+            }
+
+            // Generate QR code
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix = qrCodeWriter.encode(medicament.getName(), BarcodeFormat.QR_CODE, 200, 200);
+
+            // Save QR code to file
+            Path path = new File(qrCodePath).toPath();
+            MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+            // Display QR code in ImageView
+            Image image = new Image(path.toUri().toString());
+            qrCodeImageView.setImage(image); // Set QR code image to the ImageView
+            qrCodeImageView.setFitWidth(100);
+            qrCodeImageView.setFitHeight(100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     @FXML
     private void modifyMedicament() {
@@ -179,7 +227,7 @@ public class AfficherMedicamentsController {
     }
 
     private void showAlert(String title, String content) {
-         Alert alert = new Alert(AlertType.WARNING);
+        Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(content);

@@ -13,7 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import services.MedicamentService;
-
+import com.stripe.exception.StripeException;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -32,7 +32,8 @@ public class ItemController implements Initializable {
     private Label txtdesc;
     @FXML
     private Button buyButton;
-
+    @FXML
+    private Button payButton;
     private Medicament medicament;
     private final MedicamentService medicamentService = new MedicamentService();
 
@@ -67,18 +68,18 @@ public class ItemController implements Initializable {
         String imagePath =medicament.getImage();
         System.out.println("Image path: " + imagePath); // Print out image path for debugging
 
-            File imageFile = new File(imagePath);
+        File imageFile = new File(imagePath);
 
-                Image image = new Image(imageFile.toURI().toString());
-                imgproduit.setImage(image);
-                imgproduit.setFitWidth(100);
-                imgproduit.setFitHeight(100);
+        Image image = new Image(imageFile.toURI().toString());
+        imgproduit.setImage(image);
+        imgproduit.setFitWidth(100);
+        imgproduit.setFitHeight(100);
 
-                System.err.println("Image file not found: " + imagePath); // Log the error
+        System.err.println("Image file not found: " + imagePath); // Log the error
 
-                imgproduit.setFitWidth(100);
-                imgproduit.setFitHeight(100);
-            }
+        imgproduit.setFitWidth(100);
+        imgproduit.setFitHeight(100);
+    }
 
 
 
@@ -122,6 +123,29 @@ public class ItemController implements Initializable {
         }
     }
 
+    @FXML
+    public void handlePayButtonAction() {
+        try {
+            float medicationPrice = Float.parseFloat(txtprix.getText().split(": ")[1]); // Extract price from label
+            String currency = "usd";
+            String userEmail = "example@example.com";
+
+            // Process payment using PaymentProcessor
+            boolean paymentResult = PaymentProcessor.processPayment(medicationPrice, currency, userEmail);
+
+            // Check payment result
+            if (paymentResult) {
+                showAlert("Success", "Payment successful! Your order has been placed.");
+            } else {
+                showAlert("Error", "Payment failed. Please try again later.");
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            showAlert("Error", "An error occurred while processing the payment.");
+        }
+    }
+
+
     // Method to display an alert dialog
     private void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -131,3 +155,4 @@ public class ItemController implements Initializable {
         alert.showAndWait();
     }
 }
+
