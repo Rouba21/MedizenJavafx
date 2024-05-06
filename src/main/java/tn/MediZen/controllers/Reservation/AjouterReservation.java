@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import tn.MediZen.controllers.SMS;
 import tn.MediZen.models.Docteur;
 import tn.MediZen.models.Reservation;
 import tn.MediZen.services.DocteurService;
@@ -51,6 +52,8 @@ public class AjouterReservation implements Initializable {
     @FXML
     private TextArea StatusTF;
 
+    private Reservation reservation;
+
     private final ReservationService rs = new ReservationService();
     private final DocteurService docteurService = new DocteurService();
 
@@ -77,6 +80,8 @@ public class AjouterReservation implements Initializable {
                         localDate,
                         doctorId)
                 );
+                String notificationMessage = " Réservation a été effectuée avec les détails suivants:" + NomTF.getText() + "Prénom:" + PrenomTF.getText() + "Date réservation:"+ localDate;
+                SMS.sendSMS("+21626653094", notificationMessage);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText(null);
