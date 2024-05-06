@@ -18,7 +18,7 @@
         <Label fx:id="error" layoutX="286.0" layoutY="233.0" prefHeight="17.0" prefWidth="59.0" />
         <AnchorPane fx:id="ap" layoutY="-7.0" mouseTransparent="true" opacity="0.8" prefHeight="479.0" prefWidth="191.0">
             <children>
-                <ImageView fitHeight="487.0" fitWidth="224.0" layoutX="-11.0" layoutY="3.0">
+                <ImageView fitHeight="70.0" fitWidth="232.0" layoutX="-11.0" layoutY="3.0">
                     <image>
                         <Image url="@img/LOGO.png" />
                     </image>
@@ -71,7 +71,7 @@
                         <DropShadow />
                     </effect>
                 </PasswordField>
-                <Label fx:id="forgottenpwd" layoutX="74.0" layoutY="240.0" textFill="#f20c0c">
+                <Label fx:id="forgottenpwd" layoutX="74.0" layoutY="240.0" textFill="#2040dd">
                     <font>
                         <Font size="14.0" />
                     </font></Label>
@@ -97,11 +97,7 @@
                         <Image url="@img/key.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="183.0" layoutY="7.0">
-                    <image>
-                        <Image url="@img/mdp.png" />
-                    </image>
-                </ImageView>
+
                 <TextField fx:id="passwordText" layoutX="33.0" layoutY="18.0" visible="false" />
             </children>
         </AnchorPane>

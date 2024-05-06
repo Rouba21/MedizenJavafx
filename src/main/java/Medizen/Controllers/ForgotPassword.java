@@ -56,7 +56,7 @@ public class ForgotPassword implements Initializable {
                 alert.showAndWait();
             }else{
                 code=Generator.generateCode(6);
-                MailSender.SendEmail(emailt.getText(), "Réinitialisez le mot de passe", "noussa "+code);
+                MailSender.SendEmail(emailt.getText(), "Réinitialisez le mot de passe", "rouba "+code);
                 codeb.setText("Envoyez Code");
                 codet.setDisable(false);
                 emailt.setDisable(true);
@@ -81,7 +81,7 @@ public class ForgotPassword implements Initializable {
                 alert.showAndWait();
                 codet.setDisable(true);
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/at_one/Resetpwd.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/Resetpwd.fxml"));
                     Parent root = loader.load();
                     Resetpwd resetController = loader.getController();
                     resetController.setUser(emailt.getText());

@@ -214,7 +214,7 @@
                                         <ToggleGroup fx:id="roles" />
                                     </toggleGroup>
                                 </RadioButton>
-                                <RadioButton fx:id="rolepatientSignup" mnemonicParsing="false" text="Livreur" toggleGroup="$roles" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <RadioButton fx:id="rolepatientSignup" mnemonicParsing="false" text="Patient" toggleGroup="$roles" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                                 <Label fx:id="roleSignupError" prefHeight="23.0" prefWidth="301.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                             </children>
                         </GridPane>

@@ -160,21 +160,21 @@ public class dashboard {
 
     @FXML
     private void ajoutAdminButtonOnClick(ActionEvent event) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-            if (!getErrors1()) {
-                User newuser = new User(
-                                emailAjout.getText(),
-                                roleAdminSignup.isSelected() ? "Admin" : "admin",
-                                Encryption.EncryptPassword(mdpAjout.getText()),
-                                nomAjouter.getText(),
-                                prenomAjout.getText(),
-                                LocalDate.now(), // Assuming date_de_naissance is set to the current date
-                                false // Assuming blocked is set to false by default for a new user
-                        );
+        if (!getErrors1()) {
+            User newuser = new User(
+                    emailAjout.getText(),
+                    roleAdminSignup.isSelected() ? "Admin" : "admin",
+                    Encryption.EncryptPassword(mdpAjout.getText()),
+                    nomAjouter.getText(),
+                    prenomAjout.getText(),
+                    LocalDate.now(), // Assuming date_de_naissance is set to the current date
+                    false // Assuming blocked is set to false by default for a new user
+            );
 
-                userService.add(newuser);
-                JOptionPane.showMessageDialog(null, "Admin ajouté avec succès!");
-            }
+            userService.add(newuser);
+            JOptionPane.showMessageDialog(null, "Admin ajouté avec succès!");
         }
+    }
 
 
     @FXML

@@ -71,7 +71,7 @@ public class Login {
                 Session.start_session(user);
                 if(user.getRoles().equals("Admin")) {
                     try {
-                        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/at_one/DisplayUser.fxml")));
+                        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/test/DisplayUser.fxml")));
                         Stage stage = (Stage) logb.getScene().getWindow();
                         stage.setScene(new Scene(root));
                         stage.show();
@@ -101,8 +101,6 @@ public class Login {
         }
 
 
-
-
     }
 
     @javafx.fxml.FXML
@@ -113,6 +111,7 @@ public class Login {
 
     @javafx.fxml.FXML
     public void Createaccount(MouseEvent mouseEvent) {
+
     }
 
     @javafx.fxml.FXML
@@ -142,7 +141,7 @@ public class Login {
     @javafx.fxml.FXML
     public void Create_accountAction(ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/at_one/CreateAccount.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/test/CreateUser.fxml")));
             Stage stage = (Stage) logb.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -155,7 +154,7 @@ public class Login {
     public void reset(ActionEvent actionEvent) {
 
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/at_one/choix.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/test/ForgotPassword.fxml")));
             Stage stage = (Stage) logb.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();

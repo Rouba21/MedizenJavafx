@@ -2,7 +2,6 @@ package Medizen.Models;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.List;
 
 
 public class User {
@@ -57,7 +56,6 @@ public class User {
                 ", blocked=" + blocked +
                 '}';
     }
-
     public int getId() {
         return id;
     }
@@ -123,6 +121,7 @@ public class User {
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
+
 
 
 }

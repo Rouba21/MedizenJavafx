@@ -13,7 +13,7 @@
 
 
 
-<AnchorPane prefHeight="564.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HelloController">
+<AnchorPane prefHeight="564.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Medizen.Controllers.CreateUser">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="76.0" prefHeight="35.0" prefWidth="210.0" text="S'inscrire" textAlignment="CENTER">
             <font>
@@ -33,9 +33,9 @@
                 <DropShadow />
             </effect></TextField>
         <ComboBox fx:id="roleInput" layoutX="317.0" layoutY="427.0" minHeight="25.0" prefHeight="45.0" prefWidth="118.0" styleClass="button" stylesheets="@style.css" />
-        <Button fx:id="sb" layoutX="135.0" layoutY="427.0" mnemonicParsing="false" onAction="#signup" prefHeight="45.0" prefWidth="168.0" stylesheets="@style.css" text="S'inscrire" />
+        <Button fx:id="signupButton" layoutX="135.0" layoutY="427.0" mnemonicParsing="false" onAction="#signup" prefHeight="45.0" prefWidth="168.0" text="S'inscrire" />
         <Label fx:id="error" layoutX="213.0" layoutY="353.0" textFill="#2040dd"/>
-        <Button fx:id="login" layoutX="138.0" layoutY="498.0" minHeight="35.0" mnemonicParsing="false" onAction="#navigate" prefHeight="45.0" prefWidth="168.0" stylesheets="@style.css" text="Se connecter" />
+        <Button fx:id="loginButton" layoutX="138.0" layoutY="498.0" minHeight="35.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="168.0" onAction="#navigate" text="Se connecter" />
         <ImageView fitHeight="74.0" fitWidth="67.0" layoutX="178.0" layoutY="8.0">
             <image>
                 <Image url="@img/Image.jpg" />

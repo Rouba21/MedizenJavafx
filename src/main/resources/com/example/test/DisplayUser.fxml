@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Medizen.Controllers.DisplayUser">
+    <children>
+        <TableView fx:id="tableview" layoutX="60.0" layoutY="129.0" prefHeight="208.0" prefWidth="689.0" stylesheets="@style1.css">
+            <columns>
+                <TableColumn fx:id="cid" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="cnom" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="cprenom" prefWidth="75.0" text="Prénom" />
+                <TableColumn fx:id="cemail" prefWidth="75.0" text="Email" />
+                <TableColumn fx:id="crole" prefWidth="75.0" text="Role" />
+                <TableColumn fx:id="cnum" prefWidth="167.99996948242188" text="NumTel" />
+                <TableColumn fx:id="cmp" prefWidth="331.33331298828125" text="MotDePasse" />
+
+            </columns>
+        </TableView>
+        <Button fx:id="deleteButton" disable="true" layoutX="53.0" layoutY="344.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="164.0" stylesheets="@style.css" text="Supprimer" />
+        <Button layoutX="53.0" layoutY="47.0" mnemonicParsing="false" onAction="#GoToCodePormo" prefHeight="25.0" prefWidth="251.0" stylesheets="@style.css" text="Create user" />
+        <Button fx:id="logout" layoutX="391.0" layoutY="47.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="45.0" prefWidth="135.0" stylesheets="@style.css" text="Déconnexion" />
+        <Button fx:id="canb" layoutX="538.0" layoutY="47.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="45.0" prefWidth="126.0" stylesheets="@style.css" text="Annuler" />
+    </children>
+</AnchorPane>
