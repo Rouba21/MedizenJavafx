@@ -145,7 +145,7 @@ public class AfficherEtablissement implements Initializable {
     private void openDetailsPage(Etablissement etablissement) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Etablissementcard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/projetpifinal/views/Etablissementcard.fxml"));
             Parent root = fxmlLoader.load();
             CardControllerEtab controller = fxmlLoader.getController();
             if (controller != null) {

@@ -27,9 +27,7 @@ public class etablissementservice implements CRUD<Etablissement> {
             preparedStatement.setBigDecimal(5, etablissement.getLongitude());
             preparedStatement.setBigDecimal(6, etablissement.getLatitude());
             preparedStatement.executeUpdate();
-            Statement ste = cnx.createStatement();
 
-            ste.executeUpdate(query);
         }
     }
 
@@ -61,7 +59,6 @@ public class etablissementservice implements CRUD<Etablissement> {
 
     @Override
     public List<Etablissement> afficher() throws SQLException {
-        List<Etablissement> etablissements = new ArrayList<>();
         String query = "SELECT * FROM etablissement";
         Statement ste = cnx.
                 createStatement();
@@ -80,6 +77,7 @@ public class etablissementservice implements CRUD<Etablissement> {
             }
         return list;
     }
+
     public List<Etablissement> rechercheDinamyque(String recherche) throws SQLException {
         String sql = "SELECT * FROM ETABLISSEMENTS WHERE ID_Etablissement LIKE ? OR Nom LIKE ? OR Category LIKE ? OR Prix LIKE ? OR Stock LIKE ? OR Description LIKE ?";
         try (PreparedStatement statement = cnx.prepareStatement(sql)) {

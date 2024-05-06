@@ -1,5 +1,9 @@
 package tn.esprit.projetpifinal.controllers;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 import tn.esprit.projetpifinal.models.Etablissement;
 import tn.esprit.projetpifinal.service.etablissementservice;
 import javafx.event.ActionEvent;
@@ -28,7 +32,7 @@ public class AddEtablissementController {
     private TextField IDdescrp;
 
     @FXML
-    private TextField IDnom;
+    private TextField IDname;
 
     @FXML
     private TextField IDtype;
@@ -55,8 +59,9 @@ public class AddEtablissementController {
             String latitudeText = IDLatitude.getText();
             String location = IDLocalisation.getText();
             String longitudeText = IDLongitude.getText();
-            String name = IDnom.getText();
+            String name = IDname.getText();
             String typee = IDtype.getText();
+
 
             // Vérifier que les champs ne sont pas vides
             if (!name.matches("[a-zA-Z]+")) {
@@ -76,6 +81,7 @@ public class AddEtablissementController {
                 showAlert("Erreur de saisie", "Latitude et longitude doivent être des décimaux valides.");
                 return;
             }
+
             if (description.isEmpty() || latitudeText.isEmpty() || location.isEmpty() || longitudeText.isEmpty() || name.isEmpty() || typee.isEmpty()) {
                 showAlert("Erreur de saisie", "Veuillez remplir tous les champs.");
                 return;
