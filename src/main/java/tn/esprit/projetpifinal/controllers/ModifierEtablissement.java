@@ -33,37 +33,42 @@ public class ModifierEtablissement {
 
     @FXML
     private TextField IDtype;
-
     etablissementservice sp = new etablissementservice();
 
     private Etablissement etablissement;
+    int idd ;
+    public void setid(int id) {
+        this.idd = id ;
+    }
 
-
+    public void setData(Etablissement etablissement){
+        this.etablissement= etablissement;
+        IDname.setText(etablissement.getName());
+        IDLocalisation.setText(etablissement.getLocation());
+        IDtype.setText(etablissement.getTypee())   ;
+        IDdescrp.setText(etablissement.getDescription());
+        IDLatitude.setText(String.valueOf(etablissement.getLatitude()));
+        IDLongitude.setText(String.valueOf(etablissement.getLongitude()));
+    }
     @FXML
     void ModifierBtn(ActionEvent event) {
         try {
-            int id = Integer.parseInt(IDname.getText());
+
+            int id = idd;
             BigDecimal longitude = new BigDecimal(IDLongitude.getText());  // Assuming IDLongitude is a TextField for longitude
             BigDecimal latitude = new BigDecimal(IDLatitude.getText());    // Assuming IDLatitude is a TextField for latitude
-            Etablissement etablissement = new Etablissement(id,
-                    IDLocalisation.getText(),
-                    IDtype.getText(),
-                    IDname.getText(),
+            Etablissement etablissement = new  Etablissement(id,IDtype.getText(),
                     IDdescrp.getText(),
-                    longitude,
-                    latitude);  // Assuming IDdescrp is a TextField for description
+                    IDLocalisation.getText(),
+                    IDname.getText(),
+                    latitude,
+                    longitude
+                    );  // Assuming IDdescrp is a TextField for description
             sp.modifier(etablissement);
+            System.out.println(etablissement);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-    public void setData(Etablissement etablissement){
-        this.etablissement= etablissement;
-        IDname.setText(String.valueOf(etablissement.getName()));
-        IDtype.setText(etablissement.getTypee());
-        IDdescrp.setText(etablissement.getDescription());
-        IDname.setText(etablissement.getName());
-        IDLatitude.setText(String.valueOf(etablissement.getLatitude()));
-        IDLongitude.setText(String.valueOf(etablissement.getLongitude()));
-    }
+
 }

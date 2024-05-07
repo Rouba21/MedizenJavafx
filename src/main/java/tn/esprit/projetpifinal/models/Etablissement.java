@@ -2,6 +2,7 @@ package tn.esprit.projetpifinal.models;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 public class Etablissement {
 
@@ -17,6 +18,8 @@ public class Etablissement {
     private BigDecimal longitude;
 
     private BigDecimal latitude;
+
+    private List<Departement> departements;
 
 
 
@@ -34,7 +37,14 @@ public class Etablissement {
 
     }
 
-    public Etablissement(int id, String text, String text1, String text2, String text3, BigDecimal longitude, BigDecimal latitude) {
+    public Etablissement(int id,String type, String description, String location, String name, BigDecimal latitude, BigDecimal longitude) {
+        this.id = id;
+        this.typee= type;
+        this.name = name;
+        this.description = description;
+        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {

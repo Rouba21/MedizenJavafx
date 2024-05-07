@@ -27,7 +27,9 @@ public class etablissementservice implements CRUD<Etablissement> {
             preparedStatement.setBigDecimal(5, etablissement.getLongitude());
             preparedStatement.setBigDecimal(6, etablissement.getLatitude());
             preparedStatement.executeUpdate();
+            Statement ste = cnx.createStatement();
 
+            ste.executeUpdate(query);
         }
     }
 
@@ -59,25 +61,25 @@ public class etablissementservice implements CRUD<Etablissement> {
 
     @Override
     public List<Etablissement> afficher() throws SQLException {
+        List<Etablissement> etablissements = new ArrayList<>();
         String query = "SELECT * FROM etablissement";
         Statement ste = cnx.
                 createStatement();
         ResultSet res = ste.executeQuery(query);
         List<Etablissement> list = new ArrayList<>();
-            while (res.next()) {
-                Etablissement etablissement = new Etablissement();
-                etablissement.setId(res.getInt("id"));
-                etablissement.setName(res.getString("name"));
-                etablissement.setTypee(res.getString("type"));
-                etablissement.setLocation(res.getString("location"));
-                etablissement.setDescription(res.getString("description"));
-                etablissement.setLongitude(res.getBigDecimal("latitude"));
-                etablissement.setLatitude(res.getBigDecimal("longitude"));
-                list.add(etablissement);
-            }
+        while (res.next()) {
+            Etablissement etablissement = new Etablissement();
+            etablissement.setId(res.getInt("id"));
+            etablissement.setName(res.getString("name"));
+            etablissement.setTypee(res.getString("type"));
+            etablissement.setLocation(res.getString("location"));
+            etablissement.setDescription(res.getString("description"));
+            etablissement.setLongitude(res.getBigDecimal("latitude"));
+            etablissement.setLatitude(res.getBigDecimal("longitude"));
+            list.add(etablissement);
+        }
         return list;
     }
-
     public List<Etablissement> rechercheDinamyque(String recherche) throws SQLException {
         String sql = "SELECT * FROM ETABLISSEMENTS WHERE ID_Etablissement LIKE ? OR Nom LIKE ? OR Category LIKE ? OR Prix LIKE ? OR Stock LIKE ? OR Description LIKE ?";
         try (PreparedStatement statement = cnx.prepareStatement(sql)) {
@@ -112,6 +114,26 @@ public class etablissementservice implements CRUD<Etablissement> {
             }
             return filteredList;
         }
+    }
+
+    public List<Etablissement> rechercherOffres(String searchTerm) throws SQLException {
+        List<Etablissement> searchResults = new ArrayList<>();
+        String query = "SELECT * FROM etablissement WHERE name LIKE ? OR location LIKE ?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            String searchPattern = "%" + searchTerm + "%";
+            preparedStatement.setString(1, searchPattern);
+            preparedStatement.setString(2, searchPattern);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Etablissement etablissement = new Etablissement();
+                    etablissement.setId(resultSet.getInt("id"));
+                    etablissement.setName(resultSet.getString("name"));
+                    etablissement.setLocation(resultSet.getString("location"));
+                    searchResults.add(etablissement);
+                }
+            }
+        }
+        return searchResults;
     }
 
 

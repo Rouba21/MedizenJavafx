@@ -16,15 +16,32 @@ public class Departement {
     private String service_offerts;
     private String localisation;
 
+    private Etablissement etablissement;
 
+    public Departement(String nom, String description, String chefDepartement, String servicesOfferts, String localisation) {
+        this.nom= nom;
+        this.description = description;
+        this.chef_departement =chefDepartement;
+        this.service_offerts = servicesOfferts;
+        this.localisation = localisation;
 
+    }
 
-    public Departement(String nom, String description, String chef_departement, String service_offerts, String localisation) {
+    public Etablissement getEtablissement() {
+        return etablissement;
+    }
+
+    public void setEtablissement(Etablissement etablissement) {
+        this.etablissement = etablissement;
+    }
+
+    public Departement(String nom, String description, String chef_departement, String service_offerts, String localisation, Etablissement etablissement) {
         this.nom= nom;
         this.description = description;
         this.chef_departement =chef_departement;
         this.service_offerts = service_offerts;
         this.localisation = localisation;
+        this.etablissement = etablissement;
 
     }
 

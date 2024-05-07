@@ -1,5 +1,7 @@
 package tn.esprit.projetpifinal.service;
 
+import tn.esprit.projetpifinal.models.Etablissement;
+
 import java.sql.SQLException;
 import java.util.List;
 public interface CRUD<T> {

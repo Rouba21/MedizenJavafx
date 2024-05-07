@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="279.0" prefWidth="271.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.projetpifinal.controllers.FrontController.FrontEtablissmentCard">
+
+    <children>
+        <VBox alignment="CENTER" prefHeight="279.0" prefWidth="271.0" spacing="10">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <children>
+                <!-- Image -->
+                <ImageView fx:id="img" fitHeight="142.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
+                    </image>
+                </ImageView>
+                <!-- Conteneur pour les détails -->
+                <VBox prefHeight="139.0" prefWidth="210.0" spacing="5.0">
+               <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="291.0" spacing="20.0">
+                  <children>
+                          <!-- Titre -->
+                          <Label fx:id="etab_nom" style="-fx-font-weight: bold;" text="nom">
+                              <font>
+                                  <Font name="Cambria" size="24.0" />
+                              </font>
+                          </Label>
+                          <!-- Contenu -->
+                          <Label fx:id="etab_type" style="-fx-font-weight: normal;" text="type">
+                              <font>
+                                  <Font name="Cambria" size="20.0" />
+                              </font>
+                          </Label>
+                          <!-- Salary -->
+                          <Label fx:id="etab_descrp" style="-fx-font-weight: normal;" text="descrip">
+                              <font>
+                                  <Font name="Cambria" size="20.0" />
+                              </font>
+                          </Label>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="291.0" spacing="20.0">
+                  <children>
+                     <Label fx:id="etab_Localisation" style="-fx-font-weight: bold;" text="localistation">
+                        <font>
+                           <Font name="Cambria" size="24.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               <Label fx:id="etab_long" style="-fx-font-weight: normal;" text="Longitude">
+                  <font>
+                     <Font name="Cambria" size="20.0" />
+                  </font>
+               </Label>
+               <Label fx:id="etab_lati" style="-fx-font-weight: normal;" text="lati">
+                  <font>
+                     <Font name="Cambria" size="20.0" />
+                  </font>
+               </Label>
+               <Button mnemonicParsing="false" onAction="#GoTo" text="go to " />
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+    <styleClass>
+        <String fx:value="fruit-item" />
+        <String fx:value="shadow" />
+    </styleClass>
+</AnchorPane>

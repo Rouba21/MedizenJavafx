@@ -9,8 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import tn.esprit.projetpifinal.models.Etablissement;
-import tn.esprit.projetpifinal.service.etablissementservice;
 
 
 import java.io.IOException;
@@ -40,12 +38,22 @@ public class CardControllerEtab {
     private etablissementservice SP = new etablissementservice();
     private Etablissement etablissements;
 
+    int id ;
+
+    public void setid(int id) {
+        this.id = id;
+    }
+
+
     @FXML
     void supprimerEtablissement(ActionEvent event) throws SQLException {
-        SP.supprimer(etablissements.getId());
+        SP.supprimer(id);
+
         Stage stage = (Stage) IDnom.getScene().getWindow(); // Assuming IDnom is a label in your FXML
         stage.close();
     }
+
+
 
     public void displayEtablissementDetails(Etablissement etablissement) {
 
@@ -59,10 +67,12 @@ public class CardControllerEtab {
     @FXML
     void modifierEtablissement(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateEtablissement.fxml"));
+            System.out.println(etablissements);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/projetpifinal/views/UpdateEtablissement.fxml"));
             Parent root = loader.load();
             ModifierEtablissement editTicketController = loader.getController();
             editTicketController.setData(etablissements);
+            editTicketController.setid(id);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Edit ");
@@ -72,5 +82,11 @@ public class CardControllerEtab {
         }
 
     }
+
+    public void setControllerEtab(Etablissement etablissement) {
+        this.etablissements=etablissement;
+    }
+
+
     // Vous pouvez ajouter d'autres méthodes ou logique selon vos besoins
 }

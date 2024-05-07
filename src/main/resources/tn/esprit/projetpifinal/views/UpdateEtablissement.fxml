@@ -14,12 +14,12 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.projetpifinal.controllers.ModifierEtablissement">
 
     <children>
-        <VBox layoutX="266.0" layoutY="-1.0" prefHeight="400.0" prefWidth="336.0" style="-fx-background-color: linear-gradient(to right, #000000, #da9a09);" />
-        <ImageView fitHeight="209.0" fitWidth="233.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="254.0" fitWidth="273.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" translateY="100.0" y="10.0">
             <image>
                 <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
             </image></ImageView>
-        <Label layoutX="440.0" layoutY="108.0" text="type" textFill="#000000">
+        <VBox layoutX="272.0" layoutY="1.0" prefHeight="416.0" prefWidth="330.0" style="-fx-background-color: linear-gradient(to right, #000000, #da9a09);" />
+        <Label layoutX="445.0" layoutY="66.0" text="nom" translateX="30.0" translateY="-10.0">
             <textFill>
                 <RadialGradient centerX="0.5" centerY="0.5" focusAngle="162.47" radius="0.5">
                     <stops>
@@ -30,24 +30,24 @@
                         </Stop>
                         <Stop offset="1.0">
                             <color>
-                                <Color red="0.9490196108818054" green="1.0" />
+                                <Color />
                             </color>
                         </Stop>
                     </stops>
                 </RadialGradient>
             </textFill></Label>
-        <Label layoutX="437.0" layoutY="236.0" text="Description" textFill="#000000" />
-        <Label layoutX="442.0" layoutY="185.0" text="Nom" textFill="#000000" />
-        <Label layoutX="444.0" layoutY="337.0" text="Prix" textFill="#000000" />
-        <Button id="ModifierBtn" layoutX="511.0" layoutY="346.0" mnemonicParsing="false" onAction="#ModifierBtn" text="Modifer" />
-        <TextField fx:id="IDtype" layoutX="271.0" layoutY="104.0" />
-        <TextField fx:id="IDNom" layoutX="272.0" layoutY="169.0" />
-        <TextField fx:id="IDDescription" layoutX="273.0" layoutY="225.0" />
-        <TextField fx:id="IDPrix" layoutX="272.0" layoutY="325.0" />
-        <TextField id="IDID" fx:id="IDnom" layoutX="271.0" layoutY="45.0" />
-        <Label layoutX="444.0" layoutY="49.0" text="nom">
+        <Label layoutX="437.0" layoutY="250.0" text="localisation" textFill="#000000" translateX="20.0" translateY="-10.0" />
+        <Label layoutX="442.0" layoutY="185.0" text="description" textFill="#000000" translateX="20.0" translateY="-10.0" />
+        <Label layoutX="444.0" layoutY="337.0" text="Longitude" textFill="#000000" translateX="15.0" translateY="-35.0" />
+        <Button id="IDBouton" layoutX="511.0" layoutY="346.0" mnemonicParsing="false" onAction="#ModifierBtn" text="Modifier" translateY="30.0" />
+        <TextField fx:id="IDtype" layoutX="276.0" layoutY="104.0" scaleY="0.9" translateX="-2.0" />
+        <TextField fx:id="IDdescrp" layoutX="276.0" layoutY="169.0" scaleY="0.9" />
+        <TextField fx:id="IDLocalisation" layoutX="276.0" layoutY="234.0" scaleY="0.9" />
+        <TextField fx:id="IDLongitude" layoutX="276.0" layoutY="325.0" scaleY="0.9" translateY="-29.0" />
+        <TextField fx:id="IDname" layoutX="276.0" layoutY="48.0" scaleY="0.9" translateX="-2.0" />
+        <Label layoutX="450.0" layoutY="118.0" text="type" translateX="25.0" translateY="-10.0">
             <textFill>
-                <RadialGradient centerX="0.5" centerY="0.5" focusAngle="40.5" radius="0.5">
+                <RadialGradient centerX="0.5" centerY="0.5" focusAngle="162.47" radius="0.5">
                     <stops>
                         <Stop>
                             <color>
@@ -63,12 +63,7 @@
                 </RadialGradient>
             </textFill>
         </Label>
-        <TextField fx:id="IDStock" layoutX="273.0" layoutY="278.0" />
-        <Label layoutX="442.0" layoutY="279.0" text="Stock" textFill="#000000" />
-      <ImageView fitHeight="392.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true" scaleY="3.2">
-         <image>
-            <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
-         </image>
-      </ImageView>
+      <TextField fx:id="IDLatitude" layoutX="276.0" layoutY="335.0" scaleY="0.9" translateX="-2.0" translateY="10.0" />
+      <Label layoutX="454.0" layoutY="347.0" text="Latitude" textFill="#000000" translateX="10.0" translateY="6.0" />
     </children>
 </AnchorPane>
