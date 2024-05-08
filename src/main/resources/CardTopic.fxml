@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="card_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="256.0" styleClass="card" stylesheets="@Front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.CardTopic">
+    <children>
+        <VBox layoutX="65.0" layoutY="-10.0" prefHeight="212.0" prefWidth="298.0" styleClass="card" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="230.0" styleClass="card-HBox">
+                    <children>
+                        <Label fx:id="card_topic_title" styleClass="card-Label" text="Topic Title">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <AnchorPane prefHeight="107.0" prefWidth="271.0">
+                    <children>
+                        <Label fx:id="card_topic_contenu" layoutX="6.0" layoutY="3.0" prefHeight="98.0" prefWidth="201.0" styleClass="card-Label" text="Topic Contenu">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <HBox fx:id="topic_buttons" prefHeight="27.0" prefWidth="230.0" />
+                  <Button fx:id="ViewButton" mnemonicParsing="false" onAction="#handleViewButtonAction" prefHeight="25.0" prefWidth="59.0" stylesheets="@Front.css" text="View">
+                      <styleClass>
+                          <String fx:value="card-Button" />
+                          <String fx:value="card-Button-hover" />
+                      </styleClass>
+                      <font>
+                          <Font size="10.0" />
+                      </font>
+                  </Button>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
