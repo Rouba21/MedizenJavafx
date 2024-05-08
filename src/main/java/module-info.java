@@ -7,13 +7,14 @@ module tn.esprit.projetpifinal {
     requires jdk.jsobject;
 
 
-    exports tn.esprit.projetpifinal;
-    exports tn.esprit.projetpifinal.models;
-    exports tn.esprit.projetpifinal.controllers;
-    exports tn.esprit.projetpifinal.controllers.FrontController;
-    opens tn.esprit.projetpifinal.controllers to javafx.fxml;
-    opens tn.esprit.projetpifinal.controllers.FrontController to javafx.fxml;
-    opens tn.esprit.projetpifinal.models;
+    exports tn.esprit;
+    exports tn.esprit.models;
+    exports tn.esprit.controllers;
+    exports tn.esprit.controllers.FrontController;
+    opens tn.esprit.controllers to javafx.fxml;
+    opens tn.esprit.controllers.FrontController to javafx.fxml;
+    opens tn.esprit.models;
+    exports tn.esprit.test;
 
 
 }
