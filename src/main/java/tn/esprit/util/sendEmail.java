@@ -21,8 +21,8 @@ public class sendEmail {
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-        String username = "assurancytn@gmail.com";
-        String password = "pttwbmzssmunqcdr";
+        String username = "nadiabouaicha2001@gmail.com";
+        String password = "idwtphwrjuahgqte";
 
         Session session = Session.getInstance(props, new Authenticator() {
             @Override

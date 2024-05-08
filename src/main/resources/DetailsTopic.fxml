@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="445.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.DetailsTopic">
+   <children>
+      <!-- Label "Détails du sujet" -->
+      <Label layoutX="351.0" layoutY="119.0" prefHeight="26.0" prefWidth="267.0" text="Details du sujet :" textFill="#31bdc5">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+
+      <!-- Label et champ de saisie pour le titre -->
+      <Label layoutX="441.0" layoutY="194.0" text="Titre :" textFill="#d92828">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleText" layoutX="545.0" layoutY="161.0" prefHeight="42.0" prefWidth="238.0" />
+      <Label fx:id="titreErrorLabel" layoutX="553.0" layoutY="213.0" prefHeight="26.0" prefWidth="222.0" textFill="RED" />
+
+      <!-- Label et champ de saisie pour le contenu du sujet -->
+      <Label layoutX="403.0" layoutY="256.0" text="Contenu du sujet :" textFill="#d92828">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="contentText" layoutX="545.0" layoutY="245.0" prefHeight="42.0" prefWidth="238.0" />
+      <Label fx:id="contenuErrorLabel" layoutX="544.0" layoutY="292.0" prefHeight="30.0" prefWidth="238.0" textFill="RED" />
+
+      <!-- Label et champ de saisie pour la date de création -->
+      <Label layoutX="418.0" layoutY="322.0" text="Sujet crée le :" textFill="#d92828">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateErrorLabel" layoutX="542.0" layoutY="368.0" prefHeight="18.0" prefWidth="238.0" textFill="RED" />
+
+      <!-- Boutons Modifier et Supprimer -->
+      <Button layoutX="434.0" layoutY="397.0" mnemonicParsing="false" onAction="#UpdateTopic" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #31bdc5;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="563.0" layoutY="397.0" mnemonicParsing="false" onAction="#DeleteTopic" style="-fx-background-color: #31bdc5;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="logout" layoutY="-2.0" prefHeight="568.0" prefWidth="219.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+         <children>
+            <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
+               <font>
+                  <Font name="Book Antiqua Bold" size="21.0" />
+               </font>
+            </Label>
+            <Line endX="60.99998474121094" layoutX="130.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
+            <Button layoutX="11.0" layoutY="198.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="                Accueil">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Evénements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="264.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sponseurs">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logoutt" layoutX="19.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" styleClass="logout" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="27.0" layoutY="521.0" text="Deconnexion" textFill="#d92828" />
+            <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+               <image>
+                  <Image url="@img/now.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2718448.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="299.0" mnemonicParsing="false" onAction="#sujet_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Sujets">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="334.0" mnemonicParsing="false" onAction="#etablissement_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Etablissements">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/2593663.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/508721.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="369.0" mnemonicParsing="false" onAction="#revervation_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Reservations">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="404.0" mnemonicParsing="false" onAction="#medicament_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="               Medicaments">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/883356.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="50.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/booking-icon-png-4.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <DatePicker fx:id="datetopic" layoutX="544.0" layoutY="315.0" prefHeight="38.0" prefWidth="239.0" promptText="Date de creation" />
+
+      <!-- Le reste de votre interface utilisateur -->
+
+   </children>
+</AnchorPane>

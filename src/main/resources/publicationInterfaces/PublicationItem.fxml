@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1002.0" styleClass="userItem" stylesheets="@../assets/style/nabilStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.publication.PublicationItemController">
+   <children>
+      <ImageView fx:id="pubItemImg" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
+         <image>
+            <Image url="@../assets/img/icons/publicationH.png" />
+         </image>
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+      </ImageView>
+      <Text fx:id="pubItemProp" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Montaha" wrappingWidth="188.84808349609375">
+         <HBox.margin>
+            <Insets right="4.0" />
+         </HBox.margin>
+      </Text>
+      <Text fx:id="pubItemDate" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Date" wrappingWidth="98.15475845336914">
+         <HBox.margin>
+            <Insets right="4.0" />
+         </HBox.margin>
+      </Text>
+      <Text fx:id="pubItemTitre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" wrappingWidth="160.5546531677246">
+         <HBox.margin>
+            <Insets right="4.0" />
+         </HBox.margin>
+      </Text>
+      <Text fx:id="pubItemContenu" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Contenu" wrappingWidth="251.75454330444336">
+         <HBox.margin>
+            <Insets right="4.0" />
+         </HBox.margin>
+      </Text>
+      <Label fx:id="pubItemShowBtn" styleClass="userItem__btn">
+         <graphic>
+            <ImageView fx:id="pubItemShowBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/icons/view.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label fx:id="pubItemUpdateBtn" styleClass="userItem__btn">
+         <graphic>
+            <ImageView fx:id="pubItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/update-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <HBox.margin>
+            <Insets right="7.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="pubItemDeleteBtn" styleClass="userItem__btn">
+         <graphic>
+            <ImageView fx:id="pubItemDeleteBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/trashCateg.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+   </children>
+</HBox>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="565.0" spacing="10.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.NewComment">
+    <children>
+      <HBox prefHeight="2.0" prefWidth="566.0" />
+        <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="566.0" spacing="10.0">
+            <children>
+                <ImageView fx:id="imgProfile" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/1.png" />
+                    </image></ImageView>
+                <VBox alignment="CENTER" prefHeight="60.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Label fx:id="username" text="username">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fx:id="imgVerified" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/img/ic_verified.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="5.0" right="5.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" />
+                    </children>
+                </VBox>
+                <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resources/img/ic_more.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+      <TextArea fx:id="textcomment" prefHeight="52.0" prefWidth="545.0" promptText="write your comment......">
+         <font>
+            <Font name="Arial Nova Bold Italic" size="11.0" />
+         </font></TextArea>
+        <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="566.0" styleClass="top-border" stylesheets="@../resources/styles.css">
+            <children>
+                <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="390.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="165.0" spacing="10.0">
+                     <children>
+                        <ImageView fx:id="send" fitHeight="46.0" fitWidth="50.0" onMouseClicked="#onSendClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                    </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+        </HBox>
+      <ScrollPane prefHeight="446.0" prefWidth="565.0">
+         <content>
+            <GridPane fx:id="grid">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content></ScrollPane>
+    </children>
+</VBox>

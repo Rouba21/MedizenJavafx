@@ -2,7 +2,6 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main_form" prefHeight="445.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.SponseurController">
+<AnchorPane fx:id="main_form" prefHeight="445.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.SponseurController">
    <children>
       <TextField fx:id="NomTF" blendMode="MULTIPLY" layoutX="514.0" layoutY="82.0" promptText="Nom" style="-fx-background-radius: 5em;" />
       <TextField fx:id="emailTF" layoutX="514.0" layoutY="125.0" promptText="exemple@gmail.com" style="-fx-background-radius: 5em;" />
@@ -126,6 +125,6 @@
             <Font name="Cambria Bold" size="29.0" />
          </font>
       </Label>
-      <ComboBox fx:id="packComboBox" layoutX="515.0" layoutY="208.0" prefHeight="25.0" prefWidth="143.0" promptText="Choisir le pack.." />
+      <TextField fx:id="PackTF" layoutX="514.0" layoutY="208.0" promptText="Pack" style="-fx-background-radius: 5em;" />
    </children>
 </AnchorPane>

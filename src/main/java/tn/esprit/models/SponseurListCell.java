@@ -1,29 +1,29 @@
 package tn.esprit.models;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import tn.esprit.controllers.DetailSponseurController;
-import tn.esprit.controllers.ModifierSponseur;
-import tn.esprit.models.Sponseur;
+import tn.esprit.Controllers.*;
 import tn.esprit.services.SponseurService;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.Optional;
 
 public class SponseurListCell extends ListCell<Sponseur> {
+
 
     private final ImageView imageView = new ImageView();
     private final Text nomText = new Text();
@@ -39,6 +39,8 @@ public class SponseurListCell extends ListCell<Sponseur> {
     private final Button detailButton = createStyledIconButton("/img/detail.png", "-fx-background-color: #fff;", 40, 40);
 
     public SponseurListCell() {
+
+
         editButton.setOnAction(event -> {
             Sponseur sponseur = getItem();
             if (sponseur != null) {
@@ -156,13 +158,39 @@ public class SponseurListCell extends ListCell<Sponseur> {
                 SponseurService sponseurService = new SponseurService();
                 sponseurService.delete(sponseur.getId());
 
-                // Rafraîchir la liste des sponsors après la suppression
-                getListView().getItems().remove(sponseur);
+                // Remove the item from the modifiable list
+
             } catch (SQLException e) {
                 e.printStackTrace(); // Gérer l'erreur
             }
         }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherSponseur.fxml"));
+            Parent root = loader.load();
+            AfficheController controller = loader.getController();
+            controller.refreshSponseurs(); // Actualiser la liste des sponsors
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Fermer la fenêtre actuelle
+            Stage currentStage = (Stage) nomText.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            showErrorAlert("Erreur lors du chargement de AfficherSponseur.fxml : " + e.getMessage());
+        }
     }
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
 
     private void afficherDetailsSponseur(Sponseur sponseur) {
         // Implémentez votre logique pour afficher les détails du sponsor
@@ -189,4 +217,7 @@ public class SponseurListCell extends ListCell<Sponseur> {
             e.printStackTrace();
         }
     }
+
+
+
 }

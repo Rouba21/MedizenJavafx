@@ -37,6 +37,8 @@
     -fx-border-color: #ddd; /* Couleur de la bordure */
 }
 
+
+
 /* Style pour les cellules du GridPane */
 .event_gridPane .card {
     -fx-padding: 10; /* Marge intérieure */

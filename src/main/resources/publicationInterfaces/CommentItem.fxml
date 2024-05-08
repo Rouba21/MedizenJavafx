@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="589.0" styleClass="userItem" stylesheets="@../assets/style/nabilStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.publication.CommentItemController">
+   <children>
+      <ImageView fx:id="commenterImg" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
+         <image>
+            <Image url="@../assets/img/avatar.png" />
+         </image>
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+      </ImageView>
+      <VBox prefHeight="62.0" prefWidth="575.0">
+         <children>
+            <Text fx:id="pubCommenter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Montaha AL Adeb " wrappingWidth="188.84808349609375">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="pubComment" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem" text="The comment" wrappingWidth="289.6479949951172" />
+         </children>
+      </VBox>
+      <VBox prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Text fx:id="commentTime" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Commented" wrappingWidth="168.04803466796875">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="commentDate" layoutX="10.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Commented, 2 hours ago" wrappingWidth="168.04803466796875">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <ImageView fx:id="deleteBtn" fitHeight="37.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/del.png" />
+         </image>
+      </ImageView>
+   </children>
+</HBox>

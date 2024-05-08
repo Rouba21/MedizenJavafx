@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="userPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../assets/style/nabilStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.publication.PublicationShowController">
+   <children>
+      <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="20.0" prefHeight="74.0" prefWidth="1023.0" styleClass="userTableHead" stylesheets="@../assets/style/nabilStyle.css">
+         <children>
+            <Text fx:id="pubTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Le projet assurancy.tn" wrappingWidth="378.1546974182129">
+               <font>
+                  <Font size="28.0" />
+               </font></Text>
+            <Text fx:id="pubDate" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="1 May , 2024 (8:00)" wrappingWidth="144.55466079711914">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fx:id="pubCommentsLikes" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Likes : 0 , Comments : 0" wrappingWidth="144.55466079711914">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fx:id="pubAuteur" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Auteur : Eskander Dahmen" textAlignment="RIGHT" wrappingWidth="290.95469427108765" />
+         </children>
+      </HBox>
+      <ImageView fx:id="pubImage" fitHeight="190.0" fitWidth="190.0" layoutX="445.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/367397738_6583349075059564_711219101159145168_n.jpg" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="pubContent" editable="false" layoutX="33.0" layoutY="287.0" prefHeight="150.0" prefWidth="1023.0" styleClass="fundItem" text="Hello it's assurancy.tn" wrapText="true" />
+      <HBox alignment="CENTER_LEFT" layoutX="32.0" layoutY="439.0" prefHeight="61.0" prefWidth="1023.0" rotate="180.0" spacing="10.0" styleClass="userTableHead" stylesheets="@../assets/style/nabilStyle.css">
+         <children>
+            <HBox fx:id="pubBack" onMouseClicked="#retourF" prefHeight="13.0" prefWidth="70.0" rotate="180.0" spacing="5.0" styleClass="google-btn">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" translateX="20.0" translateY="-5.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../assets/img/icons/back.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="pubDel" onMouseClicked="#suppF" prefHeight="13.0" prefWidth="70.0" rotate="180.0" spacing="5.0" styleClass="google-btn">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" translateX="20.0" translateY="-5.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../assets/img/icons/supp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="pubUpdate" onMouseClicked="#updateF" prefHeight="13.0" prefWidth="70.0" rotate="180.0" spacing="5.0" styleClass="google-btn">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" translateX="20.0" translateY="-5.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../assets/img/icons/modif.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="addCommentContainer" onMouseClicked="#commentAction" prefHeight="62.0" prefWidth="499.0" rotate="180.0" spacing="5.0" visible="false">
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <children>
+                  <TextField fx:id="commentInput" prefHeight="30.0" prefWidth="362.0" promptText="Ecrire un commentaire..." styleClass="signUp__container">
+                     <HBox.margin>
+                        <Insets top="-7.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="commentBtn" mnemonicParsing="false" onMouseClicked="#addComment" styleClass="product__add-new-productBtn" stylesheets="@../aliStyle.css" text="Commenter" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Regular" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="-13.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="pubComments" onMouseClicked="#commentAction" prefHeight="13.0" prefWidth="70.0" rotate="180.0" spacing="5.0" styleClass="google-btn">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" translateX="20.0" translateY="-5.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../assets/img/icons/comment.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+            <HBox fx:id="pubLike" onMouseClicked="#LikeAction" prefHeight="13.0" prefWidth="70.0" rotate="180.0" spacing="5.0" styleClass="google-btn">
+               <children>
+                  <ImageView fx:id="pubLikeImg" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" translateX="20.0" translateY="-5.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../assets/img/like.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+      <ScrollPane layoutX="32.0" layoutY="500.0" prefHeight="119.0" prefWidth="1023.0" styleClass="user_listScrollPane">
+         <content>
+            <VBox fx:id="commentListContainer" prefHeight="115.0" prefWidth="1010.0" spacing="13.0" styleClass="userTableBody" />
+         </content>
+      </ScrollPane>
+      <HBox fx:id="updateUserModel" alignment="CENTER" layoutX="-159.0" layoutY="-75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1384.0" styleClass="updateUserModel" stylesheets="@../assets/style/nabilStyle.css" visible="false">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="630.0" style="-fx-background-color: #fff;" styleClass="updateUserModel-card" stylesheets="@../assets/style/nabilStyle.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="600.0">
+                     <children>
+                        <Text fx:id="WindowTitle" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="updateUserModel-card-title" text="Mettre à jour la publication" />
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#close_updateUserModel" prefHeight="30.0" prefWidth="30.0" styleClass="updateUserModel-card-exitBtn" translateX="311.0">
+                           <children>
+                              <ImageView fitHeight="12.0" fitWidth="12.0" onMouseClicked="#close_updateUserModel" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/img/cross.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="30.0" right="30.0" />
+                     </padding>
+                  </HBox>
+                  <Line endX="540.0" layoutX="30.0" layoutY="84.0" stroke="#defee6" strokeWidth="2.0" />
+                  <ScrollPane hbarPolicy="NEVER" layoutX="30.0" layoutY="111.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="571.0" styleClass="updateUserModel-scrollPane" stylesheets="@../assets/style/nabilStyle.css">
+                     <content>
+                        <VBox fx:id="updateUserModelContent" prefHeight="402.0" prefWidth="551.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</Pane>

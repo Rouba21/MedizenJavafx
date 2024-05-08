@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="567.0" prefWidth="1207.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.DetailEvent">
+<AnchorPane prefHeight="567.0" prefWidth="1207.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.DetailEvent">
    <children>
       <AnchorPane fx:id="logout" prefHeight="567.0" prefWidth="219.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
          <children>

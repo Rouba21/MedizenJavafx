@@ -10,8 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="567.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ModifierSponseur">
+<AnchorPane prefHeight="567.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.Controllers.ModifierSponseur">
    <children>
       <AnchorPane fx:id="logout" layoutY="-10.0" prefHeight="577.0" prefWidth="219.0" styleClass="nav-form" stylesheets="@dashboardDesign.css">
          <children>
@@ -125,7 +124,7 @@
             <Label layoutX="70.0" layoutY="250.0" text="Email :" />
             <Label layoutX="71.0" layoutY="208.0" text="Nom :" />
             <Button fx:id="modofierr" layoutX="136.0" layoutY="387.0" mnemonicParsing="false" onAction="#updateSponseur" style="-fx-background-radius: 5em; -fx-background-color: #77B5FE;" text="Modifier" textFill="WHITE" />
-            <Button fx:id="supprimer" blendMode="MULTIPLY" layoutX="221.0" layoutY="387.0" mnemonicParsing="false" onAction="#Supprimer" style="-fx-background-radius: 5em; -fx-background-color: #FF6347;" text="Supprimer" textFill="WHITE" />
+            <Button fx:id="retour" blendMode="MULTIPLY" layoutX="221.0" layoutY="387.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="61.0" style="-fx-background-radius: 5em; -fx-background-color: #FF6347;" text="Retour" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>

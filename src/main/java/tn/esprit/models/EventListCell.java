@@ -7,20 +7,22 @@ import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import tn.esprit.controllers.DetailEvent;
-import tn.esprit.controllers.ModifierEvent;
+import tn.esprit.Controllers.AfficheController;
+import tn.esprit.Controllers.AfficherEvent;
+import tn.esprit.Controllers.DetailEvent;
+import tn.esprit.Controllers.ModifierEvent;
 import tn.esprit.services.EventService;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 public class EventListCell extends ListCell<Event> {
@@ -113,12 +115,37 @@ public class EventListCell extends ListCell<Event> {
             try {
                 EventService eventService = new EventService();
                 eventService.delete(event.getId());
-                getListView().getItems().remove(event);
+               // getListView().getItems().remove(event);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherEvent.fxml"));
+            Parent root = loader.load();
+            AfficherEvent controller = loader.getController();
+            controller.refreshEvent(); // Actualiser la liste des sponsors
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Fermer la fenêtre actuelle
+            Stage currentStage = (Stage) titreText.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            showErrorAlert("Erreur lors du chargement de AfficherSponseur.fxml : " + e.getMessage());
+        }
     }
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
     private void navigateToModifierEvent(Event event) {
         try {
@@ -137,6 +164,7 @@ public class EventListCell extends ListCell<Event> {
             e.printStackTrace();
         }
     }
+
 
     private void showEventDetails(Event event) {
         try {

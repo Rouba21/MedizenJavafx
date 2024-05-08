@@ -159,6 +159,62 @@ public  class SponseurService implements IService<Sponseur> {
     public void ajouterAssociationEvenementSponseur(int eventId, int sponseurId) throws SQLException {
 
     }
+    public List<Sponseur> getSponsorsByPackGold() throws SQLException {
+        List<Sponseur> sponsors = new ArrayList<>();
+        String query = "SELECT * FROM sponseur WHERE pack = 'Or'";
+        try (Statement statement = cnx.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+            while (resultSet.next()) {
+                Sponseur sponsor = new Sponseur();
+                sponsor.setId(resultSet.getInt("id"));
+                sponsor.setNom(resultSet.getString("nom"));
+                sponsor.setEmail(resultSet.getString("email"));
+                sponsor.setNumero(resultSet.getInt("numero"));
+                sponsor.setLogo(resultSet.getString("logo"));
+                sponsor.setPack(resultSet.getString("pack"));
+                sponsors.add(sponsor);
+            }
+        }
+        return sponsors;
+    }
+    public List<Sponseur> getSponsorsByPackArgent() throws SQLException {
+        List<Sponseur> sponsors = new ArrayList<>();
+        String query = "SELECT * FROM sponseur WHERE pack = 'Argent'";
+        try (Statement statement = cnx.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+            while (resultSet.next()) {
+                Sponseur sponsor = new Sponseur();
+                sponsor.setId(resultSet.getInt("id"));
+                sponsor.setNom(resultSet.getString("nom"));
+                sponsor.setEmail(resultSet.getString("email"));
+                sponsor.setNumero(resultSet.getInt("numero"));
+                sponsor.setLogo(resultSet.getString("logo"));
+                sponsor.setPack(resultSet.getString("pack"));
+                sponsors.add(sponsor);
+            }
+        }
+        return sponsors;
+    }
+    public List<Sponseur> getSponsorsByPackBronze() throws SQLException {
+        List<Sponseur> sponsors = new ArrayList<>();
+        String query = "SELECT * FROM sponseur WHERE pack = 'Bronze'";
+        try (Statement statement = cnx.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+            while (resultSet.next()) {
+                Sponseur sponsor = new Sponseur();
+                sponsor.setId(resultSet.getInt("id"));
+                sponsor.setNom(resultSet.getString("nom"));
+                sponsor.setEmail(resultSet.getString("email"));
+                sponsor.setNumero(resultSet.getInt("numero"));
+                sponsor.setLogo(resultSet.getString("logo"));
+                sponsor.setPack(resultSet.getString("pack"));
+                sponsors.add(sponsor);
+            }
+        }
+        return sponsors;
+    }
+
+
 
 
 }

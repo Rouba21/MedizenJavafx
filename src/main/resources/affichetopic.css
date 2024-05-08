@@ -1,0 +1,15 @@
+.list-view {
+    -fx-background-color: #f0f0f0; /* Couleur de fond */
+}
+
+.list-cell {
+    -fx-text-fill: #333333; /* Couleur du texte */
+    -fx-font-size: 14px; /* Taille de la police */
+    -fx-padding: 10px; /* Espacement intérieur */
+    -fx-border-width: 0 0 1px 0; /* Bordure basse */
+    -fx-border-color: #cccccc; /* Couleur de la bordure basse */
+}
+
+.list-cell:hover {
+    -fx-background-color: #e0e0e0; /* Couleur de fond au survol */
+}
