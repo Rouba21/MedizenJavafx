@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.MediZen.controllers.Reservation.AjouterReservation">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.Reservation.AjouterReservation">
     <children>
         <TextField fx:id="NomTF" alignment="CENTER" layoutX="211.0" layoutY="47.0" promptText="Nom" />
         <TextField fx:id="PrenomTF" alignment="CENTER" layoutX="211.0" layoutY="110.0" promptText="Prénom" />

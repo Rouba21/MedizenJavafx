@@ -90,7 +90,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.1</version>
                 <configuration>
-                    <mainClass>tn.MediZen.test.MainFX</mainClass>
+                    <mainClass>tn.esprit.test.MainFX</mainClass>
                 </configuration>
             </plugin>
         </plugins>

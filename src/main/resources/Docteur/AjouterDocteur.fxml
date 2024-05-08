@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="tn.MediZen.controllers.Docteur.AjouterDocteur">
+            fx:controller="tn.esprit.controllers.Docteur.AjouterDocteur">
     <children>
         <TextField fx:id="NomDocteurTF" alignment="CENTER" layoutX="191.0" layoutY="47.0" promptText="Nom"/>
         <TextField fx:id="PrenomDocteurTF" alignment="CENTER" layoutX="191.0" layoutY="107.0" promptText="Prénom"/>

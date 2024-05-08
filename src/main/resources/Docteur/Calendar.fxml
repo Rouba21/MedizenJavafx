@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.calendarfx.view.CalendarView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.Docteur.CalendarController">
+   <bottom>
+        <CalendarView fx:id="calendarView" editAvailability="true" prefHeight="600" prefWidth="800" showPageToolBarControls="false" showSearchResultsTray="true" showSourceTrayButton="false" BorderPane.alignment="CENTER" />
+   </bottom>
+
+</BorderPane>
