@@ -90,7 +90,7 @@ public class PublicationItemController {
                     System.err.println("Erreur lors du chargement de l'image : " + imagePath);
                 }
             } else {
-                System.err.println("L'image n'existe pas : " + imagePath);
+                System.err.println("L'image n'existe pas   : " + imagePath);
             }
         } else {
             // Si aucune image n'est associée à la publication, vous pouvez afficher une image par défaut ou laisser vide
