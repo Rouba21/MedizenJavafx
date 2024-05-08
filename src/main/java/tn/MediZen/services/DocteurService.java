@@ -110,8 +110,7 @@ public class DocteurService implements IDocteur<Docteur> {
                 rs.getString("experience"),
                 rs.getInt("mobile"),
                 rs.getString("addresse"),
-                rs.getString("specialite"),
-                rs.getInt("ReservationId")
+                rs.getString("specialite")
         );
     }
 }

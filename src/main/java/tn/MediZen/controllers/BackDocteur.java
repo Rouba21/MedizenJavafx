@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -83,6 +84,21 @@ public class BackDocteur implements Initializable {
             }
         });
     }
+
+    @FXML
+    public void gotoCalendar(javafx.event.ActionEvent actionEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Calendar.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) scene.getRoot()).getScene().getWindow();
+            //stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     @FXML
     public void ValiderReservation(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
@@ -171,33 +187,7 @@ public class BackDocteur implements Initializable {
     public void setValiderReservationBTN(Button validerReservationBTN) {
         ValiderReservationBTN = validerReservationBTN;
     }
-    @FXML
-    public void navigateToCalendarView() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CalendarView.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+}
 
 
-        @FXML
-        public void gotoCalendar(javafx.event.ActionEvent actionEvent) {
-            try {
-                URL resourceUrl = getClass().getResource("Calendar.fxml");
-                System.out.println("Resource URL: " + resourceUrl);
-                FXMLLoader loader = new FXMLLoader(resourceUrl);
-                Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
 
-    }

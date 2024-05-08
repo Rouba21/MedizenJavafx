@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,7 +15,6 @@ import javafx.stage.Stage;
 import tn.MediZen.models.Docteur;
 import tn.MediZen.services.DocteurService;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -22,24 +22,26 @@ import java.util.ResourceBundle;
 
 public class ListeDocteur implements Initializable {
 
+    public Button ModifierDocteur;
     @FXML
     private Label welcomeid;
 
     @FXML
-    private Button ModifierDocteur;
-
-    @FXML
-    private Button SupprimerDocteur;
-
-    @FXML
     private ListView<Docteur> ListDocteurTT;
 
+    @FXML
+    private Pagination paginationFDocteur;
+
+    private ObservableList<Docteur> allDocteurs;
+
     private final DocteurService docteurService = new DocteurService();
+
+    public static final int ITEMS_PER_PAGE = 2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadDocteurs();
-
+        paginationFDocteur.setPageFactory(this::createPage);
         ListDocteurTT.setCellFactory(param -> new ListCell<>() {
             @Override
             protected void updateItem(Docteur item, boolean empty) {
@@ -96,11 +98,26 @@ public class ListeDocteur implements Initializable {
     }
 
     private void loadDocteurs() {
-        ObservableList<Docteur> docteurs = FXCollections.observableArrayList(docteurService.getAll());
-        ListDocteurTT.setItems(docteurs);
+        allDocteurs = FXCollections.observableArrayList(docteurService.getAll());
+        ListDocteurTT.setItems(allDocteurs);
+        paginationFDocteur.setPageCount(calculatePageCount(allDocteurs.size()));
     }
 
-    public void SupprimerDocteur(javafx.event.ActionEvent actionEvent) {
+
+    private int calculatePageCount(int totalItems) {
+        return (totalItems + ITEMS_PER_PAGE - 1) / ITEMS_PER_PAGE;
+    }
+
+    private Node createPage(int pageIndex) {
+        int fromIndex = pageIndex * ITEMS_PER_PAGE;
+        allDocteurs = FXCollections.observableArrayList(docteurService.getAll());
+        int toIndex = Math.min(fromIndex + ITEMS_PER_PAGE, allDocteurs.size());
+        ListDocteurTT.setItems(FXCollections.observableArrayList(allDocteurs.subList(fromIndex, toIndex)));
+        return ListDocteurTT;
+    }
+
+    @FXML
+    void SupprimerDocteur() {
         Docteur docteurToDelete = ListDocteurTT.getSelectionModel().getSelectedItem();
         if (docteurToDelete != null) {
             boolean confirmed = showConfirmationDialog();
@@ -111,14 +128,15 @@ public class ListeDocteur implements Initializable {
         }
     }
 
-    public void redirectToModiferDocteur(javafx.event.ActionEvent actionEvent) throws IOException {
+    @FXML
+    void redirectToModiferDocteur() throws IOException {
         Docteur selectedDocteur = ListDocteurTT.getSelectionModel().getSelectedItem();
         if (selectedDocteur != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Docteur/ModifierDocteur.fxml"));
             Parent root3 = loader.load();
             ModifierDocteur controller = loader.getController();
             controller.setDocteur(selectedDocteur);
-            Stage window = (Stage) ModifierDocteur.getScene().getWindow();
+            Stage window = (Stage) ListDocteurTT.getScene().getWindow();
             window.setScene(new Scene(root3));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -143,54 +161,40 @@ public class ListeDocteur implements Initializable {
     }
 
     @FXML
-    void revervation_btn(ActionEvent event) throws IOException {
+    void revervation_btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
         welcomeid.getScene().setRoot(root);
     }
 
-    public void medicament_btn(ActionEvent actionEvent) {
+    @FXML
+    void medicament_btn() {
     }
 
-    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+    @FXML
+    void docteur_btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
 
     @FXML
-    void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
+    void home_btn() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+        welcomeid.getScene().setRoot(root);
     }
 
-    public void event_btn(ActionEvent actionEvent) {
+    @FXML
+    void event_btn() {
     }
 
-    public void sponseur_btn(ActionEvent actionEvent) {
+    @FXML
+    void sponseur_btn() {
     }
 
-    public void sujet_btn(ActionEvent actionEvent) {
+    @FXML
+    void sujet_btn() {
     }
 
-    public void etablissement_btn(ActionEvent actionEvent) {
-    }
-
-    public void revervation_btn(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void medicament_btn(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void docteur_btn(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void etablissement_btn(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void sujet_btn(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void sponseur_btn(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void event_btn(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    void etablissement_btn() {
     }
 }

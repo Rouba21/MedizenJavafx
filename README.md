@@ -17,7 +17,7 @@ bash
 Copy code
 git clone https://github.com/Rouba21/MedizenJavafx.git/tree/reservation
 Install Dependencies: Ensure that you have JavaFX installed and configured in your development environment. Refer to the official JavaFX documentation for installation instructions.
-Import Project: Import the project into your preferred IDE (e.g., IntelliJ IDEA, Eclipse) as a JavaFX project.
+Import Project: Import the project into your preferred IDE IntelliJ IDEA as a JavaFX project.
 Run Application: Build and run the application within your IDE to launch the Reservation Management System.
 Usage
 Administrator Interface: Administrators can access the system to manage reservations, view doctor schedules, and perform administrative tasks such as adding or removing doctors.

@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import tn.MediZen.models.Docteur;
 import tn.MediZen.services.DocteurService;
 import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -50,8 +51,6 @@ public class ModifierDocteur implements Initializable {
     private ListView<Docteur> ListDocteursM;
 
     private final DocteurService docteurService = new DocteurService();
-
-
 
 
     @FXML
@@ -164,7 +163,6 @@ public class ModifierDocteur implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
-
 
 
     public void sujet_btn(ActionEvent actionEvent) {

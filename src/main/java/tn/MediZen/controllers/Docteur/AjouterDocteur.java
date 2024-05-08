@@ -67,25 +67,25 @@ public class AjouterDocteur {
     @FXML
     private void AjouterDocteur() {
         if (Saisi()) {
-                rs.add(new Docteur(
-                        NomDocteurTF.getText(),
-                        PrenomDocteurTF.getText(),
-                        MailDocteurTF.getText(),
-                        AdresseDocteurTF.getText(),
-                        SpecialiteTF.getText(),
-                        ExperienceDocteurTF.getText(),
-                        Integer.parseInt(NumeroTelephoneDocteur.getText()))
-                );
+            rs.add(new Docteur(
+                    NomDocteurTF.getText(),
+                    PrenomDocteurTF.getText(),
+                    MailDocteurTF.getText(),
+                    AdresseDocteurTF.getText(),
+                    SpecialiteTF.getText(),
+                    ExperienceDocteurTF.getText(),
+                    Integer.parseInt(NumeroTelephoneDocteur.getText()))
+            );
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText(null);
-                alert.setContentText("Docteur inséré avec succès!");
-                alert.show();
-            } else {
-                Alert(Alert.AlertType.ERROR, "Données invalides", "Selectionnez un médecin", "Veuillez sélectionner un médecin pour la réservation !");
-            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Docteur inséré avec succès!");
+            alert.show();
+        } else {
+            Alert(Alert.AlertType.ERROR, "Données invalides", "Selectionnez un médecin", "Veuillez sélectionner un médecin pour la réservation !");
         }
+    }
 
 
     private void clearFields() {

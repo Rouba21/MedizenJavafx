@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,18 +20,26 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class ListeReservation {
+    private ObservableList<Reservation> allReservations;
 
     public AnchorPane logout;
+    @FXML
+    public Pagination paginationReservation;
     @FXML
     private Label welcomeid;
     @FXML
     private ListView<Reservation> ListReservationsT;
     @FXML
     private Button ModifierButton;
+    @FXML
+    private Button PDFExporter;
     private final ReservationService reservationService = new ReservationService();
+    static final int ITEMS_PER_PAGE = 2;
 
     @FXML
     public void initialize() {
+        loadReservations();
+        paginationReservation.setPageFactory(this::createPage);
         ListReservationsT.setCellFactory(param -> new ListCell<>() {
             @Override
             protected void updateItem(Reservation item, boolean empty) {
@@ -90,10 +99,23 @@ public class ListeReservation {
         loadReservations();
     }
 
+    private Node createPage(Integer pageIndex) {
+        int fromIndex = pageIndex * ITEMS_PER_PAGE;
+        allReservations = FXCollections.observableArrayList(reservationService.getAll());
+        int toIndex = Math.min(fromIndex + ITEMS_PER_PAGE, allReservations.size());
+        ListReservationsT.setItems(FXCollections.observableArrayList(allReservations.subList(fromIndex, toIndex)));
+        return ListReservationsT;
+    }
+
 
     private void loadReservations() {
-        ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
-        ListReservationsT.setItems(reservations);
+        allReservations = FXCollections.observableArrayList(reservationService.getAll());
+        ListReservationsT.setItems(allReservations);
+        paginationReservation.setPageCount(calculatePageCount(allReservations.size()));
+    }
+
+    private int calculatePageCount(int totalItems) {
+        return (totalItems + ITEMS_PER_PAGE - 1) / ITEMS_PER_PAGE;
     }
 
     @FXML

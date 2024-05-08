@@ -105,6 +105,25 @@ public class ReservationService implements IReservation<Reservation> {
         return reservations;
     }
 
+    public int FindByDocteur(int doctorId) {
+        int reservationCount = 0;
+        try {
+            // Define the SQL query
+            String query = "SELECT COUNT(*) AS reservation_count FROM reservation WHERE doctor_Id = " + doctorId;
+            PreparedStatement preparedStatement = cnx.prepareStatement(query);
+            // Execute the query
+            ResultSet resultSet = preparedStatement.executeQuery(query);
+
+            // Extract the result
+            if (resultSet.next()) {
+                reservationCount = resultSet.getInt("reservation_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reservationCount;
+    }
+
     private static Reservation mapToReservation(ResultSet rs) throws SQLException {
         DocteurService docteurService = new DocteurService();
         Docteur docteur = docteurService.getOne(rs.getInt("doctor_id"));

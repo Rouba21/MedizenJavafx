@@ -62,6 +62,7 @@ public class AjouterReservation implements Initializable {
         List<Docteur> doctors = docteurService.getAll();
         DocteurSelectedListView.getItems().addAll(doctors);
     }
+
     @FXML
     void AjouterReservation() {
         if (Saisie()) {
@@ -80,7 +81,7 @@ public class AjouterReservation implements Initializable {
                         localDate,
                         doctorId)
                 );
-                String notificationMessage = " Réservation a été effectuée avec les détails suivants:" + NomTF.getText() + "Prénom:" + PrenomTF.getText() + "Date réservation:"+ localDate;
+                String notificationMessage = " Réservation a été effectuée avec les détails suivants:" + NomTF.getText() + "Prénom:" + PrenomTF.getText() + "Date réservation:" + localDate;
                 SMS.sendSMS("+21626653094", notificationMessage);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
@@ -148,9 +149,20 @@ public class AjouterReservation implements Initializable {
     public void initialize() {
     }
 
+    public void docteur_btn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
+        welcomeid.getScene().setRoot(root);
+    }
+
     @FXML
     void home_btn() {
         FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
+    }
+
+    @FXML
+    void revervation_btn(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
+        welcomeid.getScene().setRoot(root);
     }
 
     public void event_btn(ActionEvent actionEvent) {
@@ -165,18 +177,8 @@ public class AjouterReservation implements Initializable {
     public void etablissement_btn(ActionEvent actionEvent) {
     }
 
-    @FXML
-    void revervation_btn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Reservation/AjouterReservation.fxml"));
-        welcomeid.getScene().setRoot(root);
-    }
 
     public void medicament_btn(ActionEvent actionEvent) {
-    }
-
-    public void docteur_btn(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
-        welcomeid.getScene().setRoot(root);
     }
 
 

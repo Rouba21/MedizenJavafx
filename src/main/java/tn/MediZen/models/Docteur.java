@@ -109,13 +109,6 @@ public class Docteur {
         this.mobile = mobile;
     }
 
-    public int getReservationId() {
-        return reservationId;
-    }
-
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
-    }
 
 
     @Override
