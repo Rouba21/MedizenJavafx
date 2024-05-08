@@ -55,14 +55,8 @@ public class HomeController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Reservation/AjouterReservation.fxml"));
             AnchorPane ajouterReservationPane = loader.load();
-
-            // Get the controller
             AjouterReservation controller = loader.getController();
-
-            // Initialize the controller
             controller.initialize();
-
-            // Replace the content of the main_forum AnchorPane with the loaded form
             main_forum.getChildren().setAll(ajouterReservationPane);
         } catch (IOException e) {
             e.printStackTrace();

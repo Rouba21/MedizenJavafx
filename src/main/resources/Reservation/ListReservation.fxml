@@ -116,7 +116,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="PDFExporter" layoutX="431.0" layoutY="432.0" mnemonicParsing="false" text="PDF Exporter" />
+      <Button fx:id="PDFExporter" layoutX="431.0" layoutY="432.0" mnemonicParsing="false" onAction="#PDFDownload" text="PDF Exporter" />
       <Button fx:id="AllStatus" layoutX="325.0" layoutY="494.0" mnemonicParsing="false" onAction="#AllStatusFilter" prefHeight="26.0" prefWidth="77.0" text="Toutes" />
       <Button fx:id="AcceptedStatus" layoutX="399.0" layoutY="494.0" mnemonicParsing="false" onAction="#AcceptedStatusFilter" text="Accepetées" textFill="#49995c" />
       <Button fx:id="RejectedStatus" layoutX="476.0" layoutY="494.0" mnemonicParsing="false" onAction="#RejectedStatusFilter" prefHeight="26.0" prefWidth="86.0" text="Rejetées" textFill="#f20e0e" />

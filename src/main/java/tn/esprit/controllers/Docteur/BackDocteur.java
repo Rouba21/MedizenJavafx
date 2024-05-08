@@ -135,28 +135,45 @@ public class BackDocteur implements Initializable {
         ListReservationsT.setItems(reservations);
     }
 
-    public void ValiderReservation(javafx.event.ActionEvent actionEvent) {
+    public void ValiderReservation() {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Accepted");
             reservationService.update(selectedReservation);
             ListReservationsT.refresh();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Réservation Acceptée!");
+            alert.setContentText("la réservation acceptée avec succès! Bonne journée à vous docteur.");
+            alert.show();
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Données invalides!");
         }
     }
 
-    public void RejeterReservationBTN(javafx.event.ActionEvent actionEvent) {
+    public void RejeterReservationBTN() {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Rejected");
             reservationService.update(selectedReservation);
             ListReservationsT.refresh();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Réservation Rejetée!");
+            alert.setContentText("le rejet de la réservation a été effectué avec succès! Bonne journée à vous docteur.");
+            alert.show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Données invalides!");
         }
     }
 
 
 
 
-
+    @FXML
+    void home_btn() {
+        FXMLLoader ev = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
+    }
     public void sponseur_btn(ActionEvent actionEvent) {
     }
 
@@ -193,10 +210,7 @@ public class BackDocteur implements Initializable {
     public void sponseur_btn(javafx.event.ActionEvent actionEvent) {
     }
 
-    @FXML
-    void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
-    }
+
 
     public void event_btn(javafx.event.ActionEvent actionEvent) {
     }
