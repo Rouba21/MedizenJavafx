@@ -22,7 +22,7 @@
         <ListView fx:id="ListDocteursM" layoutX="439.0" layoutY="59.0" prefHeight="78.0" prefWidth="247.0" />
         <TextField fx:id="AdresseDocteurTF" alignment="CENTER" layoutX="458.0" layoutY="169.0" prefHeight="25.0" prefWidth="202.0" promptText="Addresse" />
         <TextField fx:id="SpecialiteTF" alignment="CENTER" layoutX="458.0" layoutY="220.0" prefHeight="25.0" prefWidth="202.0" promptText="Spécialité" />
-        <AnchorPane fx:id="logout" layoutY="-4.0" prefHeight="557.0" prefWidth="131.0" styleClass="nav-form" stylesheets="@../dashboardDesign.css">
+        <AnchorPane fx:id="logout" layoutY="-4.0" prefHeight="557.0" prefWidth="131.0" styleClass="nav-form" stylesheets="@../Reservation/dashboardDesign.css">
             <children>
                 <Label fx:id="welcomeid" layoutX="57.0" layoutY="112.0" text="Welcome" textFill="#31bdc5">
                     <font>
@@ -30,22 +30,22 @@
                     </font>
                 </Label>
                 <Line endX="60.99998474121094" layoutX="130.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
-                <Button layoutX="11.0" layoutY="198.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="                Accueil">
+                <Button layoutX="11.0" layoutY="198.0" mnemonicParsing="false" onAction="#home_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="                Accueil">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Evénements">
+                <Button layoutX="9.0" layoutY="232.0" mnemonicParsing="false" onAction="#event_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="               Evénements">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="264.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Sponseurs">
+                <Button layoutX="11.0" layoutY="264.0" mnemonicParsing="false" onAction="#sponseur_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="               Sponseurs">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="logoutt" layoutX="19.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" styleClass="logout" stylesheets="@../dashboardDesign.css" />
+                <Button fx:id="logoutt" layoutX="19.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" styleClass="logout" stylesheets="@../Reservation/dashboardDesign.css" />
                 <Label layoutX="27.0" layoutY="521.0" text="Deconnexion" textFill="#d92828" />
                 <ImageView fitHeight="63.0" fitWidth="68.0" layoutX="69.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -67,12 +67,12 @@
                         <Image url="@../img/2718448.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="11.0" layoutY="299.0" mnemonicParsing="false" onAction="#sujet_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Sujets">
+                <Button layoutX="11.0" layoutY="299.0" mnemonicParsing="false" onAction="#sujet_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="               Sujets">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="334.0" mnemonicParsing="false" onAction="#etablissement_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Etablissements">
+                <Button layoutX="11.0" layoutY="334.0" mnemonicParsing="false" onAction="#etablissement_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="               Etablissements">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -87,12 +87,12 @@
                         <Image url="@../img/508721.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="11.0" layoutY="369.0" mnemonicParsing="false" onAction="#revervation_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Reservations">
+                <Button layoutX="11.0" layoutY="369.0" mnemonicParsing="false" onAction="#revervation_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="               Reservations">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="11.0" layoutY="404.0" mnemonicParsing="false" onAction="#medicament_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="               Medicaments">
+                <Button layoutX="11.0" layoutY="404.0" mnemonicParsing="false" onAction="#medicament_btn" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="               Medicaments">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -107,7 +107,7 @@
                         <Image url="@../img/booking-icon-png-4.jpg" />
                     </image>
                 </ImageView>
-                <Button contentDisplay="RIGHT" layoutX="75.0" layoutY="443.0" mnemonicParsing="false" onAction="#docteur_btn" prefHeight="35.0" prefWidth="101.0" styleClass="nav-btn" stylesheets="@../dashboardDesign.css" text="Docteurs">
+                <Button contentDisplay="RIGHT" layoutX="75.0" layoutY="443.0" mnemonicParsing="false" onAction="#docteur_btn" prefHeight="35.0" prefWidth="101.0" styleClass="nav-btn" stylesheets="@../Reservation/dashboardDesign.css" text="Docteurs">
                     <font>
                         <Font size="14.0" />
                     </font>

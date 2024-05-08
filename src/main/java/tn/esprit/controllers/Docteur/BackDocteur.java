@@ -50,13 +50,9 @@ public class BackDocteur implements Initializable {
     private TextArea StatusTF;
 
     @FXML
-    private Button RejeterReservationBTN;
-
-    @FXML
     private ListView<Reservation> ListReservationsT;
 
-    @FXML
-    private Button ValiderReservationBTN;
+
 
     private final ReservationService reservationService = new ReservationService();
 
@@ -139,29 +135,25 @@ public class BackDocteur implements Initializable {
         ListReservationsT.setItems(reservations);
     }
 
-    @FXML
     public void ValiderReservation(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Accepted");
-            // Update the status of the selected reservation to "Accepted"
             reservationService.update(selectedReservation);
-            // Refresh the list of reservations after updating
-            refreshReservations();
+            ListReservationsT.refresh();
         }
     }
 
-    @FXML
     public void RejeterReservationBTN(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Rejected");
-            // Update the status of the selected reservation to "Rejected"
             reservationService.update(selectedReservation);
-            // Refresh the list of reservations after updating
-            refreshReservations();
+            ListReservationsT.refresh();
         }
     }
+
+
 
 
 
@@ -208,6 +200,7 @@ public class BackDocteur implements Initializable {
 
     public void event_btn(javafx.event.ActionEvent actionEvent) {
     }
+
 
 }
 
