@@ -195,12 +195,10 @@ public class ListeReservation {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
-
     @FXML
     void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
+        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
     }
-
     public void event_btn(ActionEvent actionEvent) {
 
     }

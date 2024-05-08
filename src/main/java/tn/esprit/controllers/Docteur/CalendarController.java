@@ -25,7 +25,7 @@ public class CalendarController implements Initializable {
     public void setReservations(List<Reservation> reservations) {
         Calendar calendar = new Calendar("Reservations");
         for (Reservation reservation : reservations) {
-            Entry<String> entry = new Entry<>(reservation.getName());
+            Entry<String> entry = new Entry<>(reservation.getName(),reservation.getStatus());
             entry.changeStartDate(reservation.getReservationDate());
             entry.changeEndDate(reservation.getReservationDate());
             calendar.addEntry(entry);

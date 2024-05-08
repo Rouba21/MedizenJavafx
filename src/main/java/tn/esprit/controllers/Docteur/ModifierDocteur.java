@@ -164,6 +164,11 @@ public class ModifierDocteur implements Initializable {
         welcomeid.getScene().setRoot(root);
     }
 
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
+    }
+
 
     public void sujet_btn(ActionEvent actionEvent) {
     }
@@ -177,10 +182,6 @@ public class ModifierDocteur implements Initializable {
     public void medicament_btn(ActionEvent actionEvent) {
     }
 
-    @FXML
-    void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
-    }
 
     public void event_btn(ActionEvent actionEvent) {
     }

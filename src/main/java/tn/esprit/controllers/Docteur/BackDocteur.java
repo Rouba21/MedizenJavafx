@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
 public class BackDocteur implements Initializable {
     @FXML
     public Button gotoCalendar;
@@ -133,12 +134,19 @@ public class BackDocteur implements Initializable {
     }
 
 
+    private void refreshReservations() {
+        ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
+        ListReservationsT.setItems(reservations);
+    }
+
     @FXML
     public void ValiderReservation(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Accepted");
+            // Update the status of the selected reservation to "Accepted"
             reservationService.update(selectedReservation);
+            // Refresh the list of reservations after updating
             refreshReservations();
         }
     }
@@ -148,22 +156,14 @@ public class BackDocteur implements Initializable {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
         if (selectedReservation != null) {
             selectedReservation.setStatus("Rejected");
+            // Update the status of the selected reservation to "Rejected"
             reservationService.update(selectedReservation);
+            // Refresh the list of reservations after updating
             refreshReservations();
         }
     }
 
-    private void refreshReservations() {
-        ObservableList<Reservation> reservations = FXCollections.observableArrayList(reservationService.getAll());
-        ListReservationsT.setItems(reservations);
-    }
 
-    @FXML
-    void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
-    }
-    public void event_btn(ActionEvent actionEvent) {
-    }
 
     public void sponseur_btn(ActionEvent actionEvent) {
     }
@@ -201,7 +201,9 @@ public class BackDocteur implements Initializable {
     public void sponseur_btn(javafx.event.ActionEvent actionEvent) {
     }
 
-    public void home_btn(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
     }
 
     public void event_btn(javafx.event.ActionEvent actionEvent) {

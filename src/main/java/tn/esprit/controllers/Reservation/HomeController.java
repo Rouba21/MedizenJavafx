@@ -44,7 +44,7 @@ public class HomeController {
 
     @FXML
     void MoveToBack(ActionEvent event) throws IOException {
-        Parent root5 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/BackOffice/BackDocteur.fxml")));
+        Parent root5 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Docteur/BackDocteur.fxml")));
         Stage window = (Stage) MoveToBack.getScene().getWindow();
         window.setScene(new Scene(root5));
     }
@@ -69,6 +69,10 @@ public class HomeController {
         }
     }
 
+    @FXML
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
+    }
 
     public void docteur_btn(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
@@ -104,9 +108,5 @@ public class HomeController {
 
     }
 
-    @FXML
-    void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
 
-    }
 }

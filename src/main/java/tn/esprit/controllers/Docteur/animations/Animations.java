@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tn.esprit.animations;
+package tn.esprit.controllers.Docteur.animations;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInUp;

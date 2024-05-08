@@ -167,20 +167,20 @@ public class ListeDocteur implements Initializable {
     }
 
     @FXML
-    void medicament_btn() {
-    }
-
-    @FXML
     void docteur_btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Docteur/AjouterDocteur.fxml"));
         welcomeid.getScene().setRoot(root);
     }
 
     @FXML
-    void home_btn() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-        welcomeid.getScene().setRoot(root);
+    void home_btn() {
+        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
     }
+
+    @FXML
+    void medicament_btn() {
+    }
+
 
     @FXML
     void event_btn() {

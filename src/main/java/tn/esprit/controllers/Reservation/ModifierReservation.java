@@ -185,9 +185,8 @@ public class ModifierReservation implements Initializable {
 
     @FXML
     void home_btn() {
-        FXMLLoader event = new FXMLLoader(getClass().getResource("Home.fxml"));
+        FXMLLoader event = new FXMLLoader(getClass().getResource("/Reservation/Home.fxml"));
     }
-
     @FXML
     void revervation_btn(ActionEvent event) throws IOException {
 
