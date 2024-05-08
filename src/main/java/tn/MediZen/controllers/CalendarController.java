@@ -1,6 +1,7 @@
 package tn.MediZen.controllers;
 
 import com.calendarfx.model.Calendar;
+import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
@@ -27,13 +28,23 @@ public class CalendarController implements Initializable {
     }
 
     public void setReservations(List<Reservation> reservations) {
-        Calendar calendar = (Calendar) calendarView.getCalendars();
+        Calendar calendar = new Calendar("Reservations");
         for (Reservation reservation : reservations) {
             Entry<String> entry = new Entry<>(reservation.getName());
             entry.changeStartDate(reservation.getReservationDate());
+            entry.changeEndDate(reservation.getReservationDate()); // Assuming reservation is for one day
             calendar.addEntry(entry);
         }
+
+        // Create a CalendarSource and add the Calendar to it
+        CalendarSource calendarSource = new CalendarSource();
+        calendarSource.getCalendars().add(calendar);
+
+        // Clear existing calendars and add the new calendar source
+        calendarView.getCalendarSources().clear();
+        calendarView.getCalendarSources().add(calendarSource);
     }
+
 
     @FXML
     private void loadCalendarView() {

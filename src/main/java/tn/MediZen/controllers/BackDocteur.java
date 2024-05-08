@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,10 +16,15 @@ import tn.MediZen.services.ReservationService;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class BackDocteur implements Initializable {
-
+    @FXML
+    public Button gotoCalendar;
+    @FXML
+    private Button gotoStats;
     @FXML
     private Button redirectToCalendar;
     @FXML
@@ -88,16 +92,46 @@ public class BackDocteur implements Initializable {
     @FXML
     public void gotoCalendar(javafx.event.ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Calendar.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) scene.getRoot()).getScene().getWindow();
-            //stage.setScene(scene);
+            // Load the FXML file for the calendar view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Calendar.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            CalendarController controller = loader.getController();
+
+            LocalDate dateFocus = LocalDate.now(); // Or any other date you want to focus on
+            List<Reservation> reservations = reservationService.getAll(); // Or fetchAppointmentsForWeek depending on your requirements
+
+            // Pass appointments to the controller
+            controller.setReservations(reservations);
+
+            // Create a new stage for the calendar view
+            Stage stage = new Stage();
+            stage.setTitle("Calendar View");
+            stage.setScene(new Scene(root));
+
+            // Show the stage
             stage.show();
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
+
+    @FXML
+    public void gotoStats() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Docteur/DocteurStats.fxml"));
+            Parent root = loader.load();
+            Stage window = new Stage();
+            window.setScene(new Scene(root));
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     public void ValiderReservation(javafx.event.ActionEvent actionEvent) {
@@ -108,6 +142,7 @@ public class BackDocteur implements Initializable {
             refreshReservations();
         }
     }
+
     @FXML
     public void RejeterReservationBTN(javafx.event.ActionEvent actionEvent) {
         Reservation selectedReservation = ListReservationsT.getSelectionModel().getSelectedItem();
@@ -171,22 +206,6 @@ public class BackDocteur implements Initializable {
     public void event_btn(javafx.event.ActionEvent actionEvent) {
     }
 
-
-    public Button getRejeterReservationBTN() {
-        return RejeterReservationBTN;
-    }
-
-    public void setRejeterReservationBTN(Button rejeterReservationBTN) {
-        RejeterReservationBTN = rejeterReservationBTN;
-    }
-
-    public Button getValiderReservationBTN() {
-        return ValiderReservationBTN;
-    }
-
-    public void setValiderReservationBTN(Button validerReservationBTN) {
-        ValiderReservationBTN = validerReservationBTN;
-    }
 }
 
 
