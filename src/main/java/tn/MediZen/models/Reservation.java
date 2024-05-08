@@ -172,7 +172,7 @@ public class Reservation {
                 "Status: " + status + ", Address: " + address   + ", " +
                 "Problem Description: " + problemDescription + ", " +
                 "Reservation Date: " + reservationDate + ", " +
-                "Doctor ID: " + doctor_id;
+                "Docteur séléctionner: " + doctor_id;
     }
 
     public ListCell<Reservation> call(ListView<Reservation> param) {

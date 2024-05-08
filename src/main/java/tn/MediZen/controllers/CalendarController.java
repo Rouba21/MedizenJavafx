@@ -5,14 +5,9 @@ import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import tn.MediZen.models.Reservation;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -32,35 +27,13 @@ public class CalendarController implements Initializable {
         for (Reservation reservation : reservations) {
             Entry<String> entry = new Entry<>(reservation.getName());
             entry.changeStartDate(reservation.getReservationDate());
-            entry.changeEndDate(reservation.getReservationDate()); // Assuming reservation is for one day
+            entry.changeEndDate(reservation.getReservationDate());
             calendar.addEntry(entry);
         }
-
-        // Create a CalendarSource and add the Calendar to it
         CalendarSource calendarSource = new CalendarSource();
         calendarSource.getCalendars().add(calendar);
-
-        // Clear existing calendars and add the new calendar source
         calendarView.getCalendarSources().clear();
         calendarView.getCalendarSources().add(calendarSource);
     }
 
-
-    @FXML
-    private void loadCalendarView() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Calendar.fxml"));
-            Parent root = loader.load();
-
-            CalendarController controller = loader.getController();
-
-            Stage stage = new Stage();
-            stage.setTitle("Calendar View");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

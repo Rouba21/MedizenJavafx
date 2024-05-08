@@ -15,6 +15,7 @@
         <TextField fx:id="AdresseTF" alignment="CENTER" layoutX="463.0" layoutY="47.0" prefHeight="26.0" prefWidth="200.0" promptText="Addresse" />
         <Button fx:id="AddReservation" layoutX="382.0" layoutY="432.0" mnemonicParsing="false" onAction="#AjouterReservation" prefHeight="26.0" prefWidth="76.0" text="Réserver" />
         <Button layoutX="519.0" layoutY="349.0" mnemonicParsing="false" onAction="#redirectionListeReservation" prefHeight="26.0" prefWidth="142.0" text="liste des réservations" />
+        <ComboBox fx:id="doctorComboBox" prefWidth="200" />
 
         <ListView fx:id="DocteurSelectedListView" layoutX="463.0" layoutY="243.0" prefHeight="71.0" prefWidth="200.0" />
         <TextArea fx:id="StatusTF" editable="false" layoutX="463.0" layoutY="165.0" prefHeight="44.0" prefWidth="200.0" promptText="Pending" />

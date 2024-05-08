@@ -25,6 +25,7 @@ import java.util.regex.Pattern;
 public class AjouterReservation implements Initializable {
 
     public Button AddReservation;
+    public ComboBox doctorComboBox;
     @FXML
     private TextField AdresseTF;
 
@@ -60,6 +61,17 @@ public class AjouterReservation implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Docteur> doctors = docteurService.getAll();
+        DocteurSelectedListView.setCellFactory(param -> new ListCell<Docteur>() {
+            @Override
+            protected void updateItem(Docteur doctor, boolean empty) {
+                super.updateItem(doctor, empty);
+                if (empty || doctor == null) {
+                    setText(null);
+                } else {
+                    setText(doctor.getNom() + " " + doctor.getPrenom());
+                }
+            }
+        });
         DocteurSelectedListView.getItems().addAll(doctors);
     }
 
