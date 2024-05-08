@@ -68,7 +68,7 @@ public class CardControllerEtab {
     void modifierEtablissement(ActionEvent event) {
         try {
             System.out.println(etablissements);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etabblissement/UpdateEtablissement.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/UpdateEtablissement.fxml"));
             Parent root = loader.load();
             ModifierEtablissement editTicketController = loader.getController();
             editTicketController.setData(etablissements);

@@ -91,7 +91,7 @@ public class AfficherEtablissement implements Initializable {
     @FXML
     void AjouterEtablissement(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etabblissement/AddEtablissement.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/AddEtablissement.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -145,7 +145,7 @@ public class AfficherEtablissement implements Initializable {
     private void openDetailsPage(Etablissement etablissement) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etabblissement/Etablissementcard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/Etablissementcard.fxml"));
             Parent root = fxmlLoader.load();
             CardControllerEtab controller = fxmlLoader.getController();
             if (controller != null) {

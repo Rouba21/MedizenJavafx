@@ -46,7 +46,7 @@ public class FrontDepartment implements Initializable {
 
         for (int i=0; i< condidature.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/tn/esprit/Etabblissement/ObjetDepartment.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/tn/esprit/Etablissement/ObjetDepartment.fxml"));
 
             try {
                 HBox hBox = fxmlLoader.load();
@@ -77,7 +77,7 @@ public class FrontDepartment implements Initializable {
 
         for (int i=0; i< condidature.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/tn/esprit/Etabblissement/ObjetDepartment.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/tn/esprit/Etablissement/ObjetDepartment.fxml"));
 
             try {
                 HBox hBox = fxmlLoader.load();
@@ -96,7 +96,7 @@ public class FrontDepartment implements Initializable {
 
     }
     public void refreche() throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/tn/esprit/Etabblissement/ObjetDepartment.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/tn/esprit/Etablissement/ObjetDepartment.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
 

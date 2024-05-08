@@ -12,7 +12,7 @@ public class Departement {
 
     private String service_offerts;
     private String localisation;
-
+    private int etab;
     private Etablissement etablissement;
 
     public Departement(String nom, String description, String chefDepartement, String servicesOfferts, String localisation) {
@@ -22,6 +22,14 @@ public class Departement {
         this.service_offerts = servicesOfferts;
         this.localisation = localisation;
 
+    }
+    public Departement(String nom, String description, String chefDepartement, String servicesOfferts, String localisation,int etab) {
+        this.nom= nom;
+        this.description = description;
+        this.chef_departement =chefDepartement;
+        this.service_offerts = servicesOfferts;
+        this.localisation = localisation;
+        this.etab = etab;
     }
 
     public Etablissement getEtablissement() {

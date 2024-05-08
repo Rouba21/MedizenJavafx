@@ -1,4 +1,6 @@
 package tn.esprit.controllers.FrontController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -11,8 +13,9 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-
+import javafx.scene.chart.PieChart;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,13 +34,41 @@ public class FrontEtablissment {
     private TextField searchField;
     @FXML
     private Button btnMaps;
+    @FXML
+    private PieChart PieChart;
 
     private final etablissementservice sa = new etablissementservice();
 
+// bel chat badel hethii function bech twali ta9raelk mel base fazet ou tafichihom
+    public List<Integer> countTasksByStatus(List<Etablissement> tasksList) {
+        List<Integer> taskCounts = new ArrayList<>(3); // Initialize with three elements for each status
+
+        int doneCount = 0;
+        int inProgressCount = 0;
+        int toDoCount = 0;
+
+        for (Etablissement task : tasksList) {
+            String status = task.getLocation();
+            if (status == "bizerte") {
+                doneCount++;
+            } else if (status == "Tunis") {
+                inProgressCount++;
+            } else if (status == "Djerba") {
+                toDoCount++;
+            }
+        }
+
+        taskCounts.add(doneCount);
+        taskCounts.add(inProgressCount);
+        taskCounts.add(toDoCount);
+
+        return taskCounts;
+    }
     @FXML
     void initialize() {
         try {
             actualise();
+            updatePieChartData();
             // Ajouter un écouteur d'événements au champ de recherche
             searchField.textProperty().addListener((observable, oldValue, newValue) -> {
                 try {
@@ -74,7 +105,7 @@ public class FrontEtablissment {
 
         for (Etablissement etablissement : etablissementList) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etabblissement/cardEtablissment.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/cardEtablissment.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 FrontEtablissmentCard c = fxmlLoader.getController();
@@ -114,7 +145,7 @@ public class FrontEtablissment {
 
         for (Etablissement etablissement : etablissementList) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etabblissement/cardEtablissment.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/cardEtablissment.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 FrontEtablissmentCard c = fxmlLoader.getController();
@@ -141,7 +172,7 @@ public class FrontEtablissment {
     @FXML
     void showMap(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/Etabblissement/map.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/Etablissement/map.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("OpenStreetMap");
@@ -150,5 +181,31 @@ public class FrontEtablissment {
             e.printStackTrace();
         }
     }
+
+    private void updatePieChartData() {
+        try {
+            // Step 1: Retrieve the list of tasks
+            List<Etablissement> tasksList = sa.afficher();
+
+            // Step 2: Get the counts for tasks in different statuses
+            List<Integer> taskCounts = countTasksByStatus(tasksList);
+            // Calculate total tasks count
+            int totalTasks = taskCounts.stream().mapToInt(Integer::intValue).sum(); // Declare and initialize totalTasks
+            // Step 3: Update PieChart data
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Todo", taskCounts.get(2)), // Index 2 for Todo count
+                    new PieChart.Data("In Progress", taskCounts.get(1)), // Index 1 for In Progress count
+                    new PieChart.Data("Complete", taskCounts.get(0)) // Index 0 for Complete count
+            );
+
+            PieChart.setData(pieChartData);
+            PieChart.setStartAngle(90);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
     }
+
+}
 

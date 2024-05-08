@@ -76,7 +76,7 @@ public class FrontEtablissmentCard {
 
         try {
             // Load the Candidatures.fxml file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etabblissement/FrontDepartment.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/FrontDepartment.fxml"));
             Parent candidaturesRoot = loader.load();
 
             FrontDepartment obj = loader.getController();

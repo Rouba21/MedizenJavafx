@@ -1,12 +1,15 @@
 package tn.esprit.controllers;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
+import javafx.util.Duration;
 import tn.esprit.models.Etablissement;
 import tn.esprit.services.etablissementservice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
-
+import org.controlsfx.control.Notifications;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 
@@ -84,7 +87,13 @@ public class AddEtablissementController {
             // Call the method to insert the etablissement into the database
             etablissementservice etablissementService = new etablissementservice();
             etablissementService.ajouter(etablissement);
-
+            Notifications notification = Notifications.create()
+                    .title("Title")
+                    .text("Your notification message")
+                    .graphic(null) // You can set a graphic if needed
+                    .hideAfter(Duration.seconds(5)) // Set how long the notification will be shown
+                    .position(Pos.BOTTOM_RIGHT);
+            notification.show();
             // Refresh the table after adding an etablissement
             new AfficherEtablissement();
         } catch (SQLException e) {
