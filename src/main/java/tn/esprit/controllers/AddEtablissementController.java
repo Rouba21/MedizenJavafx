@@ -65,7 +65,14 @@ public class AddEtablissementController {
                 return;
             }
             if (description.length() < 20) {
-                showAlert("Erreur de saisie", "La description doit comporter au moins 2 caractères.");
+                Notifications notification = Notifications.create()
+                        .title("Erreur de saisie")
+                        .text("La description doit comporter au moins 2 caractères")
+                        .graphic(null) // You can set a graphic if needed
+                        .hideAfter(Duration.seconds(5)) // Set how long the notification will be shown
+                        .position(Pos.BOTTOM_RIGHT);
+                notification.show();
+              //  showAlert("Erreur de saisie", "La description doit comporter au moins 2 caractères.");
                 return;
             }
             BigDecimal latitude;
@@ -86,10 +93,11 @@ public class AddEtablissementController {
 
             // Call the method to insert the etablissement into the database
             etablissementservice etablissementService = new etablissementservice();
-            etablissementService.ajouter(etablissement);
+            sp.ajouter(etablissement);
+            System.out.println(etablissement);
             Notifications notification = Notifications.create()
-                    .title("Title")
-                    .text("Your notification message")
+                    .title("add ")
+                    .text("add Successfully ")
                     .graphic(null) // You can set a graphic if needed
                     .hideAfter(Duration.seconds(5)) // Set how long the notification will be shown
                     .position(Pos.BOTTOM_RIGHT);
@@ -97,7 +105,14 @@ public class AddEtablissementController {
             // Refresh the table after adding an etablissement
             new AfficherEtablissement();
         } catch (SQLException e) {
-            showAlert("Erreur SQL", "Une erreur s'est produite lors de l'ajout de l'établissement à la base de données. Veuillez réessayer plus tard ou contacter l'administrateur.");
+            Notifications notification = Notifications.create()
+                    .title("add Successfully ")
+                    .text("add Successfully r")
+                    .graphic(null) // You can set a graphic if needed
+                    .hideAfter(Duration.seconds(5)) // Set how long the notification will be shown
+                    .position(Pos.BOTTOM_RIGHT);
+            notification.show();
+           // showAlert("Erreur SQL", "Une erreur s'est produite lors de l'ajout de l'établissement à la base de données. Veuillez réessayer plus tard ou contacter l'administrateur.");
             // Log the SQL exception for further analysis
             e.printStackTrace();
         } catch (Exception e) {

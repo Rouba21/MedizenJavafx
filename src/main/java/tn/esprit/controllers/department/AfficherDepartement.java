@@ -14,8 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import tn.esprit.controllers.CardControllerEtab;
 import tn.esprit.models.Departement;
 
+import tn.esprit.models.Etablissement;
 import tn.esprit.services.departementservice;
 
 import java.io.IOException;
@@ -93,6 +95,27 @@ public class AfficherDepartement implements Initializable {
         }
     }
 
+    private void openDetailsPage(Departement etablissement) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/Departementcard.fxml"));
+            Parent root = fxmlLoader.load();
+            CardControllerDept controller = fxmlLoader.getController();
+            if (controller != null) {
+                controller.setid(etablissement.getId());
+                controller.setControllerEtab(etablissement);
+                controller.displayEtablissementDetails(etablissement);
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("EtablissementDetails");
+                stage.show();
+            } else {
+                System.out.println("Erreur : Contrôleur null pour la page de détails ");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private VBox createDepartementCard(Departement departement) {
         VBox card = new VBox();
         card.getStyleClass().add("commande-card");
@@ -103,7 +126,7 @@ public class AfficherDepartement implements Initializable {
         Label localisation = new Label("Localisation: " + departement.getLocalisation());
 
         card.getChildren().addAll(nom, description, chefDepartement, servicesOfferts, localisation);
-
+        card.setOnMouseClicked(event -> openDetailsPage(departement));
         card.setCursor(Cursor.HAND);
         return card;
     }

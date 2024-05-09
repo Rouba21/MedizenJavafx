@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -15,7 +16,7 @@
     <children>
         <ImageView fitHeight="254.0" fitWidth="273.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" translateY="100.0" y="10.0">
             <image>
-                <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
+            <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
             </image>
         </ImageView>
         <VBox layoutX="272.0" layoutY="1.0" prefHeight="416.0" prefWidth="330.0" style="-fx-background-color: linear-gradient(to right, #000000, #da9a09);" />

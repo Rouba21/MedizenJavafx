@@ -43,24 +43,24 @@ public class FrontEtablissment {
     public List<Integer> countTasksByStatus(List<Etablissement> tasksList) {
         List<Integer> taskCounts = new ArrayList<>(3); // Initialize with three elements for each status
 
-        int doneCount = 0;
-        int inProgressCount = 0;
-        int toDoCount = 0;
+        int bizerte = 0;
+        int Tunis = 0;
+        int Djerba = 0;
 
         for (Etablissement task : tasksList) {
             String status = task.getLocation();
-            if (status == "bizerte") {
-                doneCount++;
-            } else if (status == "Tunis") {
-                inProgressCount++;
-            } else if (status == "Djerba") {
-                toDoCount++;
+            if ("bizerte".equals(status)) {
+                bizerte++;
+            } else if ("Tunis".equals(status)) {
+                Tunis++;
+            } else if ("Djerba".equals(status)) {
+                Djerba++;
             }
         }
 
-        taskCounts.add(doneCount);
-        taskCounts.add(inProgressCount);
-        taskCounts.add(toDoCount);
+        taskCounts.add(bizerte);
+        taskCounts.add(Tunis);
+        taskCounts.add(Djerba);
 
         return taskCounts;
     }
@@ -193,9 +193,9 @@ public class FrontEtablissment {
             int totalTasks = taskCounts.stream().mapToInt(Integer::intValue).sum(); // Declare and initialize totalTasks
             // Step 3: Update PieChart data
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                    new PieChart.Data("Todo", taskCounts.get(2)), // Index 2 for Todo count
-                    new PieChart.Data("In Progress", taskCounts.get(1)), // Index 1 for In Progress count
-                    new PieChart.Data("Complete", taskCounts.get(0)) // Index 0 for Complete count
+                    new PieChart.Data("Djerba", taskCounts.get(2)), // Index 2 for Todo count
+                    new PieChart.Data("Tunis", taskCounts.get(1)), // Index 1 for In Progress count
+                    new PieChart.Data("bizerte", taskCounts.get(0)) // Index 0 for Complete count
             );
 
             PieChart.setData(pieChartData);

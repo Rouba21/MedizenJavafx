@@ -18,7 +18,7 @@
             <image>
                 <Image url="@Simulation_Enseigne_CliniqueMed_HPL_by_WellMarketing01.jpg" />
             </image></ImageView>
-        <VBox layoutX="272.0" layoutY="1.0" prefHeight="416.0" prefWidth="330.0" style="-fx-background-color: linear-gradient(to right, #000000, #da9a09);" />
+        <VBox layoutX="272.0" layoutY="1.0" prefHeight="416.0" prefWidth="330.0" style="-fx-background-color: linear-gradient(to right, #000000, #87CEEB);" />
         <Label layoutX="437.0" layoutY="250.0" text="ChefDepartement" textFill="#000000" translateX="20.0" translateY="-10.0" />
         <Label layoutX="442.0" layoutY="185.0" text="description" textFill="#000000" translateX="20.0" translateY="-10.0" />
         <Label layoutX="444.0" layoutY="337.0" text="ServicesOfferts" textFill="#000000" translateX="15.0" translateY="-35.0" />

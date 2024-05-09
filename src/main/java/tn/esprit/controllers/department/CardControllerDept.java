@@ -48,7 +48,7 @@ public class CardControllerDept {
         stage.close();
     }
 
-    public void displayDepartementDetails(Departement departement) {
+    public void displayEtablissementDetails(Departement departement) {
         IDNom.setText("Nom: " + departement.getNom());
         IDDescription.setText("Description: " + departement.getDescription());
         IDChefDepartement.setText("Chef Département: " + departement.getChef_departement());
@@ -59,7 +59,7 @@ public class CardControllerDept {
     @FXML
     void modifierDepartement(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Departement/UpdateDepartement.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/Etablissement/UpdateDepartement.fxml"));
             Parent root = loader.load();
             ModifierDepartement editDeptController = loader.getController();
             editDeptController.setData(departement);
@@ -76,4 +76,9 @@ public class CardControllerDept {
     public void setControllerDept(Departement departement) {
         this.departement = departement;
     }
+
+    public void setControllerEtab(Departement departement) {
+    this.departement = departement;}
+
+
 }

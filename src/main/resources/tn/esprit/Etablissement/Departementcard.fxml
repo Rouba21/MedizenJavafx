@@ -10,10 +10,10 @@
 <?import javafx.geometry.Insets?>
 <AnchorPane prefHeight="226.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.department.CardControllerDept">
     <children>
-        <HBox prefHeight="226.0" prefWidth="506.0" style="-fx-background-color: linear-gradient(to right, #ff0000, #da9a09);">
-            <VBox alignment="TOP_CENTER" prefHeight="226.0" prefWidth="258.0" style="-fx-background-color: white; -fx-padding: 20px; -fx-border-color: #ff0000; -fx-border-width: 2px; -fx-border-radius: 10px;">
+        <HBox prefHeight="226.0" prefWidth="506.0" style="-fx-background-color: linear-gradient(to right, #6CA6CD, #4682B4);">
+            <VBox alignment="TOP_CENTER" prefHeight="226.0" prefWidth="258.0" style="-fx-background-color: white; -fx-padding: 20px; -fx-border-color: #87CEEB; -fx-border-width: 2px; -fx-border-radius: 10px;">
                 <children>
-                    <Label fx:id="IDNom" style="-fx-text-fill: #da9a09;" text="Label">
+                    <Label fx:id="IDNom" style="-fx-text-fill: #87CEEB;" text="Label">
                         <font>
                             <Font name="Arial Bold" size="14.0" />
                         </font>
@@ -21,7 +21,7 @@
                             <Insets left="15.0" right="15.0" top="15.0" />
                         </VBox.margin>
                     </Label>
-                    <Label fx:id="IDDescription" style="-fx-text-fill: #da9a09;" text="Label">
+                    <Label fx:id="IDDescription" style="-fx-text-fill: #87CEEB;" text="Label">
                         <font>
                             <Font name="Arial Bold" size="14.0" />
                         </font>
@@ -29,7 +29,7 @@
                             <Insets left="15.0" right="15.0" top="15.0" />
                         </VBox.margin>
                     </Label>
-                    <Label fx:id="IDChefDepartement" style="-fx-text-fill: #da9a09;" text="Label">
+                    <Label fx:id="IDChefDepartement" style="-fx-text-fill: #87CEEB;" text="Label">
                         <font>
                             <Font name="Arial Bold" size="14.0" />
                         </font>
@@ -37,7 +37,7 @@
                             <Insets left="15.0" right="15.0" top="15.0" />
                         </VBox.margin>
                     </Label>
-                    <Label fx:id="IDServicesOfferts" style="-fx-text-fill: #da9a09;" text="Label">
+                    <Label fx:id="IDServicesOfferts" style="-fx-text-fill: #87CEEB;" text="Label">
                         <font>
                             <Font name="Arial Bold" size="14.0" />
                         </font>
@@ -45,7 +45,7 @@
                             <Insets left="15.0" right="15.0" top="15.0" />
                         </VBox.margin>
                     </Label>
-                    <Label fx:id="IDLocalisation" style="-fx-text-fill: #da9a09;" text="Label">
+                    <Label fx:id="IDLocalisation" style="-fx-text-fill: #87CEEB;" text="Label">
                         <font>
                             <Font name="Arial Bold" size="14.0" />
                         </font>
@@ -65,7 +65,7 @@
                             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                         </VBox.margin>
                     </Button>
-                    <Button fx:id="supprimerDepartement" mnemonicParsing="false" onAction="#supprimerDepartement" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #da9a09; -fx-text-fill: white;" text="Supprimer">
+                    <Button fx:id="supprimerDepartement" mnemonicParsing="false" onAction="#supprimerDepartement" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #87CEEB; -fx-text-fill: white;" text="Supprimer">
                         <VBox.margin>
                             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                         </VBox.margin>

@@ -34,7 +34,7 @@ public class departementservice implements CRUD<Departement> {
 
     @Override
     public void modifier(Departement departement) throws SQLException {
-        String query = "UPDATE departement SET nom=?, description=?, chef_departement=?, service_offerts=?, localisation=? WHERE id=?";
+        String query = "UPDATE departement SET nom=?, description=?, chef_departement=?, services_offerts=?, localisation=? WHERE id=?";
         try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
             preparedStatement.setString(1, departement.getNom());
             preparedStatement.setString(2, departement.getDescription());
